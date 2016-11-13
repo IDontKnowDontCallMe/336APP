@@ -1,6 +1,6 @@
 package businesslogic.promotionbl;
 
-public interface Level {
+public interface LevelMethod {
 
 	public int calculateLevel(int credit);
 	

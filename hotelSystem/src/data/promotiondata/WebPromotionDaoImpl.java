@@ -2,7 +2,7 @@ package data.promotiondata;
 
 import java.util.List;
 
-import businesslogic.promotionbl.Level;
+import businesslogic.promotionbl.LevelMethod;
 import businesslogic.promotionbl.Promotion;
 
 public class WebPromotionDaoImpl implements WebPromotionDao{
@@ -26,13 +26,13 @@ public class WebPromotionDaoImpl implements WebPromotionDao{
 	}
 
 	@Override
-	public Level getWebLevelObject() {
+	public LevelMethod getWebLevelObject() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean writeWebLevelObject(Level level) {
+	public boolean writeWebLevelObject(LevelMethod level) {
 		// TODO Auto-generated method stub
 		return false;
 	}

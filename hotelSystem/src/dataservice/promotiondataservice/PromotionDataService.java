@@ -2,7 +2,7 @@ package dataservice.promotiondataservice;
 
 import java.util.List;
 
-import businesslogic.promotionbl.Level;
+import businesslogic.promotionbl.LevelMethod;
 import businesslogic.promotionbl.Promotion;
 
 public interface PromotionDataService {
@@ -13,9 +13,9 @@ public interface PromotionDataService {
 	
 	public boolean deleteWebPromotionObject(String promotionName);
 	
-	public Level getWebLevelObject();
+	public LevelMethod getWebLevelObject();
 	
-	public boolean writeWebLevelObject(Level level);
+	public boolean writeWebLevelObject(LevelMethod level);
 	
 	public List<Promotion> getHotelPromotionObject(int hotelID);
 	
