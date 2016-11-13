@@ -1,15 +1,23 @@
 package dataservice.roomdataservice;
 
+import java.util.Date;
+import java.util.List;
+
 import po.RoomPO;
+import po.UsagePO;
 
 public interface RoomDataService {
 	
-	public void add(RoomPO po);
-
-	public void delete(RoomPO po);
+	public boolean addRoomType(int hotelID, RoomPO po);
 	
-	public void update(RoomPO po);
+	public boolean updateRoomType(int roomID, RoomPO po);
 	
-	public void getInfo(String hotelID, String roomName);
+	public boolean deleteRoomPO(int roomID);
+	
+	public List<RoomPO> getRoomType(int hotelID);
+	
+	public List<UsagePO> getUsagePO(int roomID, Date start, Date end);
+	
+	public boolean updateUsage(int roomID, Date start, Date end, int delta);
 	
 }
