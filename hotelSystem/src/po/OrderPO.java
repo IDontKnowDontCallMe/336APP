@@ -33,6 +33,7 @@ public class OrderPO {
 		this.checkOutTime = checkOutTime;
 		this.total = total;
 		this.orderState = orderState;
+		this.roomNum = roomNum;
 	}
 	
 	public void setOrderID(int orderID){

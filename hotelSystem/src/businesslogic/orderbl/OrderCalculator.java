@@ -9,7 +9,7 @@ public class OrderCalculator{
 		return 0;
 	}
 	
-	public boolean ableToProduce(OrderPO po){
+	public boolean ableToProduce(CustomerPO po){
 		return false;
 	}
 	

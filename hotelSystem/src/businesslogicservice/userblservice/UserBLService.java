@@ -8,6 +8,6 @@ public interface UserBLService {
 
 	public List<CustomerVO> getCustomerList();
 	
-	public 
+	//public 
 	
 }
