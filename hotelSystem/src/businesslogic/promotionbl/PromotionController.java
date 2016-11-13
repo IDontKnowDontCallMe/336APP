@@ -9,6 +9,9 @@ import vo.LevelVO;
 import vo.WebPromotionVO;
 
 public class PromotionController implements PromotionBLService{
+	
+	private PromotionBLImpl promotionBLImpl;
+	private LevelImpl levelImpl;
 
 	@Override
 	public List<HotelPromotionVO> getHotelPromotionList(int hotelID) {
