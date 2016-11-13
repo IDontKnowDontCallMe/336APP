@@ -1,10 +1,10 @@
 package businesslogic.roombl;
 
-import businesslogicservice.roomblservice.RoomblService;
+import businesslogicservice.roomblservice.RoomBLService;
 import po.RoomPO;
 import vo.RoomVO;
 
-public class RoomBLService_Stub implements RoomblService{
+public class RoomBLService_Stub implements RoomBLService{
 	
 	RoomVO example = new RoomVO();
 	

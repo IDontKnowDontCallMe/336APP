@@ -2,9 +2,16 @@ package businesslogicservice.orderblservice;
 
 import java.util.List;
 
+import com.sun.org.glassfish.gmbal.ParameterNames;
+
 import po.OrderPO;
 import vo.OrderVO;
 
+/**
+ * 
+ * @author USER
+ *
+ */
 public interface OrderBLService {
 	
 	public List<OrderVO> getCustomerOrder(int customerID);

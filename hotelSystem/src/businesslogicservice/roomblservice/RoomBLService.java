@@ -6,7 +6,7 @@ import java.util.List;
 import po.RoomPO;
 import vo.RoomVO;
 
-public interface RoomblService {
+public interface RoomBLService {
 	
 	public boolean addRoomType(int hotelID, RoomPO po);
 	
