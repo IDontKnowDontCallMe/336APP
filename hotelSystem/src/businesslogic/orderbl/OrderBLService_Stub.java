@@ -1,10 +1,10 @@
 package businesslogic.orderbl;
 
-import businesslogicservice.orderblservice.OrderblService;
+import businesslogicservice.orderblservice.OrderBLService;
 import po.OrderPO;
 import vo.OrderVO;
 
-public class OrderBLService_Stub implements OrderblService{
+public class OrderBLService_Stub implements OrderBLService{
 	
 	OrderVO[] orderList;
 	

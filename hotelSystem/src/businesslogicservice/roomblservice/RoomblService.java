@@ -1,16 +1,22 @@
 package businesslogicservice.roomblservice;
 
+import java.util.Date;
+import java.util.List;
+
 import po.RoomPO;
 import vo.RoomVO;
 
 public interface RoomblService {
 	
-	public void add(String hotelID, RoomPO po);
+	public boolean addRoomType(int hotelID, RoomPO po);
 	
-	public void update(String hotelID, RoomPO po);
+	public boolean updateRoomType(int hotelID, RoomPO po);
 	
-	public void delet(String hotelID, RoomPO po);
+	public boolean deleteRoomType(int roomID);
 	
-	public RoomVO getInfo(String hotelID, String roomType);
-
+	public List<RoomPO> getRoomType(int hotelID);
+	
+	public boolean isValid(int roomID, Date start, Date end, int num);
+	
+	public boolean updateUsage(int roomID, Date start, Date end, int num);
 }
