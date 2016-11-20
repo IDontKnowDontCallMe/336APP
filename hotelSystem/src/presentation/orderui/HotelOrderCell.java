@@ -8,11 +8,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import vo.OrderVO;
 
-public class CustomerOrderCell extends GridPane{
-	
+public class HotelOrderCell extends GridPane{
+
 	OrderVO orderVO;
 	
-	Text hotelText;
+	Text customerNameText;
+	Text customerPhoneText;
 	Text roomText;
 	Text checkInText;
 	Text checkOutText;
@@ -22,13 +23,15 @@ public class CustomerOrderCell extends GridPane{
 	Text stateText;
 	Button button;
 	
-	public CustomerOrderCell(OrderVO orderVO) {
+	public HotelOrderCell(OrderVO orderVO) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.orderVO = orderVO;
 		
-		hotelText = new Text(orderVO.hotelName);
-		this.add(hotelText, 0, 0, 3, 1);
+		customerNameText = new Text(orderVO.customerName);
+		this.add(customerNameText, 0, 0, 1, 1);
+		customerPhoneText = new Text(orderVO.customerPhoneNumber);
+		this.add(customerPhoneText, 1, 0, 2, 1);
 		stateText = new Text(orderVO.orderState);
 		this.add(stateText, 4, 0, 1 ,1);
 		roomText = new Text(orderVO.roomName);
@@ -57,27 +60,28 @@ public class CustomerOrderCell extends GridPane{
 	
 	private void setButton(String state){
 		if(state.equals("正常")){
-			setRevokeButton();
+			setExecutingButton();
 		}
-		else if(state.equals("已执行")){
-			setCommentButton();
+		else if(state.equals("异常")){
+			setDelayInButton();
 		}
 		else{
 			button = null;
 		}
 	}
 	
-	private void setRevokeButton(){
-		button = new Button("撤销");
+	private void setExecutingButton(){
+		button = new Button("执行订单");
 		button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("revoke");
+			System.out.println("excute");
 		});
 	}
 
-	private void setCommentButton(){
-		button = new Button("评价");
+	private void setDelayInButton(){
+		button = new Button("延迟入住");
 		button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("comment");
+			System.out.println("delay in");
 		});
 	}
+	
 }

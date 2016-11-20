@@ -18,7 +18,13 @@ public interface OrderBLService {
 	
 	public List<OrderVO> getHotelOrder(int hotelID);
 	
-	public List<OrderVO> filterList(int userID, String state);
+	public List<OrderVO> getAbnormalOrdersOfToday();
+	
+	public List<OrderVO> filterCustomerList(int userID, String state);
+	
+	public List<OrderVO> filterHotelList(int hotelID, String state);
+	
+	public int calculateTotal()
 	
 	public boolean produceOrder(OrderVO vo);
 	

@@ -42,6 +42,7 @@ public class CustomerOrdersPane extends VBox{
 		buildOrderBox(orderList);
 		listPane = new ScrollPane(orderBox);
 		this.getChildren().addAll(radioBox,listPane);
+		this.setPrefWidth(500);
 	}
 	
 	private void initRadioButton(){
@@ -69,7 +70,7 @@ public class CustomerOrdersPane extends VBox{
 						return;
 					}
 					else{
-						buildOrderBox(controller.filterList(customerID, (String)newToggle.getUserData()));
+						buildOrderBox(controller.filterCustomerList(customerID, (String)newToggle.getUserData()));
 					}
 				}
 				);
@@ -83,7 +84,6 @@ public class CustomerOrdersPane extends VBox{
 	private void buildOrderBox(List<OrderVO> orderList){
 		
 		orderBox.getChildren().clear();
-		orderBox.setPrefWidth(500);
 		for(OrderVO vo: orderList){
 			orderBox.getChildren().add(new CustomerOrderCell(vo));
 		}

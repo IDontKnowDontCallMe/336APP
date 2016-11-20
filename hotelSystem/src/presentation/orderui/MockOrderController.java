@@ -20,25 +20,25 @@ public class MockOrderController extends OrderController{
 		OrderVO vo1,vo2,vo3,vo4,vo5,vo6,vo7,vo8,vo9,vo10;
 		try {
 			orderList = new ArrayList<OrderVO>();
-			vo1 = new OrderVO(1, "小明", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo1 = new OrderVO(1, "小明", 1, "18710101250", format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),233, "正常");
-			vo2 = new OrderVO(2, "小红", 1, format.parse("2016-11-17") , "七天", "大床房", 1, 
+			vo2 = new OrderVO(2, "小红", 1, "18710101250",format.parse("2016-11-17") , "七天", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),111, "已执行");
-			vo3 = new OrderVO(3, "小刚", 1, format.parse("2016-11-17") , "全季", "大床房", 1, 
+			vo3 = new OrderVO(3, "小刚", 1, "18710101250",format.parse("2016-11-17") , "全季", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),56, "已执行");
-			vo4 = new OrderVO(4, "小黄", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo4 = new OrderVO(4, "小黄", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),76, "已撤销");
-			vo5 = new OrderVO(5, "大黄", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo5 = new OrderVO(5, "大黄", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),234, "已撤销");
-			vo6 = new OrderVO(6, "大明", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo6 = new OrderVO(6, "大明", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),345, "正常");
-			vo7 = new OrderVO(7, "小方", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo7 = new OrderVO(7, "小方", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),346, "正常");
-			vo8 = new OrderVO(8, "小陈", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo8 = new OrderVO(8, "小陈", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),120, "异常");
-			vo9 = new OrderVO(9, "小章", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo9 = new OrderVO(9, "小章", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),200, "异常");
-			vo10 = new OrderVO(10, "小强", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo10 = new OrderVO(10, "小强", 1, "18710101250",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),100, "异常");
 			orderList.add(vo1);
 			orderList.add(vo2);
@@ -78,12 +78,41 @@ public class MockOrderController extends OrderController{
 		}
 		return list;
 	}
+	
+	@Override
+	public List<OrderVO> getAbnormalOrdersOfToday(){
+		List<OrderVO> list = new ArrayList<OrderVO>();
+		for(OrderVO vo:orderList){
+			if((vo.orderState).equals("异常")){
+				OrderVO temp = new OrderVO(vo);
+				list.add(temp);
+			}
+		}
+		return list;
+	}
 
 	@Override
-	public List<OrderVO> filterList(int userID, String state) {
+	public List<OrderVO> filterCustomerList(int userID, String state) {
 		// TODO Auto-generated method stub
 		if (state.equals("全部订单")) {
 			return this.getCustomerOrder(userID);
+		}
+		
+		List<OrderVO> list = new ArrayList<OrderVO>();
+		for(OrderVO vo:orderList){
+			if((vo.orderState).equals(state)){
+				OrderVO temp = new OrderVO(vo);
+				list.add(temp);
+			}
+		}
+		return list;
+	}
+	
+	@Override
+	public List<OrderVO> filterHotelList(int hotelID, String state){
+		// TODO Auto-generated method stub
+		if (state.equals("全部订单")) {
+			return this.getHotelOrder(hotelID);
 		}
 		
 		List<OrderVO> list = new ArrayList<OrderVO>();

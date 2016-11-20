@@ -25,13 +25,13 @@ public class OrderMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		StackPane stackPane = new StackPane();
-		Scene scene = new Scene(stackPane,900,700);
+		Scene scene = new Scene(stackPane);
 		
 		//SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
 		//OrderVO orderVO = new OrderVO(2, "daming", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
 		//								false,  format.parse("2016-11-18"), format.parse("2016-11-19"),233, "正常");
 		
-		VBox vBox = new CustomerOrdersPane(1);
+		VBox vBox = new MarketerOrdersPane();
 		
 		stackPane.getChildren().add(vBox);
 		primaryStage.setScene(scene);

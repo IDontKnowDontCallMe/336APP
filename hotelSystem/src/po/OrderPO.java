@@ -18,9 +18,11 @@ public class OrderPO {
 	private Date checkOutTime;
 	private int total;
 	private String orderState;
+	private Date revokingTime;
 	
 	public OrderPO(int orderID, String customerName, int customerID, Date producingTime, String hotelName, int hotelID,
-			       String roomName, int roomNum, boolean hasChildren, int peopleNum, Date checkInTime, Date checkOutTime, int total, String orderState){
+			       String roomName, int roomNum, boolean hasChildren, int peopleNum, Date checkInTime, Date checkOutTime, 
+			       int total, String orderState, Date revokingTime){
 		this.orderID = orderID;
 		this.customerName = customerName;
 		this.customerID = customerID;
@@ -34,6 +36,7 @@ public class OrderPO {
 		this.total = total;
 		this.orderState = orderState;
 		this.roomNum = roomNum;
+		this.revokingTime = revokingTime;
 	}
 	
 	public void setOrderID(int orderID){
@@ -146,6 +149,14 @@ public class OrderPO {
 	
 	public String getOrderState(){
 		return this.orderState;
+	}
+	
+	public void setRevokingTime(Date revokingTime){
+		this.revokingTime = revokingTime;
+	}
+	
+	public Date getRevokingTime(){
+		return this.revokingTime;
 	}
 
 }

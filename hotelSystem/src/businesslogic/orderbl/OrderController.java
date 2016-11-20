@@ -19,11 +19,11 @@ public class OrderController implements OrderBLService{
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
 		OrderVO vo1,vo2,vo3;
 		try {
-			vo1 = new OrderVO(2, "daming", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo1 = new OrderVO(2, "daming", 1, "18710101010",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),233, "正常");
-			vo2 = new OrderVO(2, "daming", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo2 = new OrderVO(2, "daming", 1, "18710101010",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),233, "已执行");
-			vo3 = new OrderVO(2, "daming", 1, format.parse("2016-11-17") , "如家", "大床房", 1, 
+			vo3 = new OrderVO(2, "daming", 1, "18710101010",format.parse("2016-11-17") , "如家", "大床房", 1, 
 					false,  format.parse("2016-11-18"), format.parse("2016-11-19"),233, "已撤销");
 			orderList.add(vo1);
 			orderList.add(vo2);
@@ -42,7 +42,13 @@ public class OrderController implements OrderBLService{
 	}
 
 	@Override
-	public List<OrderVO> filterList(int userID, String state) {
+	public List<OrderVO> filterCustomerList(int userID, String state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<OrderVO> filterHotelList(int hotelID, String state) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -58,6 +64,12 @@ public class OrderController implements OrderBLService{
 	public boolean changeOrderState(int orderID, String state) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<OrderVO> getAbnormalOrdersOfToday() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
