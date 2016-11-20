@@ -1,15 +1,60 @@
 package presentation.roomui;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
-//ÏÔÊ¾¿Í·¿ĞÅÏ¢µÄÃæ°å£¬±ÈÈçÓÃÓÚ£º¿Í»§´Ó¾ÆµêĞÅÏ¢ÖĞ²é¿´¿Í·¿ĞÅÏ¢Ê±
+//ï¿½ï¿½Ê¾ï¿½Í·ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½Í»ï¿½ï¿½Ó¾Æµï¿½ï¿½ï¿½Ï¢ï¿½Ğ²é¿´ï¿½Í·ï¿½ï¿½ï¿½Ï¢Ê±
 public class RoomInfoPanel {
 
-	//ÏÔÊ¾¾ßÌå·¿¼äĞÅÏ¢
+	//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½å·¿ï¿½ï¿½ï¿½ï¿½Ï¢
 	public void show(){
-		
+		AnchorPane anchorPane = new AnchorPane();
+		GridPane grid = new GridPane();
+		anchorPane.getChildren().add(grid);
+		anchorPane.setLeftAnchor(grid, 50.0);
+		anchorPane.setTopAnchor(grid, 100.0);
+
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(25, 25, 25, 25));
+
+        Label userName = new Label("æˆ¿å‹");
+        grid.add(userName, 0, 1);
+        TextField userTextField = new TextField("æ€»ç»Ÿå¥—æˆ¿");
+        userTextField.setEditable(false);
+        userTextField.setBackground(null);
+        grid.add(userTextField, 1, 1);
+
+        Label birthday = new Label("ç®€ä»‹ï¼š");
+        grid.add(birthday, 0, 2);
+        TextField birthdayfield = new TextField();
+        birthdayfield.setEditable(false);
+        birthdayfield.setBackground(null);
+        grid.add(birthdayfield, 1, 2);
+        
+        Label address = new Label("è®¾æ–½è®¾å¤‡:");
+        grid.add(address, 0, 3);
+        TextField addressfield = new TextField();
+        addressfield.setEditable(false);
+        addressfield.setBackground(null);
+        grid.add(addressfield, 1, 3);
+
+        Button edit = new Button("ç¼–è¾‘");
+        Button save = new Button("ä¿å­˜");
+        HBox hbBtn = new HBox(10);
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn.getChildren().addAll(edit,save);
+        grid.add(hbBtn, 0, 4);
 	}
 	
-	//Í£Ö¹ÏÔÊ¾Ãæ°å
+	//Í£Ö¹ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½
 	public void back(){
 		
 	}
