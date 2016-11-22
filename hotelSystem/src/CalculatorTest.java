@@ -27,7 +27,7 @@ public class CalculatorTest {
 		orderbl = new OrderBLImpl();
 		mockCalculator = new MockCalculator();
 		orderbl.setCalculator(mockCalculator);
-		orderpo = new OrderPO(123, "liuqin", 321, start, "" , 1234, "单人房", 2, false, 3, start, end, 1, "正常");
+		orderpo = new OrderPO(123, "liuqin", 321, start, "" , 1234, "单人房", 2, false, 3, start, end, 1, "正常", end);
 		customerpo = new CustomerPO("liuqin", "123", "VIP", "1949", "NJU", 100, 3);
 	}	
 

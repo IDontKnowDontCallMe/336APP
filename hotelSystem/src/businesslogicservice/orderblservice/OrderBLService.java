@@ -24,7 +24,7 @@ public interface OrderBLService {
 	
 	public List<OrderVO> filterHotelList(int hotelID, String state);
 	
-	public int calculateTotal()
+	public int calculateTotal();
 	
 	public boolean produceOrder(OrderVO vo);
 	
