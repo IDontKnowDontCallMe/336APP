@@ -14,13 +14,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
-import vo.HotelPromotionVO;
+import vo.WebPromotionVO;
 
-public class HotelPromotionAddPane extends GridPane{
+public class WebPromotionAddPane extends GridPane{
 
-	HotelPromotionVO hotelPromotionVO;
-	Text hotelPromotionTypeChoiceText;
-	final ChoiceBox hotelPromotionTypeChoiceBox;
+	WebPromotionVO webPromotionVO;
+	Text webPromotionTypeChoiceText;
+	final ChoiceBox webPromotionTypeChoiceBox;
 	
 	final int COLUMN_COUNT=10;
 	final int YEAR_COLUMN_COUNT=3;
@@ -35,17 +35,15 @@ public class HotelPromotionAddPane extends GridPane{
 	Button confirmButton;
 	Label startTimeLabel;
 	Label endTimeLabel;
-	Label companyNameLabel;
-	Label minNumLabel;
+	Label businessCircleNameLabel;
 	Label discountLabel;
-	TextField companyNameTextField;
-	TextField minNumTextField;
+	TextField businessCircleNameTextField;
 	TextField discountTextField;
 	DatePicker startDatePicker;
 	DatePicker endDatePicker;
 	
 	
-	public HotelPromotionAddPane(){
+	public WebPromotionAddPane(){
 		super();
 		this.setHgap(10);
 		this.setVgap(20);
@@ -54,39 +52,31 @@ public class HotelPromotionAddPane extends GridPane{
 		chooseBox.setSpacing(BOX_SPACING);
 		chooseBox.getChildren().clear();
 		
-		hotelPromotionTypeChoiceText = new Text("请选择新增酒店促销策略类型: ");
-		hotelPromotionTypeChoiceBox = new ChoiceBox(FXCollections.observableArrayList
-				("预订多间促销策略", "特定时间促销策略","合作企业促销策略","客户生日促销策略"));
+		webPromotionTypeChoiceText = new Text("请选择新增网站促销策略类型: ");
+		webPromotionTypeChoiceBox = new ChoiceBox(FXCollections.observableArrayList
+				("特定时间促销策略","特定商圈促销策略"));
 		
 		promotionBox = new VBox();
 		promotionBox.setSpacing(BOX_SPACING);
 		promotionBox.getChildren().clear();
 		promotionBox.setAlignment(Pos.TOP_LEFT);
 		
-		hotelPromotionTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(
+		webPromotionTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(
 				(ObservableValue <? extends Number> ov, Number old_val, Number new_val)->{
 				switch(new_val.intValue()){
 				//预订多间促销策略
 				case(0):
 					promotionBox.getChildren().clear();
-					showRoomPromotionBox();
+					showTimePromotionBox();
 					break;
 				case(1):
 					promotionBox.getChildren().clear();
-					showTimePromotionBox();
-					break;
-				case(2):
-					promotionBox.getChildren().clear();
-					showCompanyPromotionBox();
-					break;
-				case(3):
-					promotionBox.getChildren().clear();
-					showBirthdayPromotionBox();
+					showBusinessCirclePromotionBox();
 					break;
 				}
 				});
 		
-		chooseBox.getChildren().addAll(hotelPromotionTypeChoiceText,hotelPromotionTypeChoiceBox);
+		chooseBox.getChildren().addAll(webPromotionTypeChoiceText,webPromotionTypeChoiceBox);
 		promotionBox.getChildren().add(chooseBox);
 		this.add(promotionBox, 0, 0,1,1);
 		
@@ -111,20 +101,6 @@ public class HotelPromotionAddPane extends GridPane{
 		discountBox.getChildren().addAll(discountLabel,discountTextField);
 		
 		promotionBox.getChildren().add(discountBox);
-	}
-	
-	public void showRoomPromotionBox(){
-		minNumLabel = new Label("输入最小房间数量: ");
-		minNumTextField = new TextField();
-		minNumTextField.setPrefColumnCount(COLUMN_COUNT);
-		minNumTextField.setTooltip(new Tooltip("输入不小于0的整数"));
-		paramBox = new HBox();
-		paramBox.setSpacing(BOX_SPACING);
-		paramBox.getChildren().clear();
-		paramBox.getChildren().addAll(minNumLabel,minNumTextField);
-
-		promotionBox.getChildren().addAll(chooseBox,paramBox);
-		showDiscountBox();
 	}
 	
 	public void showTimePromotionBox(){
@@ -166,24 +142,17 @@ public class HotelPromotionAddPane extends GridPane{
 			
 	}
 	
-	public void showCompanyPromotionBox(){
-		companyNameLabel = new Label("输入合作企业名称: ");
-		companyNameTextField = new TextField();
-		companyNameTextField.setPrefColumnCount(COLUMN_COUNT);
+	public void showBusinessCirclePromotionBox(){
+		businessCircleNameLabel = new Label("输入特定商圈名称: ");
+		businessCircleNameTextField = new TextField();
+		businessCircleNameTextField.setPrefColumnCount(COLUMN_COUNT);
 		
 		paramBox = new HBox();
 		paramBox.setSpacing(BOX_SPACING);
 		paramBox.getChildren().clear();
-		paramBox.getChildren().addAll(companyNameLabel,companyNameTextField);
+		paramBox.getChildren().addAll(businessCircleNameLabel,businessCircleNameTextField);
 
 		promotionBox.getChildren().addAll(chooseBox,paramBox);
 		showDiscountBox();
 	}
-	
-	public void showBirthdayPromotionBox(){
-		promotionBox.getChildren().addAll(chooseBox);
-		showDiscountBox();
-	}
-	
-
 }

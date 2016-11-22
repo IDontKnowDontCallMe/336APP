@@ -23,7 +23,8 @@ public class PromotionMain extends Application{
 		// TODO Auto-generated method stub
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-		VBox vBox = new HotelPromotionPanel(0);
+//		VBox vBox = new HotelPromotionPanel(0);
+		VBox vBox = new WebPromotionPanel();
 		
 		stackPane.getChildren().add(vBox);
 		primaryStage.setScene(scene);

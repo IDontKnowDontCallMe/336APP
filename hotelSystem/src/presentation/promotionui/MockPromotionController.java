@@ -33,9 +33,9 @@ public class MockPromotionController extends PromotionController{
 		vo4 = new HotelPromotionVO("如家","合作企业促销策略",null,null,"南京大学",-1,0.8);
 		vo5 = new HotelPromotionVO("如家","客户生日促销策略",null,null,null,-1,0.8);
 		vo6 = new WebPromotionVO("特定时间促销策略",LocalDate.parse("2016-11-10"),LocalDate.parse("2016-11-12"),
-				null,0.8,null);
-		vo7 = new WebPromotionVO("特定商圈促销策略",null,null,"新街口",0.8,null);
-		vo8 = new WebPromotionVO("会员等级促销策略",null,null,null,0.8,null);
+				null,0.8);
+		vo7 = new WebPromotionVO("特定商圈促销策略",null,null,"新街口",0.8);
+		//vo8 = new WebPromotionVO("会员等级促销策略",null,null,null,0.8,null);
 		hotelPromotionList.add(vo1);
 		hotelPromotionList.add(vo2);
 		hotelPromotionList.add(vo3);

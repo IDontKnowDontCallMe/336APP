@@ -3,27 +3,21 @@ package po;
 import java.time.LocalDate;;
 
 public class WebPromotionPO {
-	
 	String promotionType;
-	
 	LocalDate startTime;
 	LocalDate endTime;
-	
 	String businessCircleName;
-	
 	double discount;
 	
-	double[] discountOfLevel;
 	
 	public WebPromotionPO(String promotionType, LocalDate startTime, LocalDate endTime, 
-			String businessCircleName, double discount, double[] discountOfLevel){
+			String businessCircleName, double discount){
 		
 		this.promotionType = promotionType;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.businessCircleName = businessCircleName;
 		this.discount = discount;
-		this.discountOfLevel = discountOfLevel;
 		
 	}
 	
@@ -67,11 +61,4 @@ public class WebPromotionPO {
 		return this.discount;
 	}
 	
-	public void setDiscountOfLevel(double[] discountOfLevel){
-		this.discountOfLevel = discountOfLevel;
-	}
-	
-	public double getDiscountOfLevel(){
-		return this.getDiscountOfLevel();
-	}
 }
