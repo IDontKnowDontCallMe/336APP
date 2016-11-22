@@ -1,6 +1,6 @@
 package vo;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class OrderVO {
 
@@ -8,18 +8,18 @@ public class OrderVO {
 	public String customerName;
 	public int customerID;
 	public String customerPhoneNumber;
-	public Date producingTime;
+	public LocalDate producingTime;
 	public String hotelName;
 	public String roomName;
 	public int roomNum;
 	public boolean hasChildren;
-	public Date checkInTime;
-	public Date checkOutTime;
+	public LocalDate checkInTime;
+	public LocalDate checkOutTime;
 	public int total;
 	public String orderState;
 	
-	public OrderVO(int orderID, String customerName, int customerID, String customerPhoneNumber,Date producingTime, String hotelName, String roomName,
-					int roomNum, boolean hasChildren, Date checkInTime, Date checkOutTime, int total, String orderState){
+	public OrderVO(int orderID, String customerName, int customerID, String customerPhoneNumber,LocalDate producingTime, String hotelName, String roomName,
+					int roomNum, boolean hasChildren, LocalDate checkInTime, LocalDate checkOutTime, int total, String orderState){
 		this.orderID = orderID;
 		this.customerName = customerName;
 		this.customerID = customerID;
