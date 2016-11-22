@@ -1,12 +1,14 @@
 package po;
 
+import java.time.LocalDate;;
+
 public class HotelPromotionPO {
 	
 	private String hotelName;
 
 	private String promotionType;
-	private String startTime;
-	private String endTime;
+	private LocalDate startTime;
+	private LocalDate endTime;
 	private String companyName;
 	private int minNum;
 	
