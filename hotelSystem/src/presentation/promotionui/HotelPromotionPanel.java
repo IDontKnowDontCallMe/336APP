@@ -1,15 +1,60 @@
 package presentation.promotionui;
 
-//显示（酒店工作人员的）管理酒店促销策略的面板
-public class HotelPromotionPanel {
-	
-	//显示编辑策略时的界面
-	public void getHotelEditPanel(){
-		
-	}
-	
-	public void back(){
-		
-	}
+import java.util.List;
 
+import businesslogic.promotionbl.PromotionController;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import vo.HotelPromotionVO;
+
+public class HotelPromotionPanel extends VBox{
+	
+	private int hotelID;
+	PromotionController controller = new MockPromotionController();
+	private ScrollPane listPane;
+	private VBox hotelPromotionBox;
+	private HBox addBox;
+	private Button addButton;
+	private Text title;
+	
+	public HotelPromotionPanel(int hotelID){
+		this.hotelID = hotelID;
+		
+		List<HotelPromotionVO> hotelPromotionList = controller.getHotelPromotionList(hotelID);
+		hotelPromotionBox = new VBox();
+		hotelPromotionBox.setSpacing(15);
+		buildHotelPromotionBox(hotelPromotionList);
+		listPane = new ScrollPane(hotelPromotionBox);
+		
+		title = new Text("閰掑簵淇冮攢绛栫暐");
+		addButton = new Button("鏂板");
+		addButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
+			System.out.println("add");
+			HotelPromotionAddPane hotelPromotionAddPane = new HotelPromotionAddPane();
+
+			Scene scene = new Scene(hotelPromotionAddPane,330,200);
+			Stage stage=new Stage();
+			stage.setScene(scene);
+			stage.show();
+		});
+		
+		addBox = new HBox();
+		addBox.setSpacing(10);
+		addBox.setPrefWidth(500);
+		addBox.getChildren().addAll(title, addButton);
+		this.getChildren().addAll(addBox,listPane);
+	}
+	
+	private void buildHotelPromotionBox(List<HotelPromotionVO> hotelPromotionList){
+		hotelPromotionBox.getChildren().clear();
+	for(HotelPromotionVO vo: hotelPromotionList){
+			hotelPromotionBox.getChildren().add(new HotelPromotionCell(vo));
+		}
+	}
 }

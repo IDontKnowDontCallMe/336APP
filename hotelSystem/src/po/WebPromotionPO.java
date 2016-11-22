@@ -1,11 +1,13 @@
 package po;
 
+import java.time.LocalDate;;
+
 public class WebPromotionPO {
 	
 	String promotionType;
 	
-	String startTime;
-	String endTime;
+	LocalDate startTime;
+	LocalDate endTime;
 	
 	String businessCircleName;
 	
@@ -13,7 +15,7 @@ public class WebPromotionPO {
 	
 	double[] discountOfLevel;
 	
-	public WebPromotionPO(String promotionType, String startTime, String endTime, 
+	public WebPromotionPO(String promotionType, LocalDate startTime, LocalDate endTime, 
 			String businessCircleName, double discount, double[] discountOfLevel){
 		
 		this.promotionType = promotionType;
@@ -33,19 +35,19 @@ public class WebPromotionPO {
 		return this.promotionType;
 	}
 	
-	public void setStartTime(String startTime){
+	public void setStartTime(LocalDate startTime){
 		this.startTime = startTime;
 	}
 	
-	public String getStartTime(){
+	public LocalDate getStartTime(){
 		return this.startTime;
 	}
 	
-	public void setEndTime(String endTime){
+	public void setEndTime(LocalDate endTime){
 		this.endTime = endTime;
 	}
 	
-	public String getEndTime(){
+	public LocalDate getEndTime(){
 		return this.endTime;
 	}
 	
