@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -90,14 +91,9 @@ public class HotelPromotionAddPane extends GridPane{
 		promotionBox.getChildren().add(chooseBox);
 		this.add(promotionBox, 0, 0,1,1);
 		
-		confirmButton = new Button("确认");
-	    GridPane.setHalignment(confirmButton, HPos.CENTER);
-		this.add(confirmButton,0,1,1,1);
+		ButtonType okButton=new ButtonType("确定", ButtonData.OK_DONE);
+		ButtonType cancelButton=new ButtonType("取消", ButtonData.CANCEL_CLOSE);
 		
-		confirmButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("success");
-			//关闭窗口
-		});
 	}
 	
 	public void showDiscountBox(){

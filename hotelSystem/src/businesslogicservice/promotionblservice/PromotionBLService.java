@@ -26,7 +26,7 @@ public interface PromotionBLService {
 	
 	public boolean deleteWebPromotion(String promotionName);
 	
-	public boolean setLevelMethod(LevelVO vo);
+	public void setLevelMethod(LevelVO vo);
 	
 	public LevelVO getLevelMethod();
 	

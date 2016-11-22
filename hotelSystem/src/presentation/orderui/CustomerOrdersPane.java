@@ -32,10 +32,9 @@ public class CustomerOrdersPane extends VBox{
 	
 	
 	public CustomerOrdersPane(int customerID) {
-		// TODO Auto-generated constructor stub
+		
 		this.customerID = customerID;
 		initRadioButton();
-		//OrderController controller = new MockOrderController();
 		List<OrderVO> orderList = controller.getCustomerOrder(customerID);
 		orderBox = new VBox();
 		orderBox.setSpacing(15);
