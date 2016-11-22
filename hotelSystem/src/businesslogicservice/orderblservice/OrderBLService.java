@@ -5,6 +5,8 @@ import java.util.List;
 import com.sun.org.glassfish.gmbal.ParameterNames;
 
 import po.OrderPO;
+import presentation.orderui.CalculatingConditionVO;
+import vo.CalculationConditionVO;
 import vo.OrderVO;
 
 /**
@@ -24,7 +26,11 @@ public interface OrderBLService {
 	
 	public List<OrderVO> filterHotelList(int hotelID, String state);
 	
+<<<<<<< HEAD
 	public int calculateTotal();
+=======
+	public int calculateTotal(CalculationConditionVO vo);
+>>>>>>> refs/remotes/origin/master
 	
 	public boolean produceOrder(OrderVO vo);
 	
