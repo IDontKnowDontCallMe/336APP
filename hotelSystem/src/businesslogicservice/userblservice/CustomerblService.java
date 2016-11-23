@@ -10,7 +10,7 @@ public interface CustomerblService extends Remote{
 	
 	public CustomerVO[] getCustomerList() throws RemoteException;
 	
-	public CustomerVO getCustomer(String userID) throws RemoteException;
+//	public CustomerVO getCustomer(String userID) throws RemoteException;
 	
 	public void updateCustomer(CustomerPO po) throws RemoteException;
 	

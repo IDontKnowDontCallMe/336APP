@@ -13,11 +13,13 @@ public class PromotionMain extends Application{
 		Scene scene = new Scene(stackPane);
 //		VBox vBox = new HotelPromotionPanel(0);
 //		VBox vBox = new WebPromotionPanel();
-		VBox vBox = new LevelPanel();
+			
+		LevelDialog levelDialog = new LevelDialog();
+		levelDialog.show();
 		
-		stackPane.getChildren().add(vBox);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+//		stackPane.getChildren().add(vBox);
+//		primaryStage.setScene(scene);
+//		primaryStage.show();
 	}
 	
 	public static void main(String[] args){
