@@ -62,9 +62,8 @@ public class PromotionController implements PromotionBLService{
 	}
 
 	@Override
-	public boolean setLevelMethod(LevelVO vo) {
+	public void setLevelMethod(LevelVO vo) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override

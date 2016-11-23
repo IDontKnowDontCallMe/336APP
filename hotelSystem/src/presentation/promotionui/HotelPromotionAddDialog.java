@@ -5,10 +5,9 @@ import java.time.temporal.ChronoUnit;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,7 +15,7 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import vo.HotelPromotionVO;
 
-public class HotelPromotionAddPane extends GridPane{
+public class HotelPromotionAddDialog extends Dialog{
 
 	HotelPromotionVO hotelPromotionVO;
 	Text hotelPromotionTypeChoiceText;
@@ -43,12 +42,15 @@ public class HotelPromotionAddPane extends GridPane{
 	TextField discountTextField;
 	DatePicker startDatePicker;
 	DatePicker endDatePicker;
+	GridPane gridPane;
+	Text vacant;
 	
-	
-	public HotelPromotionAddPane(){
+	public HotelPromotionAddDialog(int hotelID){
 		super();
-		this.setHgap(10);
-		this.setVgap(20);
+	
+		gridPane = new GridPane();
+		gridPane.setHgap(10);
+		gridPane.setVgap(20);
 		
 		chooseBox = new HBox();
 		chooseBox.setSpacing(BOX_SPACING);
@@ -63,10 +65,19 @@ public class HotelPromotionAddPane extends GridPane{
 		promotionBox.getChildren().clear();
 		promotionBox.setAlignment(Pos.TOP_LEFT);
 		
+		Text vacant = new Text("\n\n\n\n\n\n");
+		promotionBox.getChildren().add(vacant);
+		chooseBox.getChildren().addAll(hotelPromotionTypeChoiceText,hotelPromotionTypeChoiceBox);
+		gridPane.add(chooseBox, 0, 0,1,1);
+		gridPane.add(promotionBox,0,1,1,1);
+		
+		ButtonType ok = new ButtonType("确认", ButtonData.OK_DONE);
+		ButtonType cancel= new ButtonType("取消", ButtonData.CANCEL_CLOSE);
+		this.getDialogPane().getButtonTypes().addAll(ok, cancel);
+		
 		hotelPromotionTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(
 				(ObservableValue <? extends Number> ov, Number old_val, Number new_val)->{
 				switch(new_val.intValue()){
-				//预订多间促销策略
 				case(0):
 					promotionBox.getChildren().clear();
 					showRoomPromotionBox();
@@ -86,21 +97,47 @@ public class HotelPromotionAddPane extends GridPane{
 				}
 				});
 		
-		chooseBox.getChildren().addAll(hotelPromotionTypeChoiceText,hotelPromotionTypeChoiceBox);
-		promotionBox.getChildren().add(chooseBox);
-		this.add(promotionBox, 0, 0,1,1);
+		Callback<ButtonType, HotelPromotionVO> resultConverter = new Callback<ButtonType	, HotelPromotionVO>() {
+
+			
+			@Override
+			public HotelPromotionVO call(ButtonType param) {
+				LocalDate startDate = null;
+				LocalDate endDate = null;
+				String companyName = null;
+				int minNum = -1;
+				double discount = 1.0;
+				
+				if(param.getButtonData() == ButtonData.OK_DONE){
+					if(startDatePicker!=null){
+						startDate = startDatePicker.getValue();
+					}
+					if(endDatePicker!=null){
+						startDate = startDatePicker.getValue();
+					}
+					if(companyNameTextField!=null){
+						companyName = companyNameTextField.getText();
+					}
+					if(minNumTextField!=null){
+						minNum = Integer.valueOf(minNumTextField.getText());
+					}
+					if(discountTextField.getText()!=null){
+						discount = Double.valueOf(discountTextField.getText());
+					}
+					return new HotelPromotionVO(hotelID, hotelPromotionTypeChoiceBox.getAccessibleText(),
+							startDate, endDate, companyName, minNum, discount);//第二项不知道对不对
+				}
+				else {
+					return null;
+				}
+			}
+		};
+		this.setResultConverter(resultConverter);
 		
-		confirmButton = new Button("确认");
-	    GridPane.setHalignment(confirmButton, HPos.CENTER);
-		this.add(confirmButton,0,1,1,1);
-		
-		confirmButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("success");
-			//关闭窗口
-		});
+		this.getDialogPane().setContent(gridPane);
 	}
 	
-	public void showDiscountBox(){
+	public HBox showDiscountBox(){
 		discountLabel = new Label("输入折扣: ");
 		discountTextField = new TextField();
 		discountTextField.setPrefColumnCount(COLUMN_COUNT);
@@ -110,7 +147,7 @@ public class HotelPromotionAddPane extends GridPane{
 		discountBox.getChildren().clear();
 		discountBox.getChildren().addAll(discountLabel,discountTextField);
 		
-		promotionBox.getChildren().add(discountBox);
+		return discountBox;
 	}
 	
 	public void showRoomPromotionBox(){
@@ -123,8 +160,8 @@ public class HotelPromotionAddPane extends GridPane{
 		paramBox.getChildren().clear();
 		paramBox.getChildren().addAll(minNumLabel,minNumTextField);
 
-		promotionBox.getChildren().addAll(chooseBox,paramBox);
-		showDiscountBox();
+		promotionBox.getChildren().addAll(paramBox,showDiscountBox());
+		
 	}
 	
 	public void showTimePromotionBox(){
@@ -161,9 +198,8 @@ public class HotelPromotionAddPane extends GridPane{
 		startBox.getChildren().addAll(startTimeLabel,startDatePicker);
 		endBox.getChildren().addAll(endTimeLabel,endDatePicker);
 		
-		promotionBox.getChildren().addAll(chooseBox,startBox,endBox);
-		showDiscountBox();
-			
+		promotionBox.getChildren().addAll(startBox,endBox,showDiscountBox());
+		
 	}
 	
 	public void showCompanyPromotionBox(){
@@ -176,13 +212,12 @@ public class HotelPromotionAddPane extends GridPane{
 		paramBox.getChildren().clear();
 		paramBox.getChildren().addAll(companyNameLabel,companyNameTextField);
 
-		promotionBox.getChildren().addAll(chooseBox,paramBox);
-		showDiscountBox();
+		promotionBox.getChildren().addAll(paramBox,showDiscountBox());
+		
 	}
 	
 	public void showBirthdayPromotionBox(){
-		promotionBox.getChildren().addAll(chooseBox);
-		showDiscountBox();
+		promotionBox.getChildren().addAll(showDiscountBox());
 	}
 	
 

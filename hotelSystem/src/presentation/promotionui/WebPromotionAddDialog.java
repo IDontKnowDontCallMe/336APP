@@ -5,10 +5,9 @@ import java.time.temporal.ChronoUnit;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,7 +15,7 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import vo.WebPromotionVO;
 
-public class WebPromotionAddPane extends GridPane{
+public class WebPromotionAddDialog extends Dialog{
 
 	WebPromotionVO webPromotionVO;
 	Text webPromotionTypeChoiceText;
@@ -41,12 +40,13 @@ public class WebPromotionAddPane extends GridPane{
 	TextField discountTextField;
 	DatePicker startDatePicker;
 	DatePicker endDatePicker;
+	GridPane gridPane;
 	
-	
-	public WebPromotionAddPane(){
+	public WebPromotionAddDialog(){
 		super();
-		this.setHgap(10);
-		this.setVgap(20);
+		gridPane = new GridPane();
+		gridPane.setHgap(10);
+		gridPane.setVgap(20);
 		
 		chooseBox = new HBox();
 		chooseBox.setSpacing(BOX_SPACING);
@@ -61,10 +61,19 @@ public class WebPromotionAddPane extends GridPane{
 		promotionBox.getChildren().clear();
 		promotionBox.setAlignment(Pos.TOP_LEFT);
 		
+		Text vacant = new Text("\n\n\n\n\n\n");
+		promotionBox.getChildren().add(vacant);
+		chooseBox.getChildren().addAll(webPromotionTypeChoiceText,webPromotionTypeChoiceBox);
+		gridPane.add(chooseBox, 0, 0,1,1);
+		gridPane.add(promotionBox,0,1,1,1);
+		
+		ButtonType ok = new ButtonType("确认", ButtonData.OK_DONE);
+		ButtonType cancel= new ButtonType("取消", ButtonData.CANCEL_CLOSE);
+		this.getDialogPane().getButtonTypes().addAll(ok, cancel);
+		
 		webPromotionTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(
 				(ObservableValue <? extends Number> ov, Number old_val, Number new_val)->{
 				switch(new_val.intValue()){
-				//预订多间促销策略
 				case(0):
 					promotionBox.getChildren().clear();
 					showTimePromotionBox();
@@ -76,21 +85,44 @@ public class WebPromotionAddPane extends GridPane{
 				}
 				});
 		
-		chooseBox.getChildren().addAll(webPromotionTypeChoiceText,webPromotionTypeChoiceBox);
-		promotionBox.getChildren().add(chooseBox);
-		this.add(promotionBox, 0, 0,1,1);
+Callback<ButtonType, WebPromotionVO> resultConverter = new Callback<ButtonType	, WebPromotionVO>() {
+
+			
+			@Override
+			public WebPromotionVO call(ButtonType param) {
+				LocalDate startDate = null;
+				LocalDate endDate = null;
+				String businessCircleName = null;
+				double discount = 1.0;
+				
+				if(param.getButtonData() == ButtonData.OK_DONE){
+					if(startDatePicker!=null){
+						startDate = startDatePicker.getValue();
+					}
+					if(endDatePicker!=null){
+						startDate = startDatePicker.getValue();
+					}
+					if(businessCircleNameTextField!=null){
+						businessCircleName = businessCircleNameTextField.getText();
+					}
+					
+					if(discountTextField.getText()!=null){
+						discount = Double.valueOf(discountTextField.getText());
+					}
+					return new WebPromotionVO(webPromotionTypeChoiceBox.getAccessibleText(),
+							startDate, endDate, businessCircleName, discount);//第一项不知道对不对
+				}
+				else {
+					return null;
+				}
+			}
+		};
+		this.setResultConverter(resultConverter);
 		
-		confirmButton = new Button("确认");
-	    GridPane.setHalignment(confirmButton, HPos.CENTER);
-		this.add(confirmButton,0,1,1,1);
-		
-		confirmButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("success");
-			//关闭窗口
-		});
+		this.getDialogPane().setContent(gridPane);
 	}
 	
-	public void showDiscountBox(){
+	public HBox showDiscountBox(){
 		discountLabel = new Label("输入折扣: ");
 		discountTextField = new TextField();
 		discountTextField.setPrefColumnCount(COLUMN_COUNT);
@@ -100,7 +132,7 @@ public class WebPromotionAddPane extends GridPane{
 		discountBox.getChildren().clear();
 		discountBox.getChildren().addAll(discountLabel,discountTextField);
 		
-		promotionBox.getChildren().add(discountBox);
+		return discountBox;
 	}
 	
 	public void showTimePromotionBox(){
@@ -137,8 +169,7 @@ public class WebPromotionAddPane extends GridPane{
 		startBox.getChildren().addAll(startTimeLabel,startDatePicker);
 		endBox.getChildren().addAll(endTimeLabel,endDatePicker);
 		
-		promotionBox.getChildren().addAll(chooseBox,startBox,endBox);
-		showDiscountBox();
+		promotionBox.getChildren().addAll(startBox,endBox,showDiscountBox());
 			
 	}
 	
@@ -152,7 +183,6 @@ public class WebPromotionAddPane extends GridPane{
 		paramBox.getChildren().clear();
 		paramBox.getChildren().addAll(businessCircleNameLabel,businessCircleNameTextField);
 
-		promotionBox.getChildren().addAll(chooseBox,paramBox);
-		showDiscountBox();
+		promotionBox.getChildren().addAll(paramBox,showDiscountBox());
 	}
 }

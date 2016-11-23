@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import businesslogicservice.orderblservice.OrderBLService;
+import presentation.orderui.CalculatingConditionVO;
+import vo.CalculationConditionVO;
 import vo.OrderVO;
 
 public class OrderController implements OrderBLService{
@@ -70,6 +72,12 @@ public class OrderController implements OrderBLService{
 	public List<OrderVO> getAbnormalOrdersOfToday() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int calculateTotal(CalculationConditionVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

@@ -28,7 +28,7 @@ public interface PromotionBLService extends Remote{
 	
 	public boolean deleteWebPromotion(String promotionName) throws RemoteException;
 	
-	public boolean setLevelMethod(LevelVO vo) throws RemoteException;
+	public void setLevelMethod(LevelVO vo) throws RemoteException;
 	
 	public LevelVO getLevelMethod() throws RemoteException;
 	

@@ -4,7 +4,7 @@ import java.time.LocalDate;;
 
 public class HotelPromotionPO {
 	
-	private String hotelName;
+	private int hotelID;
 
 	private String promotionType;
 	private LocalDate startTime;
