@@ -25,12 +25,12 @@ public class MockPromotionController extends PromotionController{
 		WebPromotionVO vo6,vo7;
 		hotelPromotionList = new ArrayList<HotelPromotionVO>();
 		webPromotionList = new ArrayList<WebPromotionVO>();
-		vo1 = new HotelPromotionVO("如家","预订多间促销策略",null,null,null,3,0.8);
-		vo2 = new HotelPromotionVO("如家","预订多间促销策略",null,null,null,5,0.7);
-		vo3 = new HotelPromotionVO("如家","特定时间促销策略",LocalDate.parse("2016-11-10"),
+		vo1 = new HotelPromotionVO(123,"预订多间促销策略",null,null,null,3,0.8);
+		vo2 = new HotelPromotionVO(123,"预订多间促销策略",null,null,null,5,0.7);
+		vo3 = new HotelPromotionVO(123,"特定时间促销策略",LocalDate.parse("2016-11-10"),
 				LocalDate.parse("2016-11-12"),null,-1,0.8);
-		vo4 = new HotelPromotionVO("如家","合作企业促销策略",null,null,"南京大学",-1,0.8);
-		vo5 = new HotelPromotionVO("如家","客户生日促销策略",null,null,null,-1,0.8);
+		vo4 = new HotelPromotionVO(123,"合作企业促销策略",null,null,"南京大学",-1,0.8);
+		vo5 = new HotelPromotionVO(123,"客户生日促销策略",null,null,null,-1,0.8);
 		vo6 = new WebPromotionVO("特定时间促销策略",LocalDate.parse("2016-11-10"),LocalDate.parse("2016-11-12"),
 				null,0.8);
 		vo7 = new WebPromotionVO("特定商圈促销策略",null,null,"新街口",0.8);

@@ -3,14 +3,12 @@ package presentation.promotionui;
 import java.util.List;
 
 import businesslogic.promotionbl.PromotionController;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import vo.WebPromotionVO;
 
 public class WebPromotionPanel extends VBox{
@@ -34,12 +32,8 @@ public class WebPromotionPanel extends VBox{
 		addButton = new Button("新增");
 		addButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
 			System.out.println("add");
-			WebPromotionAddPane webPromotionAddPane = new WebPromotionAddPane();
-
-			Scene scene = new Scene(webPromotionAddPane,330,200);
-			Stage stage=new Stage();
-			stage.setScene(scene);
-			stage.show();
+			WebPromotionAddDialog webPromotionAddDialog = new WebPromotionAddDialog();
+			webPromotionAddDialog.show();
 		});
 		
 		addBox = new HBox();

@@ -11,9 +11,9 @@ public class PromotionMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-		VBox vBox = new HotelPromotionPanel(0);
+//		VBox vBox = new HotelPromotionPanel(0);
 //		VBox vBox = new WebPromotionPanel();
-//		VBox vBox = new LevelPanel();
+		VBox vBox = new LevelPanel();
 		
 		stackPane.getChildren().add(vBox);
 		primaryStage.setScene(scene);

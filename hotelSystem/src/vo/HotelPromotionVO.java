@@ -3,7 +3,7 @@ package vo;
 import java.time.LocalDate;
 
 public class HotelPromotionVO {
-	public String hotelName;
+	public int hotelID;
 
 	public String promotionType;
 	public LocalDate startTime;
@@ -12,9 +12,9 @@ public class HotelPromotionVO {
 	public int minNum;
 	public double discount;
 	
-	public HotelPromotionVO (String hotelName, String promotionType, LocalDate startTime,
+	public HotelPromotionVO (int hotelID, String promotionType, LocalDate startTime,
 			LocalDate endTime, String companyName, int minNum, double discount){
-		this.hotelName=hotelName;
+		this.hotelID=hotelID;
 		this.promotionType=promotionType;
 		this.startTime=startTime;
 		this.endTime=endTime;
@@ -24,7 +24,7 @@ public class HotelPromotionVO {
 	}
 	
 	public HotelPromotionVO (HotelPromotionVO vo){
-		this.hotelName=vo.hotelName;
+		this.hotelID=vo.hotelID;
 		this.promotionType=vo.promotionType;
 		this.startTime=vo.startTime;
 		this.endTime=vo.endTime;

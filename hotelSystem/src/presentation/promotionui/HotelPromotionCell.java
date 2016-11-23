@@ -50,11 +50,8 @@ public class HotelPromotionCell  extends GridPane{
 		editButton = new Button("编辑");
 		editButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
 			System.out.println("edit");
-			HotelPromotionEditPane hotelPromotionEditPane = new HotelPromotionEditPane(hotelPromotionVO);
-			Scene scene = new Scene(hotelPromotionEditPane,330,200);
-			Stage stage=new Stage();
-			stage.setScene(scene);
-			stage.show();
+			HotelPromotionEditDialog hotelPromotionEditDialog = new HotelPromotionEditDialog(hotelPromotionVO);
+			hotelPromotionEditDialog.show();
 		});
 		
 		deleteButton = new Button("删除");

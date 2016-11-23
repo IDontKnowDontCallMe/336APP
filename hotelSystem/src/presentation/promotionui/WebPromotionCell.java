@@ -1,11 +1,9 @@
 package presentation.promotionui;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import vo.WebPromotionVO;
 
 public class WebPromotionCell  extends GridPane{
@@ -23,7 +21,6 @@ public class WebPromotionCell  extends GridPane{
 	Button deleteButton;
 	
 	public WebPromotionCell(WebPromotionVO webPromotionVO) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.webPromotionVO = webPromotionVO;
 		
@@ -47,11 +44,8 @@ public class WebPromotionCell  extends GridPane{
 		editButton = new Button("编辑");
 		editButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
 			System.out.println("edit");
-			WebPromotionEditPane webPromotionEditPane = new WebPromotionEditPane(webPromotionVO);
-			Scene scene = new Scene(webPromotionEditPane,330,200);
-			Stage stage=new Stage();
-			stage.setScene(scene);
-			stage.show();
+			WebPromotionEditDialog webPromotionEditDialog = new WebPromotionEditDialog(webPromotionVO);
+			webPromotionEditDialog.show();
 		});
 		
 		deleteButton = new Button("删除");
