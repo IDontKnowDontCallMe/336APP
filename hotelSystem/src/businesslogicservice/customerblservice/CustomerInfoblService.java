@@ -1,13 +1,16 @@
 package businesslogicservice.customerblservice;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 import vo.CustomerVO;
 
-public interface CustomerInfoblService {
+public interface CustomerInfoblService extends Remote {
 	
-	//得到所有客户的列表
-	public CustomerVO[] getInfoList();
+	//寰楀埌鎵�鏈夊鎴风殑鍒楄〃
+	public CustomerVO[] getInfoList() throws RemoteException;
 	
-	//得到某客户的信息
-	public CustomerVO getInfo(String customerID);
+	//寰楀埌鏌愬鎴风殑淇℃伅
+	public CustomerVO getInfo(String customerID) throws RemoteException;
 
 }

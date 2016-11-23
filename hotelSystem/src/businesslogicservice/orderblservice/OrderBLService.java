@@ -1,10 +1,8 @@
 package businesslogicservice.orderblservice;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.List;
-
-import com.sun.org.glassfish.gmbal.ParameterNames;
-
-import po.OrderPO;
 import vo.OrderVO;
 
 /**
@@ -12,22 +10,22 @@ import vo.OrderVO;
  * @author USER
  *
  */
-public interface OrderBLService {
+public interface OrderBLService extends Remote{
 	
-	public List<OrderVO> getCustomerOrder(int customerID);
+	public List<OrderVO> getCustomerOrder(int customerID) throws RemoteException;
 	
-	public List<OrderVO> getHotelOrder(int hotelID);
+	public List<OrderVO> getHotelOrder(int hotelID) throws RemoteException;
 	
-	public List<OrderVO> getAbnormalOrdersOfToday();
+	public List<OrderVO> getAbnormalOrdersOfToday() throws RemoteException;
 	
-	public List<OrderVO> filterCustomerList(int userID, String state);
+	public List<OrderVO> filterCustomerList(int userID, String state) throws RemoteException;
 	
-	public List<OrderVO> filterHotelList(int hotelID, String state);
+	public List<OrderVO> filterHotelList(int hotelID, String state) throws RemoteException;
 	
-	public int calculateTotal()
+	public int calculateTotal() throws RemoteException;
 	
-	public boolean produceOrder(OrderVO vo);
+	public boolean produceOrder(OrderVO vo) throws RemoteException;
 	
-	public boolean changeOrderState(int orderID, String state);
+	public boolean changeOrderState(int orderID, String state) throws RemoteException;
 	
 }

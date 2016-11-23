@@ -1,5 +1,7 @@
 package businesslogicservice.customerblservice;
 
-public interface CustomerBLService {
+import java.rmi.Remote;
+
+public interface CustomerBLService extends Remote{
 
 }

@@ -1,16 +1,19 @@
 package businesslogicservice.customerblservice;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 import po.CreditPO;
 import po.CustomerPO;
 import vo.CreditVO;
 
-public interface CreditblService {
+public interface CreditblService extends Remote{
 
-	//µÃµ½¿Í»§µÄĞÅÓÃ±ä»¯±í
-	public CreditVO[] checkCredit(CustomerPO po);
+	//å¾—åˆ°å®¢æˆ·çš„ä¿¡ç”¨å˜åŒ–è¡¨
+	public CreditVO[] checkCredit(CustomerPO po) throws RemoteException;
 	
 	
-	//µÃµ½Ä³Ò»´ÎĞÅÓÃ±ä»¯µÄ¾ßÌåÇé¿ö
-	public CreditPO concreteCheckCredit (CustomerPO po, int index);
+	//å¾—åˆ°å®¢æˆ·çš„å…·ä½“ä¿¡ç”¨å€¼å˜åŒ–æƒ…å†µ
+	public CreditPO concreteCheckCredit (CustomerPO po, int index) throws RemoteException;
 	
 }
