@@ -47,7 +47,7 @@ public class ProducingOrderDialog extends Dialog<OrderVO>{
 		this.hotelVO = hotelVO;
 		this.roomList = roomList;
 		
-		initUI();
+		initUI(roomIndex);
 		this.getDialogPane().setContent(gridPane);
 		calculationConditionVO = new CalculationConditionVO(customerID, 2,
 										checkInDatePicker.getValue(), checkOutDatePicker.getValue(), Integer.valueOf(numTextField.getText()),false);
@@ -76,13 +76,14 @@ public class ProducingOrderDialog extends Dialog<OrderVO>{
 		
 	}
 	
-	private void initUI(){
+	private void initUI(int roomIndex){
 		gridPane = new GridPane();
 		
 		roomTypeChoiceBox = new ChoiceBox<String>();
 		for(RoomVO vo:roomList){
 			roomTypeChoiceBox.getItems().add(vo.roomName);
 		}
+		roomTypeChoiceBox.getSelectionModel().select(roomIndex);
 		gridPane.add(new Text("房间类型"), 0	, 1, 1, 1);
 		gridPane.add(roomTypeChoiceBox, 1, 1, 1, 1);
 		
@@ -99,7 +100,7 @@ public class ProducingOrderDialog extends Dialog<OrderVO>{
 	                        public void updateItem(LocalDate item, boolean empty) {
 	                            super.updateItem(item, empty);
 	                           
-	                            if (item.isBefore(LocalDate.now()) || item.isAfter(checkOutDatePicker.getValue()))
+	                            if ( item.isBefore(LocalDate.now()) || !item.isBefore(checkOutDatePicker.getValue()))
 	                                 {
 	                                    setDisable(true);
 	                                    setStyle("-fx-background-color: #ffc0cb;");
@@ -118,7 +119,7 @@ public class ProducingOrderDialog extends Dialog<OrderVO>{
 	                        public void updateItem(LocalDate item, boolean empty) {
 	                            super.updateItem(item, empty);
 	                           
-	                            if (item.isBefore(checkInDatePicker.getValue()))
+	                            if ( !item.isAfter(checkInDatePicker.getValue()))
 	                                 {
 	                                    setDisable(true);
 	                                    setStyle("-fx-background-color: #ffc0cb;");

@@ -16,7 +16,7 @@ import vo.SearchConditionVO;
 
 public class MockHotelController extends HotelController{
 
-	private MockHotelController instance;
+	private static MockHotelController instance;
 	
 	private List<HotelVO> hotelList;
 	
@@ -41,18 +41,18 @@ public class MockHotelController extends HotelController{
 		hotelList.add(vo8);
 	}
 	
-	public MockHotelController getInstance(){
+	public static MockHotelController getInstance(){
 		return instance==null? instance = new MockHotelController(): instance;
 	}
 	
 	@Override
-	public List<HotelVO> getHotelVOsOfArea(AreaVO areaVo, int customerID) {
+	public List<HotelVO> getHotelVOsOfArea(AreaVO areaVO, int customerID) {
 		// TODO Auto-generated method stub
 		return hotelList;
 	}
 
 	@Override
-	public List<HotelVO> search(AreaVO apo, SearchConditionVO searchCondionVO) {
+	public List<HotelVO> search(AreaVO areaVO, SearchConditionVO searchCondionVO) {
 		// TODO Auto-generated method stub
 		ArrayList<HotelVO> tempArrayList = new ArrayList<>();
 		int i=0;
@@ -79,6 +79,12 @@ public class MockHotelController extends HotelController{
 		}
 		
 		return tempArrayList;
+	}
+	
+	@Override
+	public List<HotelVO> getBookedHotelList(int customerID) {
+		// TODO Auto-generated method stub
+		return hotelList;
 	}
 
 	@Override

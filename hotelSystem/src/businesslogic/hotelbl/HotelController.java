@@ -14,13 +14,13 @@ import vo.SearchConditionVO;
 public class HotelController implements HotelBLService{
 
 	@Override
-	public List<HotelVO> getHotelVOsOfArea(AreaVO areaVo, int customerID) {
+	public List<HotelVO> getHotelVOsOfArea(AreaVO areaVO, int customerID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<HotelVO> search(AreaVO apo, SearchConditionVO searchCondionVO) {
+	public List<HotelVO> search(AreaVO areaVO, SearchConditionVO searchCondionVO) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -65,6 +65,12 @@ public class HotelController implements HotelBLService{
 	public void delete(HotelPO po) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<HotelVO> getBookedHotelList(int customerID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
