@@ -35,10 +35,9 @@ public class CustomerOrderCell extends GridPane{
 		this.add(roomText, 0, 1, 2, 1);
 		totalText = new Text("¥" + String.valueOf(orderVO.total));
 		this.add(totalText, 4, 1, 1, 1);
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
-		checkInText = new Text("入 " + format.format(orderVO.checkInTime));
+		checkInText = new Text("入 " + orderVO.checkInTime.toString());
 		this.add(checkInText, 0, 2, 1, 1);
-		checkOutText = new Text("离" + format.format(orderVO.checkOutTime));
+		checkOutText = new Text("离" + orderVO.checkOutTime.toString());
 		this.add(checkOutText, 1, 2, 1, 1);
 		numText = new Text(String.valueOf(orderVO.roomNum) + "间");
 		this.add(numText, 1, 1, 1, 1);

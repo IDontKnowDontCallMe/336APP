@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -29,7 +30,9 @@ public class LoginPane extends GridPane{
 		loginButton.setAlignment(Pos.CENTER_RIGHT);
 		this.add(loginButton, 3, 2, 1, 1);
 		
-		
+		loginButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event)->{
+			TheMainFrame.jumpTo(new CustomerMainPane(Integer.valueOf(userIDTextField.getText())));
+		});
 	}
 	
 }

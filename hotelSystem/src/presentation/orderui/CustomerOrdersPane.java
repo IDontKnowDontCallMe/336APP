@@ -5,12 +5,15 @@ import java.util.List;
 
 import businesslogic.orderbl.OrderController;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Toggle;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import presentation.mainui.TheMainFrame;
 import vo.OrderVO;
 
 public class CustomerOrdersPane extends VBox{
@@ -26,6 +29,7 @@ public class CustomerOrdersPane extends VBox{
 	private RadioButton executedButton;
 	private RadioButton revokedButton;
 	private RadioButton abnormalButton;
+	private Button backButton;
 	
 	private ScrollPane listPane;
 	private VBox orderBox;
@@ -74,10 +78,15 @@ public class CustomerOrdersPane extends VBox{
 				}
 				);
 		
+		backButton = new Button("返回");
+		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED	, (event)->{
+			TheMainFrame.backTo();
+		});
+		
 		radioBox = new HBox();
 		radioBox.setSpacing(10);
 		radioBox.setPrefWidth(500);
-		radioBox.getChildren().addAll(allButton,unexecutedButton,executedButton,revokedButton,abnormalButton);
+		radioBox.getChildren().addAll(allButton,unexecutedButton,executedButton,revokedButton,abnormalButton, backButton);
 	}
 	
 	private void buildOrderBox(List<OrderVO> orderList){
