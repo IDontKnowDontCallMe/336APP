@@ -2,6 +2,7 @@ package presentation.userui;
 
 import businesslogicservice.userblservice.UserBLService;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import businesslogic.userbl.UserController;
@@ -28,4 +29,48 @@ public class MockUserController extends UserController{
 		
 	}
 	
+	@Override
+	public List<CustomerVO> getCustomerList() throws RemoteException {
+		return null;
+		}
+	
+	@Override
+	public boolean updateCustomer(CustomerVO customerVO) throws RemoteException {
+		return false;
+	}
+	
+	@Override
+		public List<HotelVO> getHotelList() throws RemoteException {
+		return null;
+	}
+	
+	@Override
+	public boolean addHotel(HotelVO hotelVO) throws RemoteException {
+		return false;
+	}
+	
+	@Override
+	public boolean updateHotelWorker(HotelVO hotelVO) throws RemoteException {
+		return false;
+	}
+		
+	@Override
+	public List<WebMarketerVO> getWebMarketerList() throws RemoteException {
+		return null;
+	}
+	
+	@Override
+	public boolean addWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException {
+		return false;
+	}
+	
+	@Override
+	public boolean updateWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException {
+		return false;
+	}
+	
+	@Override
+	public String login(int userID, String password) throws RemoteException {
+		return null;
+	}
 }
