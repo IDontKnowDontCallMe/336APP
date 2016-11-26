@@ -32,7 +32,10 @@ public class TheMainFrame extends Application{
 		stage = primaryStage;
 		
 		Scene scene = new Scene(new LoginPane(),500, 500);
+
 		stage.setScene(scene);
+        scene.getStylesheets().add( getClass().getResource("scrollbar.css") .toExternalForm());
+
 		stage.show();
 	}
 	
