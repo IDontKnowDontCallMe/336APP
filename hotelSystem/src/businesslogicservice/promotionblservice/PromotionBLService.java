@@ -37,6 +37,8 @@ public interface PromotionBLService extends Remote{
 	public int calculateOrder(OrderPO orderPO) throws RemoteException;
 	
 	public int calculateLevel(int credit) throws RemoteException;
+
+	boolean updateLevelInfo(LevelVO levelVO);
 	
 
 }

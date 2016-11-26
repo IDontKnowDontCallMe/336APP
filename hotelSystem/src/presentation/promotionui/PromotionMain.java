@@ -11,15 +11,15 @@ public class PromotionMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-//		VBox vBox = new HotelPromotionPanel(0);
+		VBox vBox = new HotelPromotionPanel(0);
 //		VBox vBox = new WebPromotionPanel();
 			
-		LevelDialog levelDialog = new LevelDialog();
-		levelDialog.show();
+//		LevelDialog levelDialog = new LevelDialog();
+//		levelDialog.show();
 		
-//		stackPane.getChildren().add(vBox);
-//		primaryStage.setScene(scene);
-//		primaryStage.show();
+		stackPane.getChildren().add(vBox);
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
 	
 	public static void main(String[] args){
