@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import businesslogic.promotionbl.PromotionController;
+import vo.CustomerVO;
 import vo.HotelPromotionVO;
 import vo.WebPromotionVO;
 import vo.LevelVO;
@@ -18,6 +19,7 @@ public class MockPromotionController extends PromotionController{
 	private int creditDistance;
 	private int maxLevel;
 	private double discountDistance;
+	private static MockPromotionController instance;
 	
 	public MockPromotionController() {
 		
@@ -49,6 +51,10 @@ public class MockPromotionController extends PromotionController{
 		discountDistance=vo.discountDistance;
 	}
 
+	public static MockPromotionController getInstance(){
+		return instance==null? new MockPromotionController(): instance;
+	}
+	
 	@Override
 	public List<HotelPromotionVO> getHotelPromotionList(int HotelID) {
 		List<HotelPromotionVO> list = new ArrayList<HotelPromotionVO>();
@@ -75,5 +81,9 @@ public class MockPromotionController extends PromotionController{
 		return resVO;
 	}
 
-	
+	@Override
+	public boolean updateLevelInfo(LevelVO levelVO) {
+
+		return true;
+	}
 }
