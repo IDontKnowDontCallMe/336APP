@@ -26,10 +26,8 @@ public interface HotelBLService {
 	
 	public List<CommentVO> getCommentList(int hotelID);
 	
-	public HotelVO getHotelInfo(String hotel);
+	public boolean updateSimpleHotelInfo(HotelVO hotelVO);
 	
-	public void update(HotelPO po);
-	
-	public void delete(HotelPO po);
+	public boolean addComment(CommentVO commentVO);
 	
 }
