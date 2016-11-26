@@ -41,7 +41,7 @@ public class OrderMain extends Application{
 		
 		StackPane root = new StackPane();
 		
-		HotelVO hotelVO = new HotelVO(1010, "南大宿舍", "南京", "仙林", "无", "热水、网线", 1, 4.8, "校长", "101010101010", "未预定过");
+		HotelVO hotelVO = new HotelVO(1010, "南大宿舍", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,"未预定过");
 		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
 		RoomVO room1 = new RoomVO(1, "大床房", 150, 20, "大床", 2);
 		RoomVO room2 = new RoomVO(2, "双床房", 200, 15, "双床", 2);
