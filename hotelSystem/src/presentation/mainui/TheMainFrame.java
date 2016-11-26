@@ -10,33 +10,28 @@ import javafx.stage.Stage;
 
 public class TheMainFrame extends Application{
 
-	private static Stack<Scene> sceneStack;
-	private static Stage stage;
+	private static Stack<Parent> parentStack;
+	private static Scene scene;
 	
 	public static void jumpTo(Parent parent){
 		
-		Scene scene = new Scene(parent, 500, 500);
-		sceneStack.push(stage.getScene());
-		stage.setScene(scene);
+		parentStack.push(scene.getRoot());
+		scene.setRoot(parent);
 		
 	}
 	
 	public static void backTo(){
-		stage.setScene(sceneStack.pop());
+		scene.setRoot(parentStack.pop());
 	}
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		sceneStack = new Stack<Scene>();
-		stage = primaryStage;
+		scene = new Scene(new LoginPane(),500,500);
+		parentStack = new Stack<Parent>();
 		
-		Scene scene = new Scene(new LoginPane(),500, 500);
-
-		stage.setScene(scene);
-        scene.getStylesheets().add( getClass().getResource("scrollbar.css") .toExternalForm());
-
-		stage.show();
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
 	
 	public static void main(String[] args){
