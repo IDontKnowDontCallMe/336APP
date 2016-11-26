@@ -17,24 +17,17 @@ public interface UserBLService extends Remote{
 	
 	public boolean updateCustomer(CustomerVO customerVO) throws RemoteException;
 	
-	public boolean deleteCustomer(int Customer) throws RemoteException;
-	
-	public List<HotelVO> geHotelList() throws RemoteException;
+	public List<HotelVO> getHotelList() throws RemoteException;
 	
 	public boolean addHotel(HotelVO hotelVO) throws RemoteException;
 	
 	public boolean updateHotelWorker(HotelVO hotelVO) throws RemoteException;
-	
-	public boolean deleteHotel(HotelPO po) throws RemoteException;
 	
 	public List<WebMarketerVO> getWebMarketerList() throws RemoteException;
 	
 	public boolean addWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException;
 	
 	public boolean updateWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException;
-	
-	public boolean deleteWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException;
-	
 	
 	public String login(int userID, String password) throws RemoteException;
 }
