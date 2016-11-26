@@ -12,7 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import presentation.customerui.MockCustomerController;
 import vo.CustomerVO;
 import vo.LevelVO;
@@ -45,6 +44,7 @@ public class LevelDialog extends Dialog{
 	
 	public LevelDialog(){
 		super();
+		LevelVO levelVO = MockPromotionController.getInstance().getLevelMethod();
 		
 		gridPane = new GridPane();
 		gridPane.setHgap(10);
@@ -127,6 +127,18 @@ public class LevelDialog extends Dialog{
 				discountDistanceText.setText(discountDistanceTextField.getText());
 				
 				editButton.setText("编辑");
+				
+				LevelVO vo = MockPromotionController.getInstance().getLevelMethod();
+				vo.creditDistance = Integer.parseInt(creditDistanceTextField.getText());
+				vo.maxLevel = Integer.parseInt(maxLevelTextField.getText());
+				vo.discountDistance = Integer.parseInt(discountDistanceTextField.getText());
+				
+				if(MockPromotionController.getInstance().updateLevelInfo(levelVO)){
+					creditDistanceText.setText(creditDistanceTextField.getText());
+					maxLevelText.setText(maxLevelTextField.getText());
+					discountDistanceText.setText(discountDistanceTextField.getText());
+				}
+				
 			}
 		});
 		
