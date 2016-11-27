@@ -29,9 +29,13 @@ public class TheMainFrame extends Application{
 		// TODO Auto-generated method stub
 		scene = new Scene(new LoginPane(),500,500);
 		parentStack = new Stack<Parent>();
+<<<<<<< HEAD
 		
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		
+=======
+		
+>>>>>>> refs/remotes/initial/master
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
