@@ -10,10 +10,10 @@ public class UserMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-		VBox vBox = new HotelPanel();
-//		VBox vbox = new WebMarketerPanel();
-//		VBox vbox = new CustomerPanel();
-//		VBox vbox = new CustomerCreditPanel();
+//		VBox vBox = new HotelPanel();
+//		VBox vBox = new WebMarketerPanel();
+		VBox vBox = new CustomerPanel();
+//		VBox vBox = new CustomerCreditPanel();
 		
 		stackPane.getChildren().add(vBox);
 		primaryStage.setScene(scene);

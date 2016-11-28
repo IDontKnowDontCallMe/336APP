@@ -1,14 +1,12 @@
 package presentation.promotionui;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import vo.HotelPromotionVO;
 
-public class HotelPromotionCell  extends GridPane{
+public class HotelPromotionCell extends GridPane{
 	
 	HotelPromotionVO hotelPromotionVO;
 	
@@ -23,7 +21,6 @@ public class HotelPromotionCell  extends GridPane{
 	Button deleteButton;
 	
 	public HotelPromotionCell(HotelPromotionVO hotelPromotionVO) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.hotelPromotionVO = hotelPromotionVO;
 		

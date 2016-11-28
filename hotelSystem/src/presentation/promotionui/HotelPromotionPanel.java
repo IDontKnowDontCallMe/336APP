@@ -48,7 +48,7 @@ public class HotelPromotionPanel extends VBox{
 	
 	private void buildHotelPromotionBox(List<HotelPromotionVO> hotelPromotionList){
 		hotelPromotionBox.getChildren().clear();
-	for(HotelPromotionVO vo: hotelPromotionList){
+		for(HotelPromotionVO vo: hotelPromotionList){
 			hotelPromotionBox.getChildren().add(new HotelPromotionCell(vo));
 		}
 	}
