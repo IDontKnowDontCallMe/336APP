@@ -3,13 +3,13 @@ package data.promotiondata;
 import java.util.List;
 
 import businesslogic.promotionbl.LevelMethod;
-import businesslogic.promotionbl.Promotion;
+import businesslogic.promotionbl.PromotionType;
 
 public interface WebPromotionDao {
 
-	public List<Promotion> getWebPromotionObject();
+	public List<PromotionType> getWebPromotionObject();
 	
-	public boolean writeWebPromotionObject(Promotion promotion);
+	public boolean writeWebPromotionObject(PromotionType promotion);
 	
 	public boolean deleteWebPromotionObject(String promotionName) ;
 	

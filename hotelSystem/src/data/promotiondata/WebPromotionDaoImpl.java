@@ -3,18 +3,18 @@ package data.promotiondata;
 import java.util.List;
 
 import businesslogic.promotionbl.LevelMethod;
-import businesslogic.promotionbl.Promotion;
+import businesslogic.promotionbl.PromotionType;
 
 public class WebPromotionDaoImpl implements WebPromotionDao{
 
 	@Override
-	public List<Promotion> getWebPromotionObject() {
+	public List<PromotionType> getWebPromotionObject() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean writeWebPromotionObject(Promotion promotion) {
+	public boolean writeWebPromotionObject(PromotionType promotion) {
 		// TODO Auto-generated method stub
 		return false;
 	}

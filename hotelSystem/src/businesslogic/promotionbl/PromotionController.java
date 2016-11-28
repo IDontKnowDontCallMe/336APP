@@ -1,8 +1,10 @@
 package businesslogic.promotionbl;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 import businesslogicservice.promotionblservice.PromotionBLService;
+import po.CustomerPO;
 import po.OrderPO;
 import vo.HotelPromotionVO;
 import vo.LevelVO;
@@ -62,18 +64,13 @@ public class PromotionController implements PromotionBLService{
 	}
 
 	@Override
-	public void setLevelMethod(LevelVO vo) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
 	public LevelVO getLevelMethod() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int calculateOrder(OrderPO po) {
+	public int calculateOrder(OrderPO orderPO, CustomerPO customerPO) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -82,6 +79,18 @@ public class PromotionController implements PromotionBLService{
 	public int calculateLevel(int credit) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean setLevelMethod(LevelVO levelVO) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateLevelInfo(LevelVO levelVO) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
