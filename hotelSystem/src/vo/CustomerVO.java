@@ -27,5 +27,18 @@ public class CustomerVO {
 		this.credit = credit;
 		this.level = level;
 	}
-
+	
+	public CustomerVO(CustomerVO vo){
+		this.customerID = vo.customerID;
+		this.customerName = vo.customerName;
+		this.phoneNumber = vo.phoneNumber;
+		this.isBirthVIP = vo.isBirthVIP;
+		this.birthday = vo.birthday;
+		this.isCompanyVIP = vo.isCompanyVIP;
+		this.companyName = vo.companyName;
+		this.credit = vo.credit;
+		this.level = vo.level;
+	}
 }
+
+

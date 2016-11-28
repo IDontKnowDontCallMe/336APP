@@ -19,7 +19,6 @@ public class HotelVO {
 	
 	public HotelVO(int hotelID, String hotelName, String city, String businessCircle, String address, String introduction, String service,
 					int score, double commentScore, String workerName, String phoneNumber, int minPrice, String bookedTag) {
-		// TODO Auto-generated constructor stub
 		this.hotelID = hotelID;
 		this.hotelName = hotelName;
 		this.city = city;
@@ -33,6 +32,22 @@ public class HotelVO {
 		this.phoneNumber = phoneNumber;
 		this.minPrice = minPrice;
 		this.bookedTag = bookedTag;
+	}
+
+	public HotelVO(HotelVO vo) {
+		this.hotelID = vo.hotelID;
+		this.hotelName = vo.hotelName;
+		this.city = vo.city;
+		this.businessCircle = vo.businessCircle;
+		this.address = vo.address;
+		this.introduction = vo.introduction;
+		this.service = vo.service;
+		this.score = vo.score;
+		this.commentScore = vo.commentScore;
+		this.workerName = vo.workerName;
+		this.phoneNumber = vo.phoneNumber;
+		this.minPrice = vo.minPrice;
+		this.bookedTag = vo.bookedTag;
 	}
 
 }
