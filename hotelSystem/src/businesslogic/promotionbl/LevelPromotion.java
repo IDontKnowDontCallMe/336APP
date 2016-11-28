@@ -1,11 +1,12 @@
 package businesslogic.promotionbl;
 
-import po.PromotionConditionPO;
+import po.CustomerPO;
+import po.OrderPO;
 
-public class LevelPromotion implements Promotion{
-
+public class LevelPromotion implements PromotionType{
+	
 	@Override
-	public double getDiscount(PromotionConditionPO po) {
+	public double getDiscount(OrderPO opo, CustomerPO cpo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

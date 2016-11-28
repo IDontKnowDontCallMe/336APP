@@ -21,7 +21,7 @@ public class HotelPromotionImpl {
 		return false;
 	}
 
-	public boolean deleteHotelPromotion(int hotelID, String promotionName) {
+	public boolean deleteHotelPromotion(HotelPromotionVO hotelPromotionVO) {
 		// TODO Auto-generated method stub
 		return false;
 	}

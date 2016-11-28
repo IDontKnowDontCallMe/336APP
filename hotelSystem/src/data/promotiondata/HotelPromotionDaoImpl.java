@@ -2,18 +2,18 @@ package data.promotiondata;
 
 import java.util.List;
 
-import businesslogic.promotionbl.Promotion;
+import businesslogic.promotionbl.PromotionType;
 
 public class HotelPromotionDaoImpl implements HotelPromotionDao{
 
 	@Override
-	public List<Promotion> getHotelPromotionObject(int hotelID) {
+	public List<PromotionType> getHotelPromotionObject(int hotelID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean writeHotelPromotionObject(int hotelID, Promotion promotion) {
+	public boolean writeHotelPromotionObject(int hotelID, PromotionType promotion) {
 		// TODO Auto-generated method stub
 		return false;
 	}

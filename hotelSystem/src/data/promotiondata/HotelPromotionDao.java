@@ -2,13 +2,13 @@ package data.promotiondata;
 
 import java.util.List;
 
-import businesslogic.promotionbl.Promotion;
+import businesslogic.promotionbl.PromotionType;
 
 public interface HotelPromotionDao {
 
-	public List<Promotion> getHotelPromotionObject(int hotelID);
+	public List<PromotionType> getHotelPromotionObject(int hotelID);
 	
-	public boolean writeHotelPromotionObject(int hotelID, Promotion promotion);
+	public boolean writeHotelPromotionObject(int hotelID, PromotionType promotion);
 	
 	public boolean deleteHotelPromotionObject(int hotelID, String promotionName) ;
 }

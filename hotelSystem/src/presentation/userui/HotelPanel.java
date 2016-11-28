@@ -1,13 +1,8 @@
 package presentation.userui;
 
-public class HotelPanel {
-	
-	public void getEditHotelPanel(){
-		
-	}
-	
-	public void back(){
-		
-	}
+import javafx.scene.layout.VBox;
 
+public class HotelPanel extends VBox {
+	
+	
 }

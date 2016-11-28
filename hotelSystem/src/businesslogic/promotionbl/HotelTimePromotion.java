@@ -3,9 +3,8 @@ package businesslogic.promotionbl;
 import po.CustomerPO;
 import po.OrderPO;
 
-public class CompanyPromotion implements PromotionType{
+public class HotelTimePromotion implements PromotionType{
 
-	
 	@Override
 	public double getDiscount(OrderPO opo, CustomerPO cpo) {
 		// TODO Auto-generated method stub

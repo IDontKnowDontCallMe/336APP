@@ -4,9 +4,10 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import po.OrderPO;
+import vo.CustomerVO;
 import vo.HotelPromotionVO;
 import vo.LevelVO;
+import vo.OrderVO;
 import vo.WebPromotionVO;
 
 public interface PromotionBLService extends Remote{
@@ -18,7 +19,7 @@ public interface PromotionBLService extends Remote{
 	
 	public boolean updateHotelPromotion(HotelPromotionVO hotelPromotionVO) throws RemoteException;
 	
-	public boolean deleteHotelPromotion(int hotelID, String promotionName) throws RemoteException;
+	public boolean deleteHotelPromotion(HotelPromotionVO vo) throws RemoteException;
 	
 	public List<WebPromotionVO> getWebPromotionList() throws RemoteException;
 	
@@ -26,19 +27,19 @@ public interface PromotionBLService extends Remote{
 	
 	public boolean updateWebPromotion(WebPromotionVO webPromotionVO) throws RemoteException;
 	
-	public boolean deleteWebPromotion(String promotionName) throws RemoteException;
+	public boolean deleteWebPromotion(WebPromotionVO webPromotionVO) throws RemoteException;
 	
 	public boolean setLevelMethod(LevelVO levelVO) throws RemoteException;
 	
 	public LevelVO getLevelMethod() throws RemoteException;
 	
+	public boolean updateLevelInfo(LevelVO levelVO);
 	
-	
-	public int calculateOrder(OrderPO orderPO) throws RemoteException;
+	public int calculateOrder(OrderVO orderVO, CustomerVO customerVO) throws RemoteException;
 	
 	public int calculateLevel(int credit) throws RemoteException;
 
-	boolean updateLevelInfo(LevelVO levelVO);
+	
 	
 
 }
