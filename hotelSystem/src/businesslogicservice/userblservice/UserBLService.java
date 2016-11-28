@@ -29,5 +29,10 @@ public interface UserBLService extends Remote{
 	
 	public boolean updateWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException;
 	
+	public boolean deleteWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException;
+	
+	public boolean updateCreditOfCustomer(int customerID, int delta);
+
+	
 	public String login(int userID, String password) throws RemoteException;
 }
