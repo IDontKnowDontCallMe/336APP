@@ -21,7 +21,7 @@ public class WebPromotionImpl {
 		return false;
 	}
 
-	public boolean deleteWebPromotion(String promotionName) {
+	public boolean deleteWebPromotion(WebPromotionVO webPromotionVO) {
 		// TODO Auto-generated method stub
 		return false;
 	}
