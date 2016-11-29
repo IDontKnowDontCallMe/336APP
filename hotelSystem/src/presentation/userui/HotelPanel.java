@@ -10,10 +10,11 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import vo.CustomerVO;
+import presentation.mainui.TheMainFrame;
 import vo.HotelVO;
 
 public class HotelPanel extends VBox {
@@ -22,6 +23,7 @@ public class HotelPanel extends VBox {
 	private VBox hotelBox;
 	private Text title;
 	private Button addButton;
+	private Button backButton;
 	private HBox titleBox;
 	
 	public HotelPanel() throws RemoteException {
@@ -51,9 +53,12 @@ public class HotelPanel extends VBox {
 
 			}
 		});
-		
+		backButton = new Button("返回");
+		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED	, (event)->{
+			TheMainFrame.backTo();
+		});
 		titleBox = new HBox();
-		titleBox.getChildren().addAll(title, addButton);
+		titleBox.getChildren().addAll(title, addButton, backButton);
 		this.getChildren().addAll(titleBox, listPane);
 	}
 
