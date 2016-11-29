@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 import presentation.customerui.MockCustomerController;
 import vo.CustomerVO;
 
-public class CustomerCell extends GridPane {
+public class CustomerInfoCell extends GridPane {
 
 	CustomerVO customerVO;
 	private int customerID;
@@ -25,7 +25,7 @@ public class CustomerCell extends GridPane {
 	private Button editButton;
 	private DatePicker birthdayDatePicker;
 
-	public CustomerCell(CustomerVO customerVO) {
+	public CustomerInfoCell(CustomerVO customerVO) {
 		super();
 		this.customerVO = customerVO;
 		customerID = customerVO.customerID;

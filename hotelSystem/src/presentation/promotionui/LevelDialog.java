@@ -54,10 +54,6 @@ public class LevelDialog extends Dialog{
 		int maxLevel=controller.getLevelMethod().maxLevel;
 		double discountDistance=controller.getLevelMethod().discountDistance;
 		
-		gridPane = new GridPane();
-		gridPane.setHgap(10);
-		gridPane.setVgap(20);
-		
 		title = new Text("会员等级制度");
 		editButton = new Button("编辑");
 		titleBox = new HBox();
