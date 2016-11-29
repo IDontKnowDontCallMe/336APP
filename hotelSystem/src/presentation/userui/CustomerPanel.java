@@ -36,7 +36,7 @@ public class CustomerPanel extends VBox{
 	public void buildCustomerBox(List<CustomerVO> customerList){
 		customerBox.getChildren().clear();
 		for(CustomerVO vo: customerList){
-			customerBox.getChildren().add(new CustomerCell(vo));
+			customerBox.getChildren().addAll(new CustomerCell(vo));
 		}
 	}
 }
