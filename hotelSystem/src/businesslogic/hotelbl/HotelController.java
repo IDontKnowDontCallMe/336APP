@@ -49,28 +49,41 @@ public class HotelController implements HotelBLService{
 		return null;
 	}
 
-	@Override
-	public HotelVO getHotelInfo(String hotel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void update(HotelPO po) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(HotelPO po) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public List<HotelVO> getBookedHotelList(int customerID) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean updateSimpleHotelInfo(HotelVO hotelVO) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addComment(CommentVO commentVO) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public HotelVO getHotelInfo(int hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean update(HotelVO hotelVO) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	
+	@Override
+	public boolean delete(HotelVO hotelVO) {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

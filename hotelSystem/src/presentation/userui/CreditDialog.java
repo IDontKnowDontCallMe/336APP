@@ -1,4 +1,4 @@
-package presentation.promotionui;
+package presentation.userui;
 
 import businesslogic.customerbl.CustomerController;
 import javafx.scene.control.ButtonType;
@@ -32,10 +32,6 @@ public class CreditDialog extends Dialog {
 		gridPane.setVgap(20);
 
 		int credit = controller.getCustomerInfo(customerID).credit;
-
-		gridPane = new GridPane();
-		gridPane.setHgap(10);
-		gridPane.setVgap(20);
 
 		title = new Text("信用充值");
 		creditTitle = new Text("增加信用额度: ");

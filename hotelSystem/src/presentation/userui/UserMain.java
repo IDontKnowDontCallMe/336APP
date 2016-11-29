@@ -10,8 +10,8 @@ public class UserMain extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-//		VBox vBox = new HotelPanel();
-		VBox vBox = new WebMarketerPanel();
+		VBox vBox = new HotelPanel();
+//		VBox vBox = new WebMarketerPanel();
 //		VBox vBox = new CustomerInfoPanel();
 //		VBox vBox = new CustomerCreditPanel();
 		

@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import presentation.promotionui.CreditDialog;
+import presentation.userui.CreditDialog;
 import vo.CustomerVO;
 
 public class CustomerCreditCell extends GridPane {

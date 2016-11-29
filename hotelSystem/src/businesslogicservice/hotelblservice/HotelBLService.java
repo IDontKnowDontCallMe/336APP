@@ -29,5 +29,11 @@ public interface HotelBLService {
 	public boolean updateSimpleHotelInfo(HotelVO hotelVO);
 	
 	public boolean addComment(CommentVO commentVO);
+
+	public HotelVO getHotelInfo(int hotelID);
+
+	public boolean update(HotelVO hotelVO);
+
+	public boolean delete(HotelVO hotelVO);
 	
 }

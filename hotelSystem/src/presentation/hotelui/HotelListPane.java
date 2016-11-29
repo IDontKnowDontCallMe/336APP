@@ -43,7 +43,7 @@ public class HotelListPane extends ScrollPane{
 			this.add(new Text("¥" + String.valueOf(hotelVO.minPrice) + "起") , 4, 2, 1, 1);
 			this.add(new Text(String.valueOf(hotelVO.address)), 1, 3, 3, 1);
 			
-			produceButton = new Button("下订单");
+			produceButton = new Button("下订单"); 
 			this.add(produceButton, 5, 4, 1, 1);
 			detailedButton = new Button("详情");
 			this.add(detailedButton, 4, 4, 1, 1);
