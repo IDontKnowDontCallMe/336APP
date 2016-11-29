@@ -44,4 +44,8 @@ public class UserController {
 	public String login(int userID, String password) throws RemoteException {
 		return null;
 	}
+
+	public WebMarketerVO getWebMarketerInfo(int WebMarketerID) {
+		return null;
+	}
 }

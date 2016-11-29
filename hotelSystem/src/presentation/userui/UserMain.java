@@ -11,9 +11,9 @@ public class UserMain extends Application{
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
 //		VBox vBox = new HotelPanel();
-//		VBox vBox = new WebMarketerPanel();
+		VBox vBox = new WebMarketerPanel();
 //		VBox vBox = new CustomerInfoPanel();
-		VBox vBox = new CustomerCreditPanel();
+//		VBox vBox = new CustomerCreditPanel();
 		
 		stackPane.getChildren().add(vBox);
 		primaryStage.setScene(scene);

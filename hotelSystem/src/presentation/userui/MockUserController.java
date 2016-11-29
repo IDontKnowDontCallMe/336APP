@@ -111,6 +111,19 @@ public class MockUserController extends UserController {
 	}
 
 	@Override
+	public WebMarketerVO getWebMarketerInfo(int WebMarketerID) {
+		WebMarketerVO resultVO = new WebMarketerVO(0, "", "");
+		for (WebMarketerVO vo : webMarketerList) {
+			if (vo.ID == WebMarketerID) {
+				resultVO = vo;
+				break;
+			}
+		}
+		return resultVO;
+
+	}
+
+	@Override
 	public String login(int userID, String password) throws RemoteException {
 		return null;
 	}
