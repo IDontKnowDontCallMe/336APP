@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import presentation.mainui.TheMainFrame;
 import vo.WebPromotionVO;
 
 public class WebPromotionPanel extends VBox{
@@ -18,6 +19,7 @@ public class WebPromotionPanel extends VBox{
 	private VBox webPromotionBox;
 	private HBox addBox;
 	private Button addButton;
+	private Button backButton;
 	private Text title;
 	
 	public WebPromotionPanel(){
@@ -36,10 +38,14 @@ public class WebPromotionPanel extends VBox{
 			webPromotionAddDialog.show();
 		});
 		
+		backButton = new Button("返回");
+		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED	, (event)->{
+			TheMainFrame.backTo();
+		});
 		addBox = new HBox();
 		addBox.setSpacing(10);
 		addBox.setPrefWidth(500);
-		addBox.getChildren().addAll(title, addButton);
+		addBox.getChildren().addAll(title, addButton, backButton);
 		this.getChildren().addAll(addBox,listPane);
 	}
 	

@@ -37,6 +37,13 @@ public class LoginPane extends GridPane {
 		webManagerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.jumpTo(new WebManagerMainPane());
 		});
+
+		// WebMarketer
+		Button webMarketerButton = new Button("网站营销人员快捷入口(用于测试)");
+		this.add(webMarketerButton, 3, 4, 1, 1);
+		webMarketerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			TheMainFrame.jumpTo(new WebMarketerMainPane());
+		});
 	}
 
 }
