@@ -12,10 +12,14 @@ public interface OrderDataService {
 	
 	public List<OrderPO> getHotelOrder(int hotelID);
 	
+	public List<OrderPO> getAbnormalOrdersOfToday();
+	
 	//public void changeOrderState(String orderID, String state);
 	
-	public boolean updateOrderState(int orderID, String orderState);
+	public boolean updateOrder(OrderPO orderPO);
 	
 	public boolean insertOrder(OrderPO po);
+	
+	public int getNumOfAllOrders();
 
 }

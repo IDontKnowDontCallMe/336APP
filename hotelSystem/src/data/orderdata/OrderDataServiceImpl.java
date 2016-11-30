@@ -35,7 +35,7 @@ public class OrderDataServiceImpl implements OrderDataService{
 	}
 
 	@Override
-	public boolean updateOrderState(int orderID,String orderState) {
+	public boolean updateOrder(OrderPO orderPO) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -44,6 +44,18 @@ public class OrderDataServiceImpl implements OrderDataService{
 	public boolean insertOrder(OrderPO po) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<OrderPO> getAbnormalOrdersOfToday() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getNumOfAllOrders() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 
