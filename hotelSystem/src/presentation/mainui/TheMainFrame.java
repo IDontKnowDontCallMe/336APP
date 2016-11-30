@@ -31,7 +31,8 @@ public class TheMainFrame extends Application{
 		parentStack = new Stack<Parent>();
 
 		primaryStage.setScene(scene);
-        scene.getStylesheets().add( getClass().getResource("scrollbar.css") .toExternalForm());
+       
+		//scene.getStylesheets().add( getClass().getResource("scrollbar.css") .toExternalForm());
 
 		primaryStage.show();
 	}
