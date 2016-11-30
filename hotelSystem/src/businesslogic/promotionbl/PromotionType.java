@@ -1,8 +1,9 @@
 package businesslogic.promotionbl;
 
-import po.OrderPO;
-import po.CustomerPO;
+import vo.OrderVO;
+import vo.CustomerVO;
 
 public interface PromotionType {
-	public double getDiscount(OrderPO opo, CustomerPO cpo);
+	public double getDiscount(OrderVO ovo, CustomerVO cvo);
+	
 }

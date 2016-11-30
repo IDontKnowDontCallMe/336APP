@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import businesslogic.hotelbl.HotelController;
-import po.HotelPO;
 import vo.AreaVO;
 import vo.CommentVO;
 import vo.HotelVO;
@@ -19,8 +18,10 @@ public class MockHotelController extends HotelController{
 	private static MockHotelController instance;
 	
 	private List<HotelVO> hotelList;
+
+	private HotelVO hotelVO;
 	
-	private MockHotelController() {
+	public MockHotelController() {
 		// TODO Auto-generated constructor stub
 		hotelList = new ArrayList<HotelVO>();
 		HotelVO vo1 = new HotelVO(1010, "南大宿舍1", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,"未预定过");
@@ -144,21 +145,26 @@ public class MockHotelController extends HotelController{
 	}
 
 	@Override
-	public HotelVO getHotelInfo(String hotel) {
-		// TODO Auto-generated method stub
-		return null;
+	public HotelVO getHotelInfo(int hotelID) {
+		HotelVO resultVO = new HotelVO(0, "", "", "", "", "", "", 0, 0, "", "", 0,"0");
+		for (HotelVO vo : hotelList) {
+			if (vo.hotelID == hotelID) {
+				resultVO = vo;
+				break;
+			}
+		}
+		return resultVO;
 	}
 
 	@Override
-	public void update(HotelPO po) {
-		// TODO Auto-generated method stub
-		
+	public boolean update(HotelVO hotelVO) {
+		return true;
 	}
 
 	@Override
-	public void delete(HotelPO po) {
+	public boolean delete(HotelVO vo) {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 	
