@@ -3,12 +3,13 @@ package businesslogic.userbl;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import businesslogicservice.userblservice.UserBLService;
 import po.HotelPO;
 import vo.CustomerVO;
 import vo.HotelVO;
 import vo.WebMarketerVO;
 
-public class UserController {
+public class UserController implements UserBLService{
 	public List<CustomerVO> getCustomerList() throws RemoteException {
 		return null;
 		}
@@ -47,5 +48,17 @@ public class UserController {
 
 	public WebMarketerVO getWebMarketerInfo(int WebMarketerID) {
 		return null;
+	}
+
+	@Override
+	public boolean deleteWebMarketer(WebMarketerVO webMarketerVO) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateCreditOfCustomer(int customerID, int delta) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
