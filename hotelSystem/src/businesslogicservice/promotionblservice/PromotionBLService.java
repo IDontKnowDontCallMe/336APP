@@ -8,7 +8,6 @@ import vo.CalculationConditionVO;
 import vo.CustomerVO;
 import vo.HotelPromotionVO;
 import vo.LevelVO;
-import vo.OrderVO;
 import vo.WebPromotionVO;
 
 public interface PromotionBLService extends Remote{
@@ -39,9 +38,6 @@ public interface PromotionBLService extends Remote{
 	public int calculateOrder(CalculationConditionVO calculationConditionVO, CustomerVO customerVO) throws RemoteException;
 	
 	public int calculateLevel(int credit) throws RemoteException;
-
-	public int calculateOrder(CalculationConditionVO vo, CustomerVO customerVO) throws RemoteException;
-	
 	
 
 }

@@ -1,5 +1,6 @@
 package businesslogic.promotionbl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data.factory.DataFactory;
@@ -10,9 +11,17 @@ import vo.WebPromotionVO;
 
 public class WebPromotionImpl {
 
+	private List<WebPromotionPO> list;
+
 	public List<WebPromotionVO> getWebPromotionList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<WebPromotionVO> result = new ArrayList<WebPromotionVO>();
+
+		for (WebPromotionPO po : list) {
+			WebPromotionVO vo = new WebPromotionVO(po.getPromotionType(), po.getStartTime(), po.getEndTime(),
+					po.getBusinessCircleName(), po.getDiscount());
+			result.add(vo);
+		}
+		return result;
 	}
 
 	public boolean addWebPromotion(WebPromotionVO vo) {
