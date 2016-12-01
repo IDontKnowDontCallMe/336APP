@@ -1,9 +1,8 @@
 package businesslogic.promotionbl;
 
-import vo.OrderVO;
+import vo.CalculationConditionVO;
 import vo.CustomerVO;
 
 public interface PromotionType {
-	public double getDiscount(OrderVO ovo, CustomerVO cvo);
-	
+	public int calculateOrder(CalculationConditionVO calculationVO, CustomerVO customerVO);
 }

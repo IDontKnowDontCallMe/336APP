@@ -4,12 +4,10 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import businesslogicservice.promotionblservice.PromotionBLService;
-import po.CustomerPO;
-import po.OrderPO;
+import vo.CalculationConditionVO;
 import vo.CustomerVO;
 import vo.HotelPromotionVO;
 import vo.LevelVO;
-import vo.OrderVO;
 import vo.WebPromotionVO;
 
 public class PromotionController implements PromotionBLService{
@@ -90,7 +88,7 @@ public class PromotionController implements PromotionBLService{
 	}
 
 	@Override
-	public int calculateOrder(OrderVO orderVO, CustomerVO customerVO) throws RemoteException {
+	public int calculateOrder(CalculationConditionVO calculationConditionVO, CustomerVO customerVO) throws RemoteException {
 		// TODO Auto-generated method stub
 		return 0;
 	}

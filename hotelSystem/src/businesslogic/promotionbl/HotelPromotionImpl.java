@@ -1,31 +1,58 @@
 package businesslogic.promotionbl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import data.factory.DataFactory;
+import po.HotelPromotionPO;
+import vo.CalculationConditionVO;
+import vo.CustomerVO;
 import vo.HotelPromotionVO;
 
 public class HotelPromotionImpl {
 
 	public List<HotelPromotionVO> getHotelPromotionList(int hotelID) {
+		List<HotelPromotionVO> result = new ArrayList<HotelPromotionVO>();
 		// TODO Auto-generated method stub
-		return null;
+
+		return result;
 	}
 
 	public boolean addHotelPromotion(HotelPromotionVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		HotelPromotionPO po = new HotelPromotionPO(vo.hotelID, vo.promotionType, vo.startTime, vo.endTime,
+				vo.companyName, vo.minNum, vo.discount);
+		DataFactory.getPromotionDataService().writeHotelPromotionObject(vo.hotelID, po);
+		return true;
 	}
 
 	public boolean updateHotelPromotion(HotelPromotionVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		DataFactory.getPromotionDataService().deleteHotelPromotionObject(vo.hotelID, vo.promotionType);
+		HotelPromotionPO po = new HotelPromotionPO(vo.hotelID, vo.promotionType, vo.startTime, vo.endTime,
+				vo.companyName, vo.minNum, vo.discount);
+		DataFactory.getPromotionDataService().writeHotelPromotionObject(vo.hotelID, po);
+		return true;
 	}
 
-	public boolean deleteHotelPromotion(HotelPromotionVO hotelPromotionVO) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteHotelPromotion(HotelPromotionVO vo) {
+		DataFactory.getPromotionDataService().deleteHotelPromotionObject(vo.hotelID, vo.promotionType);
+		return true;
 	}
-	
-	
-	
+
+	public int calculateOrder(CalculationConditionVO calculationVO, CustomerVO customerVO) {
+
+		RoomPromotion roomPromotion = new RoomPromotion();
+		int roomPrice = roomPromotion.calculateOrder(calculationVO, customerVO);
+		HotelTimePromotion hotelTimePromotion = new HotelTimePromotion();
+		int hotelTimePrice = hotelTimePromotion.calculateOrder(calculationVO, customerVO);
+		BirthdayPromotion birthdayPromotion = new BirthdayPromotion();
+		int birthdayPrice = birthdayPromotion.calculateOrder(calculationVO, customerVO);
+		CompanyPromotion companyPromotion = new CompanyPromotion();
+		int companyPrice = companyPromotion.calculateOrder(calculationVO, customerVO);
+
+		int resultPrice = (roomPrice < hotelTimePrice) ? roomPrice : hotelTimePrice;
+		resultPrice = (resultPrice < birthdayPrice) ? resultPrice : birthdayPrice;
+		resultPrice = (resultPrice < companyPrice) ? resultPrice : companyPrice;
+		return resultPrice;
+	}
+
 }

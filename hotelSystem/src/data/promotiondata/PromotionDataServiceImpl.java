@@ -5,6 +5,8 @@ import java.util.List;
 import businesslogic.promotionbl.LevelMethod;
 import businesslogic.promotionbl.PromotionType;
 import dataservice.promotiondataservice.PromotionDataService;
+import po.HotelPromotionPO;
+import po.WebPromotionPO;
 
 public class PromotionDataServiceImpl implements PromotionDataService{
 	
@@ -24,13 +26,13 @@ public class PromotionDataServiceImpl implements PromotionDataService{
 	}
 
 	@Override
-	public boolean writeWebPromotionObject(PromotionType promotion) {
+	public boolean writeWebPromotionObject(WebPromotionPO po) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteWebPromotionObject(String promotionName) {
+	public boolean deleteWebPromotionObject(String promotionType) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -54,13 +56,13 @@ public class PromotionDataServiceImpl implements PromotionDataService{
 	}
 
 	@Override
-	public boolean writeHotelPromotionObject(int hotelID, PromotionType promotion) {
+	public boolean writeHotelPromotionObject(int hotelID, HotelPromotionPO po) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteHotelPromotionObject(int hotelID, String promotionName) {
+	public boolean deleteHotelPromotionObject(int hotelID, String promotionType) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -1,5 +1,12 @@
 package businesslogic.promotionbl;
 
-public class WebTimePromotion {
+import vo.CalculationConditionVO;
+import vo.CustomerVO;
 
+public class WebTimePromotion implements PromotionType {
+	@Override
+	public int calculateOrder(CalculationConditionVO calculationVO, CustomerVO customerVO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
