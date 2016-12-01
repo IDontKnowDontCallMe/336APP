@@ -23,7 +23,7 @@ public class CustomerBLImpl {
 			CustomerPO customerPO = new CustomerPO(customerVO.customerName, customerVO.phoneNumber, customerVO.customerID, customerVO.birthday, customerVO.companyName, customerVO.credit, customerVO.level, customerVO.isBirthVIP, customerVO.isCompanyVIP);
 			return DataFactory.getCustomerDataService().updateInfo(customerPO);
 		}else{
-			return false;
+			return true;
 		}
 	}
 	

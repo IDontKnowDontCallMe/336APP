@@ -20,31 +20,31 @@ public class CustomerDataServiceImpl implements CustomerDataService{
 	@Override
 	public CustomerPO getInfo(int customerID) {
 		// TODO Auto-generated method stub
-		return null;
+		return customerInfoDao.getInfo(customerID);
 	}
 
 	@Override
 	public boolean updateInfo(CustomerPO po) {
 		// TODO Auto-generated method stub
-		return false;
+		return customerInfoDao.updateInfo(po);
 	}
 
 	@Override
 	public boolean setBirthVIP(int customerID, LocalDate birthday) {
 		// TODO Auto-generated method stub
-		return false;
+		return customerInfoDao.setBirthVIP(customerID, birthday);
 	}
 
 	@Override
 	public boolean setCompanyVIP(int customerID, String companyName) {
 		// TODO Auto-generated method stub
-		return false;
+		return customerInfoDao.setCompanyVIP(customerID, companyName);
 	}
 
 	@Override
 	public List<CreditPO> getCreditList(int customerID) {
 		// TODO Auto-generated method stub
-		return null;
+		return creditDao.getCreditList(customerID);
 	}
 
 

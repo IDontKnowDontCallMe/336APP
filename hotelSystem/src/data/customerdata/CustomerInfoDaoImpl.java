@@ -1,5 +1,6 @@
 package data.customerdata;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import po.CustomerPO;
@@ -21,7 +22,7 @@ public class CustomerInfoDaoImpl implements CustomerInfoDao{
 	}
 
 	@Override
-	public boolean setBirthVIP(int customerID, Date birthday) {
+	public boolean setBirthVIP(int customerID, LocalDate birthday) {
 		// TODO Auto-generated method stub
 		return false;
 	}

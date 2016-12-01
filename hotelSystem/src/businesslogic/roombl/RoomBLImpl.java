@@ -45,7 +45,7 @@ public class RoomBLImpl {
 	
 	public RoomVO getRoomType(int roomID){
 		RoomVO roomVO;
-		return null;
+		return DataFactory.getRoomDataService().getRoomType(roomID);
 		
 	};
 }
