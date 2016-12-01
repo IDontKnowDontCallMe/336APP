@@ -11,7 +11,8 @@ public class PromotionBLImpl {
 
 	private HotelPromotionImpl hotelPromotionImpl;
 	private WebPromotionImpl webPromotionImpl;
-
+	private LevelImpl levelImpl;
+	
 	public List<HotelPromotionVO> getHotelPromotionList(int hotelID) {
 		return hotelPromotionImpl.getHotelPromotionList(hotelID);
 	}
@@ -51,4 +52,10 @@ public class PromotionBLImpl {
 		return (originalPrice > 0) ? originalPrice - hotelPrice - webPrice : 0;
 	}
 
+	public int calculateLevel(int credit){
+		LevelMethodImpl levelMethodImpl = new LevelMethodImpl(credit);
+		levelImpl.setCalculateLevel(levelMethodImpl);
+		
+		return levelImpl.getCalculateLevel(credit);
+	}
 }

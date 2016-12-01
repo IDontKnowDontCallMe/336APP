@@ -24,7 +24,7 @@ public class CompanyPromotion implements PromotionType {
 		}
 		int days = (int) (calculationVO.endDate.toEpochDay() - calculationVO.startDate.toEpochDay());
 		int result = (int) (calculationVO.roomNum * calculationVO.roomPrice * discount * days);
-		System.out.print("按照合作企业促销策略计算，折扣为" + discount + ",总价为" + result);
+		System.out.println("按照合作企业促销策略计算，折扣为" + discount + ",总价为" + result);
 
 		return result;
 	}

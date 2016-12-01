@@ -24,7 +24,7 @@ public class RoomPromotion implements PromotionType {
 		}
 		int days = (int) (calculationVO.endDate.toEpochDay() - calculationVO.startDate.toEpochDay());
 		int result = (int) (calculationVO.roomNum * calculationVO.roomPrice * discount * days);
-		System.out.print("按照预定多间促销策略计算，折扣为" + discount + ",总价为" + result);
+		System.out.println("按照预定多间促销策略计算，折扣为" + discount + ",总价为" + result);
 
 		return result;
 	}

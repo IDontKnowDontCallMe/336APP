@@ -54,7 +54,7 @@ public class HotelTimePromotion implements PromotionType {
 		int days = (int) (calculationVO.endDate.toEpochDay() - calculationVO.startDate.toEpochDay());
 		int result = (int) (calculationVO.roomNum * calculationVO.roomPrice * discount * day
 				+ calculationVO.roomNum * calculationVO.roomPrice * discount * (days - day));
-		System.out.print("按照特定时间促销策略计算，折扣为" + discount + ",总价为" + result);
+		System.out.println("按照特定时间促销策略计算，折扣为" + discount + ",总价为" + result);
 
 		return result;
 	}

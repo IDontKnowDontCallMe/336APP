@@ -27,7 +27,7 @@ public class BirthdayPromotion implements PromotionType {
 		int days = (int) (calculationVO.endDate.toEpochDay() - calculationVO.startDate.toEpochDay());
 		int result = (int) (calculationVO.roomNum * calculationVO.roomPrice * discount
 				+ calculationVO.roomNum * calculationVO.roomPrice * discount * (days - 1));
-		System.out.print("按照客户生日促销策略计算，折扣为" + discount + ",总价为" + result);
+		System.out.println("按照客户生日促销策略计算，折扣为" + discount + ",总价为" + result);
 
 		return result;
 	}
