@@ -25,11 +25,11 @@ public class HotelPromotionPO {
 		this.discount = discount;
 	}
 
-	public void setHotelName(int hotelID) {
+	public void setHoteID(int hotelID) {
 		this.hotelID = hotelID;
 	}
 
-	public int getHotelName() {
+	public int getHotelID() {
 		return this.hotelID;
 	}
 

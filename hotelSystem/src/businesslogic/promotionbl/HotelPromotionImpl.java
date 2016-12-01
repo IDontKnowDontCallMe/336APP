@@ -11,10 +11,16 @@ import vo.HotelPromotionVO;
 
 public class HotelPromotionImpl {
 
+	private List<HotelPromotionPO> list;
+
 	public List<HotelPromotionVO> getHotelPromotionList(int hotelID) {
 		List<HotelPromotionVO> result = new ArrayList<HotelPromotionVO>();
-		// TODO Auto-generated method stub
 
+		for (HotelPromotionPO po : list) {
+			HotelPromotionVO vo = new HotelPromotionVO(po.getHotelID(), po.getPromotionType(), po.getStartTime(),
+					po.getEndTime(), po.getCompanyName(), po.getMinNum(), po.getDiscount());
+			result.add(vo);
+		}
 		return result;
 	}
 
