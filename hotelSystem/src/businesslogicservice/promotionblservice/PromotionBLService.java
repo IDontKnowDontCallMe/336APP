@@ -4,6 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import vo.CalculationConditionVO;
 import vo.CustomerVO;
 import vo.HotelPromotionVO;
 import vo.LevelVO;
@@ -35,7 +36,7 @@ public interface PromotionBLService extends Remote{
 	
 	public boolean updateLevelInfo(LevelVO levelVO);
 	
-	public int calculateOrder(OrderVO orderVO, CustomerVO customerVO) throws RemoteException;
+	public int calculateOrder(CalculationConditionVO calculationConditionVO, CustomerVO customerVO) throws RemoteException;
 	
 	public int calculateLevel(int credit) throws RemoteException;
 

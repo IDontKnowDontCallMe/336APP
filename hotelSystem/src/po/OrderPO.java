@@ -1,42 +1,55 @@
 package po;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class OrderPO {
 	
 	private int orderID;
 	private String customerName;
 	private int customerID;
-	private Date producingTime;
+	private LocalDateTime producingDateTime;
 	private String hotelName;
 	private int hotelD;
 	private String roomName;
 	private int roomNum;
 	private boolean hasChildren;
 	private int peopleNum;
-	private Date checkInTime;
-	private Date checkOutTime;
+	private LocalDate checkInDate;
+	private LocalTime latestArrivingTime;
+	private LocalDate checkOutDate;
 	private int total;
 	private String orderState;
-	private Date revokingTime;
+	private LocalDateTime revokingDateTime;
+	private LocalDateTime executingDateTime;
+	private LocalDateTime leavingDateTime;
 	
-	public OrderPO(int orderID, String customerName, int customerID, Date producingTime, String hotelName, int hotelID,
-			       String roomName, int roomNum, boolean hasChildren, int peopleNum, Date checkInTime, Date checkOutTime, 
-			       int total, String orderState, Date revokingTime){
+	public OrderPO(int orderID, String customerName, int customerID, LocalDateTime producingDateTime, String hotelName, int hotelID,
+			       String roomName, int roomNum, boolean hasChildren, int peopleNum, LocalDate checkInDate, LocalTime lastestArrivingTime, 
+			       LocalDate checkOutDate, int total, String orderState, LocalDateTime revokingDateTime, LocalDateTime executingDateTime,
+			       LocalDateTime leavingDateTime){
 		this.orderID = orderID;
 		this.customerName = customerName;
 		this.customerID = customerID;
-		this.producingTime = producingTime;
+		this.producingDateTime = producingDateTime;
 		this.hotelName = hotelName;
+		this.hotelD = hotelID;
 		this.roomName = roomName;
+		this.roomNum = roomNum;
 		this.hasChildren = hasChildren;
 		this.peopleNum = peopleNum;
-		this.checkInTime = checkInTime;
-		this.checkOutTime = checkOutTime;
+		this.checkInDate = checkInDate;
+		this.latestArrivingTime = lastestArrivingTime;
+		this.checkOutDate = checkOutDate;
 		this.total = total;
 		this.orderState = orderState;
-		this.roomNum = roomNum;
-		this.revokingTime = revokingTime;
+		this.revokingDateTime = revokingDateTime;
+		this.executingDateTime = executingDateTime;
+		this.leavingDateTime = leavingDateTime;
 	}
 	
 	public void setOrderID(int orderID){
@@ -63,12 +76,12 @@ public class OrderPO {
 		return this.customerID;
 	}
 	
-	public void setProducingTime(Date producingTime){
-		this.producingTime = producingTime;
+	public void setProducingDateTime(LocalDateTime producingDateTime){
+		this.producingDateTime = producingDateTime;
 	}
 	
-	public Date getProducingTime(){
-		return this.producingTime;
+	public LocalDateTime getProducingDateTime(){
+		return this.producingDateTime;
 	}
 	
 	public void setHotelName(String hotelName){
@@ -119,20 +132,28 @@ public class OrderPO {
 		return this.peopleNum;
 	}
 	
-	public void setCheckInTime(Date checkInTime){
-		this.checkInTime = checkInTime;
+	public void setCheckInDate(LocalDate checkInDate){
+		this.checkInDate = checkInDate;
 	}
 	
-	public Date getCheckInTime(){
-		return this.checkInTime;
+	public LocalDate getCheckInDate(){
+		return this.checkInDate;
 	}
 	
-	public void setCheckOutTime(Date checkOutTime){
-		this.checkOutTime = checkOutTime;
+	public void setLatestArrivingTime(LocalTime latestArringTime){
+		this.latestArrivingTime = latestArringTime;
 	}
 	
-	public Date getCheckOutTime(){
-		return this.checkOutTime;
+	public LocalTime getLatestArrivingTime(){
+		return this.latestArrivingTime;
+	}
+	
+	public void setCheckOutDate(LocalDate checkOutDate){
+		this.checkOutDate = checkOutDate;
+	}
+	
+	public LocalDate getCheckOutDate(){
+		return this.checkOutDate;
 	}
 	
 	public void setTotal(int total){
@@ -151,12 +172,28 @@ public class OrderPO {
 		return this.orderState;
 	}
 	
-	public void setRevokingTime(Date revokingTime){
-		this.revokingTime = revokingTime;
+	public void setRevokingDateTime(LocalDateTime revokingDateTime){
+		this.revokingDateTime = revokingDateTime;
 	}
 	
-	public Date getRevokingTime(){
-		return this.revokingTime;
+	public LocalDateTime getRevokingDateTime(){
+		return this.revokingDateTime;
+	}
+	
+	public void setExecutingDateTime(LocalDateTime executingDateTime){
+		this.executingDateTime = executingDateTime;
+	}
+	
+	public LocalDateTime getExecutingDateTime(){
+		return this.executingDateTime;
+	}
+	
+	public void setLeavingDateTime(LocalDateTime leavingDateTime){
+		this.leavingDateTime = leavingDateTime;
+	}
+	
+	public LocalDateTime getLeavingDateTime(){
+		return this.leavingDateTime;
 	}
 
 }
