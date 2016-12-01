@@ -16,9 +16,9 @@ public interface CustomerBLService extends Remote{
 	
 	public List<CreditVO> getCreditList(int customerID);
 	
-	public boolean registerBirthVIP(LocalDate birthday);
+	public boolean registerBirthVIP(int customerID, LocalDate birthday);
 	
-	public boolean registerCompanyVIP(String companyName);
+	public boolean registerCompanyVIP(int customerID, String companyName);
 	
 	
 	

@@ -1,9 +1,7 @@
 package dataservice.customerdataservice;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
-
-import data.factory.DataFactory;
 import po.CreditPO;
 import po.CustomerPO;
 
@@ -13,7 +11,7 @@ public interface CustomerDataService {
 	
 	public boolean updateInfo(CustomerPO po);
 	
-	public boolean setBirthVIP(int customerID, Date birthday);
+	public boolean setBirthVIP(int customerID, LocalDate birthday);
 	
 	public boolean setCompanyVIP(int customerID, String companyName);
 	

@@ -1,14 +1,16 @@
 package po;
 
+import java.time.LocalDateTime;
+
 public class CreditPO {
 	
-	private String time;
+	private LocalDateTime time;
 	private String orderID;
 	private String actionType;
 	private int delta;
 	private int result;
 	
-	public CreditPO(String time, String orderID, String actionType, int delta, int result){
+	public CreditPO(LocalDateTime time, String orderID, String actionType, int delta, int result){
 		this.time = time;
 		this.orderID = orderID;
 		this.actionType = actionType;
@@ -17,11 +19,11 @@ public class CreditPO {
 		
 	}
 	
-	public void setTime(String time){
+	public void setTime(LocalDateTime time){
 		this.time = time;
 	}
 	
-	public String getTime(){
+	public LocalDateTime getTime(){
 		return this.time;
 	}
 	

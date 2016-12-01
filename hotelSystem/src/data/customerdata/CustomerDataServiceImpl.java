@@ -1,8 +1,7 @@
 package data.customerdata;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
-
 import dataservice.customerdataservice.CustomerDataService;
 import po.CreditPO;
 import po.CustomerPO;
@@ -31,7 +30,7 @@ public class CustomerDataServiceImpl implements CustomerDataService{
 	}
 
 	@Override
-	public boolean setBirthVIP(int customerID, Date birthday) {
+	public boolean setBirthVIP(int customerID, LocalDate birthday) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -47,5 +46,6 @@ public class CustomerDataServiceImpl implements CustomerDataService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
