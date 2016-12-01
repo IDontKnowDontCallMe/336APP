@@ -2,59 +2,53 @@ package businesslogic.promotionbl;
 
 import java.util.List;
 
-import po.OrderPO;
+import vo.CalculationConditionVO;
+import vo.CustomerVO;
 import vo.HotelPromotionVO;
 import vo.WebPromotionVO;
 
 public class PromotionBLImpl {
-	
+
 	private HotelPromotionImpl hotelPromotionImpl;
 	private WebPromotionImpl webPromotionImpl;
-	
-	
+
 	public List<HotelPromotionVO> getHotelPromotionList(int hotelID) {
-		// TODO Auto-generated method stub
-		return null;
+		return hotelPromotionImpl.getHotelPromotionList(hotelID);
 	}
 
 	public boolean addHotelPromotion(HotelPromotionVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		return hotelPromotionImpl.addHotelPromotion(vo);
 	}
 
 	public boolean updateHotelPromotion(HotelPromotionVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		return hotelPromotionImpl.updateHotelPromotion(vo);
 	}
 
-	public boolean deleteHotelPromotion(int hotelID, String promotionName) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteHotelPromotion(HotelPromotionVO vo) {
+		return hotelPromotionImpl.deleteHotelPromotion(vo);
 	}
 
 	public List<WebPromotionVO> getWebPromotionList() {
-		// TODO Auto-generated method stub
-		return null;
+		return webPromotionImpl.getWebPromotionList();
 	}
 
 	public boolean addWebPromotion(WebPromotionVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		return webPromotionImpl.addWebPromotion(vo);
 	}
 
 	public boolean updateWebPromotion(WebPromotionVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		return webPromotionImpl.updateWebPromotion(vo);
 	}
 
-	public boolean deleteWebPromotion(String promotionName) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteWebPromotion(WebPromotionVO vo) {
+		return webPromotionImpl.deleteWebPromotion(vo);
 	}
 
-	public int calculateOrder(OrderPO po) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int calculateOrder(CalculationConditionVO calculationVO, CustomerVO customerVO) {
+		int originalPrice = calculationVO.roomNum * calculationVO.roomPrice;
+		int hotelPrice = originalPrice - hotelPromotionImpl.calculateOrder(calculationVO, customerVO);
+		int webPrice = originalPrice - webPromotionImpl.calculateOrder(calculationVO, customerVO);
+		return (originalPrice > 0) ? originalPrice - hotelPrice - webPrice : 0;
 	}
 
 }
