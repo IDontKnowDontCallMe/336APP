@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import presentation.customerui.CustomerInfoPane;
+import presentation.hotelui.AreaInputPane;
 import presentation.hotelui.BookedHotelPane;
 import presentation.hotelui.HotelSearchPane;
 import presentation.orderui.CustomerOrdersPane;
@@ -29,7 +30,7 @@ public class CustomerMainPane extends VBox{
 		this.getChildren().addAll(searchButton, orderListButton, hotelListButton, infoButton, logoutButton);
 		
 		searchButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event)->{
-			TheMainFrame.jumpTo(new HotelSearchPane(new AreaVO("南京","新街口"), customerID));
+			TheMainFrame.jumpTo(new AreaInputPane(customerID));
 		});
 		
 		orderListButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event)->{

@@ -7,10 +7,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class HotelMain extends Application {
+	
+	private int customerID;
+	
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-		VBox vBox = new AreaInputPane();
+		VBox vBox = new AreaInputPane(customerID);
 
 		stackPane.getChildren().add(vBox);
 		primaryStage.setScene(scene);

@@ -6,22 +6,25 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import presentation.mainui.TheMainFrame;
 import vo.AreaVO;
 
 public class AreaInputPane extends VBox {
 
 	final int COLUMN_COUNT = 10;
 
-	Text cityText;
-	Text businessCircleText;
-	TextField cityTextField;
-	TextField businessCircleTextField;
+	private Text cityText;
+	private Text businessCircleText;
+	private TextField cityTextField;
+	private TextField businessCircleTextField;
 
-	Button confirmButton;
-	GridPane gridPane;
+	private Button confirmButton;
+	private Button backButton;
+	private GridPane gridPane;
 
-	public AreaInputPane() {
+	public AreaInputPane(int customerID) {
 		super();
+
 		gridPane = new GridPane();
 		gridPane.setHgap(10);
 		gridPane.setVgap(20);
@@ -40,19 +43,22 @@ public class AreaInputPane extends VBox {
 		gridPane.add(businessCircleTextField, 1, 1, 1, 1);
 
 		confirmButton = new Button("开始搜索");
-		gridPane.add(confirmButton, 1, 2, 1, 1);
+		gridPane.add(confirmButton, 0, 2, 1, 1);
 
-		confirmButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+		confirmButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			String city = cityTextField.getText();
 			String businessCircle = businessCircleTextField.getText();
 			System.out.println("city is " + city);
-			System.out.println("business cicle is " + businessCircle);
-
-			AreaVO vo = new AreaVO(city, businessCircle);
-			HotelSearchPane hotelSearchPane = new HotelSearchPane(vo, 1);//customerID
-
+			System.out.println("business circle is " + businessCircle);
+			TheMainFrame.jumpTo(new HotelSearchPane(new AreaVO(city, businessCircle), customerID));
 		});
 
+		backButton = new Button("返回");
+		gridPane.add(backButton, 1, 2, 1, 1);
+
+		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			TheMainFrame.backTo();
+		});
 		this.getChildren().add(gridPane);
 	}
 
