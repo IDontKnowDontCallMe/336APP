@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -19,7 +20,7 @@ public class HotelPromotionAddDialog extends Dialog {
 
 	HotelPromotionVO hotelPromotionVO;
 	Text hotelPromotionTypeChoiceText;
-	final ChoiceBox hotelPromotionTypeChoiceBox;
+	ChoiceBox hotelPromotionTypeChoiceBox;
 
 	final int COLUMN_COUNT = 10;
 	final int YEAR_COLUMN_COUNT = 3;
@@ -56,9 +57,9 @@ public class HotelPromotionAddDialog extends Dialog {
 		chooseBox.setSpacing(BOX_SPACING);
 		chooseBox.getChildren().clear();
 
-		hotelPromotionTypeChoiceText = new Text("请选择新增酒店促销策略类型: ");
-		hotelPromotionTypeChoiceBox = new ChoiceBox(
-				FXCollections.observableArrayList("预订多间促销策略", "特定时间促销策略", "合作企业促销策略", "客户生日促销策略"));
+		ObservableList<String> hotelPromotionTypeList = FXCollections.observableArrayList("预订多间促销策略", "特定时间促销策略",
+				"合作企业促销策略", "客户生日促销策略");
+		ChoiceBox<String> hotelPromotionTypeChoiceBox = new ChoiceBox<>(hotelPromotionTypeList);
 
 		promotionBox = new VBox();
 		promotionBox.setSpacing(BOX_SPACING);
@@ -123,8 +124,8 @@ public class HotelPromotionAddDialog extends Dialog {
 					if (discountTextField.getText() != null) {
 						discount = Double.valueOf(discountTextField.getText());
 					}
-					return new HotelPromotionVO(hotelID, hotelPromotionTypeChoiceBox.getAccessibleText(), startDate,
-							endDate, companyName, minNum, discount);// 第二项不知道对不对
+					return new HotelPromotionVO(hotelID, hotelPromotionTypeChoiceBox.getValue(), startDate, endDate,
+							companyName, minNum, discount);// 第二项不知道对不对
 				} else {
 					return null;
 				}

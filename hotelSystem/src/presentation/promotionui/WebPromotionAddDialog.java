@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -19,7 +20,7 @@ public class WebPromotionAddDialog extends Dialog {
 
 	WebPromotionVO webPromotionVO;
 	Text webPromotionTypeChoiceText;
-	final ChoiceBox webPromotionTypeChoiceBox;
+	ChoiceBox webPromotionTypeChoiceBox;
 
 	final int COLUMN_COUNT = 10;
 	final int YEAR_COLUMN_COUNT = 3;
@@ -53,7 +54,8 @@ public class WebPromotionAddDialog extends Dialog {
 		chooseBox.getChildren().clear();
 
 		webPromotionTypeChoiceText = new Text("请选择新增网站促销策略类型: ");
-		webPromotionTypeChoiceBox = new ChoiceBox(FXCollections.observableArrayList("特定时间促销策略", "特定商圈促销策略"));
+		ObservableList<String> webPromotionTypeList = FXCollections.observableArrayList("特定时间促销策略", "特定商圈促销策略");
+		ChoiceBox<String> webPromotionTypeChoiceBox = new ChoiceBox<>(webPromotionTypeList);
 
 		promotionBox = new VBox();
 		promotionBox.setSpacing(BOX_SPACING);
@@ -107,8 +109,8 @@ public class WebPromotionAddDialog extends Dialog {
 					if (discountTextField.getText() != null) {
 						discount = Double.valueOf(discountTextField.getText());
 					}
-					return new WebPromotionVO(webPromotionTypeChoiceBox.getAccessibleText(), startDate, endDate,
-							businessCircleName, discount);// 第一项不知道对不对
+					return new WebPromotionVO(webPromotionTypeChoiceBox.getValue(), startDate, endDate,
+							businessCircleName, discount);
 				} else {
 					return null;
 				}

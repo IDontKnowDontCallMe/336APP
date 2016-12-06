@@ -1,17 +1,15 @@
 package presentation.orderui;
 
-import java.text.SimpleDateFormat;
-
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import vo.OrderVO;
 
-public class CustomerOrderCell extends GridPane{
-	
+public class CustomerOrderCell extends GridPane {
+
 	OrderVO orderVO;
-	
+
 	Text hotelText;
 	Text roomText;
 	Text checkInText;
@@ -20,17 +18,17 @@ public class CustomerOrderCell extends GridPane{
 	Text childrenText;
 	Text totalText;
 	Text stateText;
+	Text revokeText;
 	Button button;
-	
+
 	public CustomerOrderCell(OrderVO orderVO) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.orderVO = orderVO;
-		
+
 		hotelText = new Text(orderVO.hotelName);
 		this.add(hotelText, 0, 0, 3, 1);
 		stateText = new Text(orderVO.orderState);
-		this.add(stateText, 4, 0, 1 ,1);
+		this.add(stateText, 4, 0, 1, 1);
 		roomText = new Text(orderVO.roomName);
 		this.add(roomText, 0, 1, 2, 1);
 		totalText = new Text("¥" + String.valueOf(orderVO.total));
@@ -41,42 +39,38 @@ public class CustomerOrderCell extends GridPane{
 		this.add(checkOutText, 1, 2, 1, 1);
 		numText = new Text(String.valueOf(orderVO.roomNum) + "间");
 		this.add(numText, 1, 1, 1, 1);
-		childrenText = new Text(orderVO.hasChildren? "有" : "无" + "儿童");
+		childrenText = new Text(orderVO.hasChildren ? "有" : "无" + "儿童");
 		this.add(childrenText, 2, 1, 1, 1);
-		
-		setButton(orderVO.orderState);
-		if(button!=null){
-			this.add(button, 4, 2, 1, 1);
-		}
-		
-		this.setHgap(10);
-		this.setVgap(20);
-		
-	}
-	
-	private void setButton(String state){
-		if(state.equals("正常")){
-			setRevokeButton();
-		}
-		else if(state.equals("已执行")){
-			setCommentButton();
-		}
-		else{
+
+		if (orderVO.orderState.equals("正常")) {
+			button = new Button("撤销");
+			button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+				this.getChildren().remove(button);
+				revokeText = new Text("已撤销");
+				this.add(revokeText, 4, 2, 1, 1);
+				// 修改bl层的订单状态
+
+				System.out.println("revoke");
+			});
+		} else if (orderVO.orderState.equals("已执行")) {
+			button = new Button("评价");
+			button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+				CommentDialog commentDialog = new CommentDialog(orderVO);
+				commentDialog.show();
+				System.out.println("comment");
+			});
+
+		} else {
 			button = null;
 		}
-	}
-	
-	private void setRevokeButton(){
-		button = new Button("撤销");
-		button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("revoke");
-		});
+
+		if (button != null) {
+			this.add(button, 4, 2, 1, 1);
+		}
+
+		this.setHgap(10);
+		this.setVgap(20);
+
 	}
 
-	private void setCommentButton(){
-		button = new Button("评价");
-		button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e)->{
-			System.out.println("comment");
-		});
-	}
 }
