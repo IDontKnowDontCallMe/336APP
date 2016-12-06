@@ -9,6 +9,7 @@ public class CommentPO {
 	private String writer;
 	private String time;
 	
+	
 	public CommentPO(String nameOfHotel, String nameOfRoom, String comment, int score, String writer, String time){
 		this.nameOfHotel = nameOfHotel;
 		this.nameOfRoom = nameOfRoom;

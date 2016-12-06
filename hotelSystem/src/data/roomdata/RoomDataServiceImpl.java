@@ -21,37 +21,37 @@ public class RoomDataServiceImpl implements RoomDataService{
 	@Override
 	public boolean addRoomType(int hotelID, RoomPO po) {
 		// TODO Auto-generated method stub
-		return false;
+		return roomTypeDao.addRoomType(hotelID, po);
 	}
 
 	@Override
 	public boolean updateRoomType(int roomID, RoomPO po) {
 		// TODO Auto-generated method stub
-		return false;
+		return roomTypeDao.updateRoomType(roomID, po);
 	}
 
 	@Override
 	public boolean deleteRoomPO(int roomID) {
 		// TODO Auto-generated method stub
-		return false;
+		return roomTypeDao.deleteRoomPO(roomID);
 	}
 
 	@Override
 	public List<RoomPO> getRoomType(int hotelID) {
 		// TODO Auto-generated method stub
-		return null;
+		return roomTypeDao.getRoomType(hotelID);
 	}
 
 	@Override
 	public List<UsagePO> getUsagePO(int roomID, Date start, Date end) {
 		// TODO Auto-generated method stub
-		return null;
+		return roomUsageDao.getUsagePO(roomID, start, end);
 	}
 
 	@Override
 	public boolean updateUsage(int roomID, Date start, Date end, int delta) {
 		// TODO Auto-generated method stub
-		return false;
+		return roomUsageDao.updateUsage(roomID, start, end, delta);
 	}
 
 }
