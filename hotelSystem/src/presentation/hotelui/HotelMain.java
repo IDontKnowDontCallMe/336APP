@@ -2,20 +2,22 @@ package presentation.hotelui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class HotelMain extends Application {
-	
+
 	private int customerID;
-	
+	private int hotelID;
+
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-		VBox vBox = new AreaInputPane(customerID);
+		GridPane gridPane = new CustomerHotelInfoPane(1011, 1);
 
-		stackPane.getChildren().add(vBox);
+		stackPane.getChildren().add(gridPane);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

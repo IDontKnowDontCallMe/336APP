@@ -27,19 +27,19 @@ public class MockHotelController extends HotelController {
 		hotelList = new ArrayList<HotelVO>();
 		HotelVO vo1 = new HotelVO(1010, "南大宿舍1", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo2 = new HotelVO(1010, "南大宿舍2", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo2 = new HotelVO(1011, "南大宿舍2", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo3 = new HotelVO(1010, "南大宿舍3", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo3 = new HotelVO(1012, "南大宿舍3", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo4 = new HotelVO(1010, "南大宿舍4", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo4 = new HotelVO(1013, "南大宿舍4", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo5 = new HotelVO(1010, "南大宿舍5", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo5 = new HotelVO(1014, "南大宿舍5", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo6 = new HotelVO(1010, "南大宿舍6", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo6 = new HotelVO(1015, "南大宿舍6", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo7 = new HotelVO(1010, "南大宿舍7", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo7 = new HotelVO(1016, "南大宿舍7", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
-		HotelVO vo8 = new HotelVO(1010, "南大宿舍8", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
+		HotelVO vo8 = new HotelVO(1017, "南大宿舍8", "南京", "仙林", "97号仙林大道", "无", "热水、网线", 1, 4.8, "校长", "101010101010", 100,
 				"未预定过");
 		hotelList.add(vo1);
 		hotelList.add(vo2);
@@ -143,11 +143,11 @@ public class MockHotelController extends HotelController {
 	public List<CommentVO> getCommentList(int hotelID) {
 		// TODO Auto-generated method stub
 		ArrayList<CommentVO> commentList = new ArrayList<>();
-		CommentVO vo1 = new CommentVO( "南大宿舍", "大床房", 1, "很好", 5, LocalDateTime.of(2016, 6, 10, 13, 00, 05));
-		CommentVO vo2 = new CommentVO( "南大宿舍", "双床房", 2, "很好很吊", 5, LocalDateTime.of(2016, 6, 5, 14, 00, 05));
-		CommentVO vo3 = new CommentVO( "南大宿舍", "单人房", 3, "太小了", 4, LocalDateTime.of(2016, 6, 4, 12, 00, 05));
-		CommentVO vo4 = new CommentVO( "南大宿舍", "大床房", 4, "满意", 5, LocalDateTime.of(2016, 6, 3, 18, 00, 05));
-		CommentVO vo5 = new CommentVO( "南大宿舍", "大床房", 5, "脏", 1, LocalDateTime.of(2016, 6, 2, 12, 00, 05));
+		CommentVO vo1 = new CommentVO("南大宿舍", "大床房", 1, "很好", 5, LocalDateTime.of(2016, 6, 10, 13, 00, 05));
+		CommentVO vo2 = new CommentVO("南大宿舍", "双床房", 2, "很好很吊", 5, LocalDateTime.of(2016, 6, 5, 14, 00, 05));
+		CommentVO vo3 = new CommentVO("南大宿舍", "单人房", 3, "太小了", 4, LocalDateTime.of(2016, 6, 4, 12, 00, 05));
+		CommentVO vo4 = new CommentVO("南大宿舍", "大床房", 4, "满意", 5, LocalDateTime.of(2016, 6, 3, 18, 00, 05));
+		CommentVO vo5 = new CommentVO("南大宿舍", "大床房", 5, "脏", 1, LocalDateTime.of(2016, 6, 2, 12, 00, 05));
 		commentList.add(vo1);
 		commentList.add(vo2);
 		commentList.add(vo3);

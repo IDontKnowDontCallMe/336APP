@@ -21,15 +21,15 @@ public class MockOrderController extends OrderController {
 		orderList = new ArrayList<OrderVO>();
 		OrderVO vo1 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍1", "大床房", 1,
 				3, false, LocalDate.of(2016, 11, 18), LocalTime.of(14, 00, 00), LocalDate.of(2016, 11, 19), 233, "正常");
-		OrderVO vo2 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍1", "大床房", 1,
+		OrderVO vo2 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍2", "大床房", 1,
 				3, false, LocalDate.of(2016, 11, 18), LocalTime.of(14, 00, 00), LocalDate.of(2016, 11, 19), 111, "已执行");
 		OrderVO vo3 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍1", "大床房", 1,
 				3, false, LocalDate.of(2016, 11, 18), LocalTime.of(14, 00, 00), LocalDate.of(2016, 11, 19), 56, "已执行");
-		OrderVO vo4 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍1", "大床房", 1,
+		OrderVO vo4 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍2", "大床房", 1,
 				3, false, LocalDate.of(2016, 11, 18), LocalTime.of(14, 00, 00), LocalDate.of(2016, 11, 19), 76, "已撤销");
 		OrderVO vo5 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍1", "大床房", 1,
 				3, false, LocalDate.of(2016, 11, 18), LocalTime.of(14, 00, 00), LocalDate.of(2016, 11, 19), 234, "已撤销");
-		OrderVO vo6 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍1", "大床房", 1,
+		OrderVO vo6 = new OrderVO(1, "小明", 1, "18710101250", LocalDateTime.of(2016, 11, 16, 14, 00), "南大宿舍3", "大床房", 1,
 				3, false, LocalDate.of(2016, 11, 18), LocalTime.of(14, 00, 00), LocalDate.of(2016, 11, 19), 234, "异常");
 
 		orderList.add(vo1);
