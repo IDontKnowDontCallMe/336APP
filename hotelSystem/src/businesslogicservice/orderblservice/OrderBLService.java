@@ -34,5 +34,6 @@ public interface OrderBLService extends Remote{
 	public boolean produceOrder(OrderVO orderVO, CalculationConditionVO calculationConditionVO) throws RemoteException;
 	
 	public boolean changeOrderState(int orderID, String state) throws RemoteException;
+
 	
 }

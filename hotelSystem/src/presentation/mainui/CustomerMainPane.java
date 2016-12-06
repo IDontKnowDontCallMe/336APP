@@ -1,5 +1,7 @@
 package presentation.mainui;
 
+import java.rmi.RemoteException;
+
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -31,7 +33,12 @@ public class CustomerMainPane extends VBox{
 		});
 		
 		orderListButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event)->{
-			TheMainFrame.jumpTo(new CustomerOrdersPane(customerID));
+			try {
+				TheMainFrame.jumpTo(new CustomerOrdersPane(customerID));
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		hotelListButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event)->{

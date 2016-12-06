@@ -1,5 +1,6 @@
 package presentation.orderui;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 import businesslogic.orderbl.OrderController;
@@ -30,7 +31,7 @@ public class HotelOrdersPane extends VBox{
 	private VBox orderBox;
 	
 	
-	public HotelOrdersPane(int hotelID) {
+	public HotelOrdersPane(int hotelID) throws RemoteException {
 		// TODO Auto-generated constructor stub
 		this.hotelID = hotelID;
 		initRadioButton();
@@ -69,7 +70,12 @@ public class HotelOrdersPane extends VBox{
 						return;
 					}
 					else{
-						buildOrderBox(controller.filterHotelList(hotelID, (String)newToggle.getUserData()));
+						try {
+							buildOrderBox(controller.filterHotelList(hotelID, (String)newToggle.getUserData()));
+						} catch (RemoteException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
 				);

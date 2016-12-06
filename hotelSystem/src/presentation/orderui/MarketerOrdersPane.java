@@ -1,5 +1,6 @@
 package presentation.orderui;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 import businesslogic.orderbl.OrderController;
@@ -27,7 +28,7 @@ public class MarketerOrdersPane extends VBox {
 	private ScrollPane listPane;
 	private VBox orderBox;
 
-	public MarketerOrdersPane() {
+	public MarketerOrdersPane() throws RemoteException {
 		initRadioButton();
 		// OrderController controller = new MockOrderController();
 		List<OrderVO> orderList = controller.getAbnormalOrdersOfToday();
