@@ -26,11 +26,10 @@ public class TheMainFrame extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		scene = new Scene(new LoginPane(), 1000, 600);
+		scene = new Scene(new LoginPane(), 1100, 700);
 		parentStack = new Stack<Parent>();
 
 		primaryStage.setScene(scene);
-		scene.getStylesheets().add(getClass().getResource("scrollbar.css").toExternalForm());
 
 		primaryStage.show();
 	}
