@@ -13,7 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import presentation.mainui.TheMainFrame;
 import vo.CreditVO;
 import vo.CustomerVO;
 
@@ -25,11 +27,14 @@ public class CustomerInfoPane extends GridPane {
 	private Text nameText;
 	private Text phoneNumberText;
 	private Text levelText;
+	private Text title;
 	private Button setBirthVIPButton;
 	private Button setCompanyVIPButton;
 	private TextField nameTextField;
 	private TextField phoneTextField;
 	private Button editButton;
+	private Button backButton;
+	private HBox titleBox;
 
 	private ScrollPane creditPane;
 
@@ -37,10 +42,21 @@ public class CustomerInfoPane extends GridPane {
 		super();
 		this.customerID = customerID;
 
+		titleBox = new HBox();
+		title = new Text("查看个人信息");
+		backButton = new Button("返回");
+		this.add(backButton, 1, 0, 1, 1);
+		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			TheMainFrame.backTo();
+		});
+
+		titleBox.getChildren().addAll(title, backButton);
+
 		initInfoPane();
 		initCreditList();
-		this.add(infoPane, 0, 0, 1, 1);
-		this.add(creditPane, 0, 1, 2, 1);
+		this.add(titleBox, 0, 0, 1, 1);
+		this.add(infoPane, 0, 1, 1, 1);
+		this.add(creditPane, 0, 2, 2, 1);
 	}
 
 	private void initInfoPane() {

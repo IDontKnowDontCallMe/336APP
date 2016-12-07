@@ -46,7 +46,14 @@ public class LoginPane extends GridPane {
 		webMarketerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.jumpTo(new WebMarketerMainPane());
 		});
-		
+
+		// HotelWorker
+		Button hotelWorkerButton = new Button("酒店工作人员快捷入口(用于测试)");
+		this.add(hotelWorkerButton, 3, 5, 1, 1);
+		hotelWorkerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			TheMainFrame.jumpTo(new HotelWorkerMainPane(Integer.valueOf(userIDTextField.getText())));
+		});
+
 		this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());
 	}
 

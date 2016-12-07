@@ -14,7 +14,7 @@ public class HotelMain extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		StackPane stackPane = new StackPane();
 		Scene scene = new Scene(stackPane);
-		GridPane gridPane = new CustomerHotelInfoPane(1011, 1);
+		GridPane gridPane = new WorkerHotelInfoPane(1011);
 
 		stackPane.getChildren().add(gridPane);
 		primaryStage.setScene(scene);

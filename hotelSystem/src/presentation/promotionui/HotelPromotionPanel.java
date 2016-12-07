@@ -13,7 +13,6 @@ import vo.HotelPromotionVO;
 
 public class HotelPromotionPanel extends VBox {
 
-	private int hotelID;
 	PromotionController controller = new MockPromotionController();
 	private ScrollPane listPane;
 	private VBox hotelPromotionBox;
@@ -22,8 +21,6 @@ public class HotelPromotionPanel extends VBox {
 	private Text title;
 
 	public HotelPromotionPanel(int hotelID) {
-		this.hotelID = hotelID;
-
 		List<HotelPromotionVO> hotelPromotionList = controller.getHotelPromotionList(hotelID);
 		hotelPromotionBox = new VBox();
 		hotelPromotionBox.setSpacing(15);
