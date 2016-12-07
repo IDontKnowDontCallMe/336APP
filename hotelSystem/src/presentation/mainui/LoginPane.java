@@ -17,7 +17,9 @@ public class LoginPane extends GridPane {
 	public LoginPane() {
 		super();
 		userIDTextField = new TextField();
+		userIDTextField.setPromptText("UserID");
 		passwordField = new PasswordField();
+		passwordField.setPromptText("Password");
 		loginButton = new Button("登录");
 
 		this.add(new Text("账号"), 0, 0, 1, 1);
@@ -44,6 +46,8 @@ public class LoginPane extends GridPane {
 		webMarketerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.jumpTo(new WebMarketerMainPane());
 		});
+		
+		this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());
 	}
 
 }

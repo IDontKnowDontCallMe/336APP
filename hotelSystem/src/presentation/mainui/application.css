@@ -44,14 +44,7 @@
 	 
 	}
 	
-
-		.split-pane:horizontal > .split-pane-divider,
-	.split-pane:vertical > .split-pane-divider {
-		-fx-background-color:#000000;
-		-fx-background-insets:0 ;
-	}
-	
-	.split-pane{
-		-fx-border-width:0.5;
-	}
+	.root{
+	-fx-background-image: url("背景.png");
+}
 	
