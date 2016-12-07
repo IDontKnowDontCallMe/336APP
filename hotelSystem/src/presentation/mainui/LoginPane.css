@@ -46,5 +46,24 @@
 	.root{
 	-fx-background-image: url("背景.png");
 }
+
+	.password-field{
+	-fx-min-width: 250.0;
+}
+	.text-field{
+		-fx-min-width : 250.0;
+	}
+	
+	#loginbutton{
+		-fx-background-color:#FFFFFF;
+		
+	}
+	
+	.label{
+		-fx-font-family: "Helvetica Neue",sans-serif, "Microsoft Yahei", "MingLiU";
+		-fx-text-fill:white;
+	}
+	
+	
 	
 	
