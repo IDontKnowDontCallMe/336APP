@@ -143,11 +143,11 @@ public class MockHotelController extends HotelController {
 	public List<CommentVO> getCommentList(int hotelID) {
 		// TODO Auto-generated method stub
 		ArrayList<CommentVO> commentList = new ArrayList<>();
-		CommentVO vo1 = new CommentVO("南大宿舍", "大床房", 1, "很好", 5, LocalDateTime.of(2016, 6, 10, 13, 00, 05));
-		CommentVO vo2 = new CommentVO("南大宿舍", "双床房", 2, "很好很吊", 5, LocalDateTime.of(2016, 6, 5, 14, 00, 05));
-		CommentVO vo3 = new CommentVO("南大宿舍", "单人房", 3, "太小了", 4, LocalDateTime.of(2016, 6, 4, 12, 00, 05));
-		CommentVO vo4 = new CommentVO("南大宿舍", "大床房", 4, "满意", 5, LocalDateTime.of(2016, 6, 3, 18, 00, 05));
-		CommentVO vo5 = new CommentVO("南大宿舍", "大床房", 5, "脏", 1, LocalDateTime.of(2016, 6, 2, 12, 00, 05));
+		CommentVO vo1 = new CommentVO(1010, "南大宿舍1", "大床房", 1, "很好", 5, LocalDateTime.of(2016, 6, 10, 13, 00, 05));
+		CommentVO vo2 = new CommentVO(1011, "南大宿舍2", "双床房", 2, "很好很吊", 5, LocalDateTime.of(2016, 6, 5, 14, 00, 05));
+		CommentVO vo3 = new CommentVO(1011, "南大宿舍2", "单人房", 3, "太小了", 4, LocalDateTime.of(2016, 6, 4, 12, 00, 05));
+		CommentVO vo4 = new CommentVO(1010, "南大宿舍1", "大床房", 4, "满意", 5, LocalDateTime.of(2016, 6, 3, 18, 00, 05));
+		CommentVO vo5 = new CommentVO(1011, "南大宿舍2", "大床房", 5, "脏", 1, LocalDateTime.of(2016, 6, 2, 12, 00, 05));
 		commentList.add(vo1);
 		commentList.add(vo2);
 		commentList.add(vo3);

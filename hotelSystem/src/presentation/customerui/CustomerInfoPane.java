@@ -159,7 +159,6 @@ public class CustomerInfoPane extends GridPane {
 		private SimpleStringProperty creditResult;
 
 		public CreditCell(CreditVO vo) {
-			// TODO Auto-generated constructor stub
 			producingTime = new SimpleStringProperty(vo.producingDateTime.toString());
 			orderID = new SimpleStringProperty(vo.orderID == -1 ? "无" : String.valueOf(vo.orderID));
 			action = new SimpleStringProperty(String.valueOf(vo.action));

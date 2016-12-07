@@ -3,11 +3,9 @@ package presentation.mainui;
 import java.util.Stack;
 
 import javafx.application.Application;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import presentation.promotionui.LevelPanel;
 
 public class TheMainFrame extends Application {
 
@@ -28,7 +26,7 @@ public class TheMainFrame extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		scene = new Scene(new LoginPane(), 500, 500);
+		scene = new Scene(new LoginPane(), 900, 600);
 		parentStack = new Stack<Parent>();
 
 		primaryStage.setScene(scene);

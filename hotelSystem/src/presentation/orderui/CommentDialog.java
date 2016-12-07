@@ -53,8 +53,8 @@ public class CommentDialog extends Dialog {
 				if (param.getButtonData() == ButtonData.OK_DONE) {
 					String comment = commentTextArea.getText();
 					System.out.print("订单评价时间为" + LocalDateTime.now());
-					return new CommentVO(vo.hotelName, vo.roomName, vo.customerID, comment, scoreBox.getValue(),
-							LocalDateTime.now());
+					return new CommentVO(0, vo.hotelName, vo.roomName, vo.customerID, comment, scoreBox.getValue(),
+							LocalDateTime.now());// hotelID?
 				} else {
 					return null;
 				}
