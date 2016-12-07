@@ -44,7 +44,8 @@ public class CustomerHotelInfoPane extends GridPane {
 	private Text serviceText;
 
 	HotelVO hotelVO;
-
+	List<RoomVO> roomList;
+	
 	public CustomerHotelInfoPane(int hotelID, int customerID) throws RemoteException {
 		super();
 		this.setHgap(10);
@@ -80,13 +81,13 @@ public class CustomerHotelInfoPane extends GridPane {
 		produceButton = new Button("下订单");
 		this.add(produceButton, 2, 0, 1, 1);
 		produceButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			ProducingOrderDialog producingOrderDialog = new ProducingOrderDialog(customerID, hotelVO, null, 0);
+			ProducingOrderDialog producingOrderDialog = new ProducingOrderDialog(customerID, hotelVO, roomList, 0);
 			producingOrderDialog.show();
 		});
 	}
 
 	private void initRoomPane(int hotelID) {
-		List<RoomVO> roomList = MockRoomController.getInstance().getRoomTypeList(hotelID);
+		roomList = MockRoomController.getInstance().getRoomTypeList(hotelID);
 		roomPane = new ScrollPane();
 		TableView<RoomCell> tableView = new TableView<>();
 		roomPane.setContent(tableView);

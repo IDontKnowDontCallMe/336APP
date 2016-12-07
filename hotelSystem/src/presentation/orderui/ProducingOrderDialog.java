@@ -1,6 +1,5 @@
 package presentation.orderui;
 
-import java.awt.ItemSelectable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -9,7 +8,6 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
@@ -42,7 +40,6 @@ public class ProducingOrderDialog extends Dialog<OrderVO> {
 	OrderVO orderVO;
 
 	public ProducingOrderDialog(int customerID, HotelVO hotelVO, List<RoomVO> roomList, int roomIndex) {
-		// TODO Auto-generated constructor stub
 		this.hotelVO = hotelVO;
 		this.roomList = roomList;
 
@@ -56,7 +53,6 @@ public class ProducingOrderDialog extends Dialog<OrderVO> {
 
 			@Override
 			public OrderVO call(ButtonType param) {
-				// TODO Auto-generated method stub
 				if (param.getButtonData() == ButtonData.OK_DONE) {
 					return new OrderVO(-1, null, customerID, null, null, hotelVO.hotelName,
 							roomTypeChoiceBox.getValue(), Integer.valueOf(numTextField.getText()), 1,

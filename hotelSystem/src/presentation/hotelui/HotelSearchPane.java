@@ -25,6 +25,8 @@ public class HotelSearchPane extends VBox {
 	public HotelSearchPane(AreaVO areaVO, int customerID) {
 		this.customerID = customerID;
 		this.areaVO = areaVO;
+		
+		this.setSpacing(20);
 		initSearchPane();
 		initSortingPane();
 		initHotelListPane();
@@ -32,7 +34,9 @@ public class HotelSearchPane extends VBox {
 
 	private void initSearchPane() {
 		GridPane gridPane = new GridPane();
-
+		gridPane.setHgap(15);
+		gridPane.setVgap(15);
+		
 		Text hotelNameText = new Text("酒店名称");
 		TextField hotelNameTextField = new TextField();
 		gridPane.add(new HBox(hotelNameText, hotelNameTextField), 0, 0, 3, 1);
@@ -68,12 +72,14 @@ public class HotelSearchPane extends VBox {
 				"5分以上");
 		ChoiceBox<String> commentScoreChoiceBox = new ChoiceBox<>(commentScoreList);
 		commentScoreChoiceBox.getSelectionModel().select(0);
-		CheckBox isInteractiveCheckBox = new CheckBox("是独立条件");
+		CheckBox isInteractiveCheckBox = new CheckBox("是独立搜索条件");
+		CheckBox getBookedHotelCheckBox = new CheckBox("只搜索预订过的酒店");
 		gridPane.add(new HBox(new Text("房间类型"), roomTypeChoiceBox), 0, 2, 1, 1);
 		gridPane.add(new HBox(new Text("价格区间"), priceIntervalChoiceBox), 1, 2, 1, 1);
 		gridPane.add(new HBox(new Text("星级"), scoreChoiceBox), 2, 2, 1, 1);
 		gridPane.add(new HBox(new Text("评分"), commentScoreChoiceBox), 3, 2, 1, 1);
-		gridPane.add(isInteractiveCheckBox, 4, 2, 1, 1);
+		gridPane.add(isInteractiveCheckBox, 0, 3, 1, 1);
+		gridPane.add(getBookedHotelCheckBox, 1, 3, 1, 1);
 
 		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.backTo();
@@ -85,6 +91,7 @@ public class HotelSearchPane extends VBox {
 
 	private void initSortingPane() {
 		HBox hBox = new HBox();
+		hBox.setSpacing(15);
 
 		GridPane priceGridPane = new GridPane();
 		Text priceText = new Text("价格排序");
