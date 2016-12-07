@@ -6,13 +6,13 @@ public class CreditVO {
 
 	public int customerID;
 	public LocalDateTime producingDateTime;
-	public String orderID;
+	public int orderID;
 	public String action;
 	public int creditDelta;
 	public int creditResult;
-	
-	public CreditVO(int customerID, LocalDateTime producingDateTime, String orderID, String action, int creditDelta, int creditResult) {
-		// TODO Auto-generated constructor stub
+
+	public CreditVO(int customerID, LocalDateTime producingDateTime, int orderID, String action, int creditDelta,
+			int creditResult) {
 		this.customerID = customerID;
 		this.producingDateTime = producingDateTime;
 		this.orderID = orderID;
@@ -20,7 +20,5 @@ public class CreditVO {
 		this.creditDelta = creditDelta;
 		this.creditResult = creditResult;
 	}
-	
-	
-	
+
 }

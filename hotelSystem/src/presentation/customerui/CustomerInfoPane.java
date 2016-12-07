@@ -2,34 +2,18 @@ package presentation.customerui;
 
 import java.util.List;
 
-import com.sun.corba.se.impl.logging.InterceptorsSystemException;
-
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import sun.java2d.pipe.SpanShapeRenderer.Simple;
 import vo.CreditVO;
 import vo.CustomerVO;
 
@@ -41,8 +25,6 @@ public class CustomerInfoPane extends GridPane {
 	private Text nameText;
 	private Text phoneNumberText;
 	private Text levelText;
-	private Text birtdayText;
-	private Text companyText;
 	private Button setBirthVIPButton;
 	private Button setCompanyVIPButton;
 	private TextField nameTextField;
@@ -52,7 +34,6 @@ public class CustomerInfoPane extends GridPane {
 	private ScrollPane creditPane;
 
 	public CustomerInfoPane(int customerID) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.customerID = customerID;
 
