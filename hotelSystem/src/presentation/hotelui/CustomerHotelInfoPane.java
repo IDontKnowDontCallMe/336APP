@@ -16,16 +16,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import presentation.customerui.MockCustomerController;
-import presentation.customerui.CustomerInfoPane.CreditCell;
-import presentation.mainui.CustomerMainPane;
 import presentation.mainui.TheMainFrame;
 import presentation.orderui.MockOrderController;
 import presentation.orderui.ProducingOrderDialog;
+import presentation.roomui.MockRoomController;
+import presentation.roomui.RoomCell;
 import vo.CommentVO;
-import vo.CreditVO;
 import vo.HotelVO;
 import vo.OrderVO;
+import vo.RoomVO;
 
 public class CustomerHotelInfoPane extends GridPane {
 
@@ -60,7 +59,7 @@ public class CustomerHotelInfoPane extends GridPane {
 		initInfoPane();
 		initOrderPane(customerID, hotelName);
 		initCommentPane(hotelID);
-		initRoomPane();
+		initRoomPane(hotelID);
 
 		this.add(new Text(hotelName), 0, 0, 1, 1);
 		this.add(new Text("酒店信息"), 0, 1, 1, 1);
@@ -86,8 +85,34 @@ public class CustomerHotelInfoPane extends GridPane {
 		});
 	}
 
-	private void initRoomPane() {
+	private void initRoomPane(int hotelID) {
+		List<RoomVO> roomList = MockRoomController.getInstance().getRoomTypeList(hotelID);
 		roomPane = new ScrollPane();
+		TableView<RoomCell> tableView = new TableView<>();
+		roomPane.setContent(tableView);
+
+		TableColumn<RoomCell, String> roomIDCol = new TableColumn<>("房间号");
+		roomIDCol.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+		TableColumn<RoomCell, String> roomNameCol = new TableColumn<>("房间类型");
+		roomNameCol.setCellValueFactory(new PropertyValueFactory<>("roomName"));
+		TableColumn<RoomCell, String> priceCol = new TableColumn<>("房间单价");
+		priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+		TableColumn<RoomCell, String> numOfRoomCol = new TableColumn<>("房间数量");
+		numOfRoomCol.setCellValueFactory(new PropertyValueFactory<>("numOfRoom"));
+		TableColumn<RoomCell, String> serviceCol = new TableColumn<>("服务设施");
+		serviceCol.setCellValueFactory(new PropertyValueFactory<>("service"));
+		TableColumn<RoomCell, String> maxNumOfPeopleCol = new TableColumn<>("最大房客数");
+		maxNumOfPeopleCol.setCellValueFactory(new PropertyValueFactory<>("maxNumOfPeople"));
+
+		tableView.getColumns().addAll(roomIDCol, roomNameCol, priceCol, numOfRoomCol, serviceCol, maxNumOfPeopleCol);
+		tableView.setPrefWidth(450);
+		ObservableList<RoomCell> roomCells = FXCollections.observableArrayList();
+		for (RoomVO vo : roomList) {
+			RoomCell cell = new RoomCell(vo);
+			roomCells.add(cell);
+		}
+
+		tableView.setItems(roomCells);
 
 	}
 

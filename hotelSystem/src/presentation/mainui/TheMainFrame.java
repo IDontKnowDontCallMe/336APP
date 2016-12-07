@@ -26,7 +26,7 @@ public class TheMainFrame extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		scene = new Scene(new LoginPane(), 900, 600);
+		scene = new Scene(new LoginPane(), 1000, 600);
 		parentStack = new Stack<Parent>();
 
 		primaryStage.setScene(scene);
