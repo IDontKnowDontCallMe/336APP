@@ -4,15 +4,20 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import presentation.mainui.TheMainFrame;
 import presentation.roomui.MockRoomController;
 import presentation.roomui.RoomCell;
@@ -23,11 +28,15 @@ public class WorkerHotelInfoPane extends GridPane {
 	private int hotelID;
 	private GridPane infoPane;
 	private ScrollPane roomPane;
+	private HBox addBox1;
+	private HBox addBox2;
+	private VBox roomBox;
 
-	final int COLUMN = 15;
+	final int COLUMN = 6;
 	private Button backButton;
 	private Button infoEditButton;
-	private Button roomEditButton;
+	private Button addButton;
+	private Button saveButton;
 
 	private Text nameText;
 	private Text addressText;
@@ -41,6 +50,11 @@ public class WorkerHotelInfoPane extends GridPane {
 	private TextField serviceTextField;
 	private TextField workerTextField;
 	private TextField phoneNumberTextField;
+	private TextField addRoomNameTextField;
+	private TextField addNumOfRoomTextField;
+	private TextField addServiceTextField;
+	private TextField addMaxNumOfPeopleTextField;
+	private TextField addPriceTextField;
 
 	HotelVO hotelVO;
 	List<RoomVO> roomList;
@@ -59,9 +73,7 @@ public class WorkerHotelInfoPane extends GridPane {
 		this.add(infoPane, 0, 1, 1, 1);
 
 		this.add(new Text("房型列表"), 0, 2, 1, 1);
-		roomEditButton = new Button("编辑");
-		this.add(roomEditButton, 1, 2, 1, 1);
-		this.add(roomPane, 0, 3, 2, 1);
+		this.add(roomBox, 0, 3, 2, 1);
 
 		backButton = new Button("返回");
 		this.add(backButton, 1, 0, 1, 1);
@@ -74,39 +86,127 @@ public class WorkerHotelInfoPane extends GridPane {
 	private void initRoomPane(int hotelID) {
 		roomList = MockRoomController.getInstance().getRoomTypeList(hotelID);
 		roomPane = new ScrollPane();
+		roomBox = new VBox();
+		addBox1 = new HBox();
+		addBox2 = new HBox();
+		roomBox.setSpacing(10);
+		addBox1.setSpacing(10);
+		addBox2.setSpacing(10);
+
 		TableView<RoomCell> tableView = new TableView<>();
+
+		tableView.setEditable(true);
 		roomPane.setContent(tableView);
 
 		TableColumn<RoomCell, String> roomIDCol = new TableColumn<>("房间号");
 		roomIDCol.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+
 		TableColumn<RoomCell, String> roomNameCol = new TableColumn<>("房间类型");
 		roomNameCol.setCellValueFactory(new PropertyValueFactory<>("roomName"));
+		roomNameCol.setCellFactory(TextFieldTableCell.<RoomCell>forTableColumn());
+		roomNameCol.setOnEditCommit((CellEditEvent<RoomCell, String> t) -> {
+			((RoomCell) t.getTableView().getItems().get(t.getTablePosition().getRow())).setRoomName(t.getNewValue());
+		});
+
 		TableColumn<RoomCell, String> priceCol = new TableColumn<>("房间单价");
 		priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+		priceCol.setCellFactory(TextFieldTableCell.<RoomCell>forTableColumn());
+		priceCol.setOnEditCommit((CellEditEvent<RoomCell, String> t) -> {
+			((RoomCell) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPrice(t.getNewValue());
+		});
+
 		TableColumn<RoomCell, String> numOfRoomCol = new TableColumn<>("房间数量");
 		numOfRoomCol.setCellValueFactory(new PropertyValueFactory<>("numOfRoom"));
+		numOfRoomCol.setCellFactory(TextFieldTableCell.<RoomCell>forTableColumn());
+		numOfRoomCol.setOnEditCommit((CellEditEvent<RoomCell, String> t) -> {
+			((RoomCell) t.getTableView().getItems().get(t.getTablePosition().getRow())).setNumOfRoom(t.getNewValue());
+		});
+
 		TableColumn<RoomCell, String> serviceCol = new TableColumn<>("服务设施");
 		serviceCol.setCellValueFactory(new PropertyValueFactory<>("service"));
+		serviceCol.setCellFactory(TextFieldTableCell.<RoomCell>forTableColumn());
+		serviceCol.setOnEditCommit((CellEditEvent<RoomCell, String> t) -> {
+			((RoomCell) t.getTableView().getItems().get(t.getTablePosition().getRow())).setService(t.getNewValue());
+		});
+
 		TableColumn<RoomCell, String> maxNumOfPeopleCol = new TableColumn<>("最大房客数");
 		maxNumOfPeopleCol.setCellValueFactory(new PropertyValueFactory<>("maxNumOfPeople"));
+		maxNumOfPeopleCol.setCellFactory(TextFieldTableCell.<RoomCell>forTableColumn());
+		maxNumOfPeopleCol.setOnEditCommit((CellEditEvent<RoomCell, String> t) -> {
+			((RoomCell) t.getTableView().getItems().get(t.getTablePosition().getRow()))
+					.setMaxNumOfPeople(t.getNewValue());
+		});
 
 		tableView.getColumns().addAll(roomIDCol, roomNameCol, priceCol, numOfRoomCol, serviceCol, maxNumOfPeopleCol);
 		tableView.setPrefWidth(450);
 		ObservableList<RoomCell> roomCells = FXCollections.observableArrayList();
+
+		addRoomNameTextField = new TextField();
+		addNumOfRoomTextField = new TextField();
+		addServiceTextField = new TextField();
+		addMaxNumOfPeopleTextField = new TextField();
+		addPriceTextField = new TextField();
+
+		addRoomNameTextField.setPromptText("房间类型");
+		addNumOfRoomTextField.setPromptText("房间数量");
+		addServiceTextField.setPromptText("服务设施");
+		addMaxNumOfPeopleTextField.setPromptText("最大房客数");
+		addPriceTextField.setPromptText("房间单价");
+
+		addRoomNameTextField.setPrefColumnCount(COLUMN);
+		addNumOfRoomTextField.setPrefColumnCount(COLUMN);
+		addServiceTextField.setPrefColumnCount(COLUMN);
+		addMaxNumOfPeopleTextField.setPrefColumnCount(COLUMN);
+		addPriceTextField.setPrefColumnCount(COLUMN);
+
 		for (RoomVO vo : roomList) {
 			RoomCell cell = new RoomCell(vo);
 			roomCells.add(cell);
 		}
+		addButton = new Button("新增房间类型");
+		addButton.setOnAction((ActionEvent e) -> {
+			int count = 0;
+			for (RoomVO vo : roomList) {
+				count++;
+			}
+			final int COUNT = count;
 
+			roomCells.add(new RoomCell(String.valueOf(COUNT + 1), addRoomNameTextField.getText(),
+					addPriceTextField.getText(), addNumOfRoomTextField.getText(), addServiceTextField.getText(),
+					addMaxNumOfPeopleTextField.getText()));
+			addRoomNameTextField.clear();
+			addNumOfRoomTextField.clear();
+			addServiceTextField.clear();
+			addMaxNumOfPeopleTextField.clear();
+			addPriceTextField.clear();
+
+			RoomVO newVO = new RoomVO(COUNT + 1, addRoomNameTextField.getText(),
+					Integer.parseInt(addPriceTextField.getText()), Integer.parseInt(addNumOfRoomTextField.getText()),
+					addServiceTextField.getText(), Integer.parseInt(addMaxNumOfPeopleTextField.getText()));
+			roomList.add(newVO);
+			// 将newVO加入BL层
+			// .......
+
+		});
+
+		saveButton = new Button("更新房间类型信息");
+		saveButton.setOnAction((ActionEvent e) -> {
+			// 将newVO加入BL层
+			// .......
+
+		});
 		tableView.setItems(roomCells);
 
+		addBox1.getChildren().addAll(addRoomNameTextField, addPriceTextField, addNumOfRoomTextField);
+		addBox2.getChildren().addAll(addServiceTextField, addMaxNumOfPeopleTextField, addButton, saveButton);
+		roomBox.getChildren().addAll(roomPane, addBox1, addBox2);
 	}
 
 	private void initInfoPane() {
 		infoPane = new GridPane();
 
 		infoPane.setHgap(10);
-		infoPane.setVgap(20);
+		infoPane.setVgap(10);
 
 		infoEditButton = new Button("编辑");
 		infoPane.add(infoEditButton, 0, 0, 1, 1);

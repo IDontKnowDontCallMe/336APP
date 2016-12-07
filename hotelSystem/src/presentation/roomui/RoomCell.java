@@ -21,6 +21,17 @@ public class RoomCell {
 
 	}
 
+	public RoomCell(String roomID, String roomName, String price, String numOfRoom, String service,
+			String maxNumOfPeople) {
+		
+		this.roomID = new SimpleStringProperty(roomID);
+		this.roomName = new SimpleStringProperty(roomName);
+		this.price = new SimpleStringProperty(price);
+		this.numOfRoom = new SimpleStringProperty(numOfRoom);
+		this.service = new SimpleStringProperty(service);
+		this.maxNumOfPeople = new SimpleStringProperty(maxNumOfPeople);
+	}
+
 	public void setRoomID(String s) {
 		roomID.set(s);
 	}

@@ -16,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import presentation.mainui.TheMainFrame;
+import presentation.roomui.RoomCell;
 import vo.CreditVO;
 import vo.CustomerVO;
 
