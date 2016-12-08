@@ -7,22 +7,30 @@
 
     #searchButton{
     	-fx-graphic:url("查找.png");
+    	-fx-background-color:null;
     }
     
     #orderListButton{
     	-fx-graphic:url("订单.png"); 
+    	-fx-background-color:null;
     }
     
     #hotelListButton{
     	-fx-graphic:url("酒店.png"); 
+    	    	-fx-background-color:null;
+    	
     }
     
     #infoButton{
     	-fx-graphic:url("信息.png"); 
+    	    	-fx-background-color:null;
+    	
     }
     
     #logoutButton{
     	-fx-graphic:url("退出.png"); 
+    	    	-fx-background-color:null;
+    	
     }
 	
 	
