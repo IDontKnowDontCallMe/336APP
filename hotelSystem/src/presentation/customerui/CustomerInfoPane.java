@@ -21,7 +21,7 @@ import vo.CreditVO;
 import vo.CustomerVO;
 
 public class CustomerInfoPane extends GridPane {
-
+    
 	private int customerID;
 
 	private GridPane infoPane;
@@ -58,6 +58,8 @@ public class CustomerInfoPane extends GridPane {
 		this.add(titleBox, 0, 0, 1, 1);
 		this.add(infoPane, 0, 1, 1, 1);
 		this.add(creditPane, 0, 2, 2, 1);
+		
+		this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());
 	}
 
 	private void initInfoPane() {
@@ -203,5 +205,7 @@ public class CustomerInfoPane extends GridPane {
 		public String getCreditResult() {
 			return creditResult.get();
 		}
+		
+		
 	}
 }
