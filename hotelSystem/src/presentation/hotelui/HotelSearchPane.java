@@ -1,6 +1,9 @@
 package presentation.hotelui;
 
+import java.rmi.RemoteException;
 import java.util.List;
+
+import bussinesslogic.factory.BLFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -22,7 +25,7 @@ public class HotelSearchPane extends VBox {
 	private int customerID;
 	private AreaVO areaVO;
 
-	public HotelSearchPane(AreaVO areaVO, int customerID) {
+	public HotelSearchPane(AreaVO areaVO, int customerID) throws RemoteException {
 		this.customerID = customerID;
 		this.areaVO = areaVO;
 		
@@ -121,8 +124,8 @@ public class HotelSearchPane extends VBox {
 		this.getChildren().add(hBox);
 	}
 
-	private void initHotelListPane() {
-		List<HotelVO> hotelList = MockHotelController.getInstance().getHotelVOsOfArea(areaVO, customerID);
+	private void initHotelListPane() throws RemoteException {
+		List<HotelVO> hotelList = BLFactory.getInstance().getHotelBLService().getHotelVOsOfArea(areaVO, customerID);
 		HotelListPane hotelListPane = new HotelListPane(hotelList);
 		this.getChildren().add(hotelListPane);
 	}

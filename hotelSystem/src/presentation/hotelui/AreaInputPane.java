@@ -1,5 +1,7 @@
 package presentation.hotelui;
 
+import java.rmi.RemoteException;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +15,7 @@ public class AreaInputPane extends VBox {
 
 	final int COLUMN_COUNT = 10;
 
+	private int customerID;
 	private Text cityText;
 	private Text businessCircleText;
 	private TextField cityTextField;
@@ -25,6 +28,7 @@ public class AreaInputPane extends VBox {
 	public AreaInputPane(int customerID) {
 		super();
 
+		this.customerID = customerID;
 		gridPane = new GridPane();
 		gridPane.setHgap(10);
 		gridPane.setVgap(20);
@@ -50,7 +54,12 @@ public class AreaInputPane extends VBox {
 			String businessCircle = businessCircleTextField.getText();
 			System.out.println("city is " + city);
 			System.out.println("business circle is " + businessCircle);
-			TheMainFrame.jumpTo(new HotelSearchPane(new AreaVO(city, businessCircle), customerID));
+			try {
+				TheMainFrame.jumpTo(new HotelSearchPane(new AreaVO(city, businessCircle), customerID));
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 
 		backButton = new Button("返回");

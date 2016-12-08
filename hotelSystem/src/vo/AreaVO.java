@@ -1,7 +1,13 @@
 package vo;
 
-public class AreaVO {
+import java.io.Serializable;
 
+public class AreaVO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String city;
 	public String businessCircle;
 	

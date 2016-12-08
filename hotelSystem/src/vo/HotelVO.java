@@ -1,7 +1,13 @@
 package vo;
 
-public class HotelVO {
+import java.io.Serializable;
+
+public class HotelVO implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9151928773649598567L;
 	public int hotelID;
 	public String hotelName;
 	public String city;

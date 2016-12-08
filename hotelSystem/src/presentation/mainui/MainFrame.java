@@ -27,7 +27,7 @@ public class MainFrame {
 		try {
 			blFactory = BLFactory.getInstance();
 			//括号中rmi后的地址是本机地址，还需要更改；  ***为服务器的远程对象名字
-			blFactory.setRemote(Naming.lookup("rmi://localhost:8888/****"));
+			blFactory.setRemote(Naming.lookup("rmi://202.119.48.79:8888/****"));
 			System.out.println("linked");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
