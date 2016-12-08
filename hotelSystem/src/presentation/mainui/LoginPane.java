@@ -25,7 +25,7 @@ public class LoginPane extends AnchorPane {
 		loginButton.setId("loginbutton");
 		passwordField.setMaxWidth(200.0);
 		
-		Label hint = new Label("有 Aipapa ID吗?");
+		Label hint = new Label("有 Aipapa ID 吗?");
 		
 
 		
