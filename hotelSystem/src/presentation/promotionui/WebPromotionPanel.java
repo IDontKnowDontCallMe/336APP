@@ -1,8 +1,9 @@
 package presentation.promotionui;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
-import businesslogic.promotionbl.PromotionController;
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -14,7 +15,6 @@ import vo.WebPromotionVO;
 
 public class WebPromotionPanel extends VBox {
 
-	PromotionController controller = new MockPromotionController();
 	private ScrollPane listPane;
 	private VBox webPromotionBox;
 	private HBox addBox;
@@ -22,9 +22,9 @@ public class WebPromotionPanel extends VBox {
 	private Button backButton;
 	private Text title;
 
-	public WebPromotionPanel() {
+	public WebPromotionPanel() throws RemoteException{
 
-		List<WebPromotionVO> webPromotionList = controller.getWebPromotionList();
+		List<WebPromotionVO> webPromotionList = BLFactory.getInstance().getPromotionBLService().getWebPromotionList();
 		webPromotionBox = new VBox();
 		webPromotionBox.setSpacing(15);
 		buildWebPromotionBox(webPromotionList);

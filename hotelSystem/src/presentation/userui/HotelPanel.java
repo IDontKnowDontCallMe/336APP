@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Optional;
 
-import businesslogic.userbl.UserController;
+import bussinesslogic.factory.BLFactory;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -18,7 +18,6 @@ import presentation.mainui.TheMainFrame;
 import vo.HotelVO;
 
 public class HotelPanel extends VBox {
-	UserController controller = new MockUserController();
 	private ScrollPane listPane;
 	private VBox hotelBox;
 	private Text title;
@@ -27,7 +26,7 @@ public class HotelPanel extends VBox {
 	private HBox titleBox;
 
 	public HotelPanel() throws RemoteException {
-		List<HotelVO> hotelList = controller.getHotelList();
+		List<HotelVO> hotelList = BLFactory.getInstance().getUserBLService().getHotelList();
 
 		hotelBox = new VBox();
 		hotelBox.setSpacing(15);

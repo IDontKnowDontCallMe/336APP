@@ -10,14 +10,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 
 public class LoginPane extends AnchorPane {
 
 	private TextField userIDTextField;
 	private PasswordField passwordField;
 	private Button loginButton;
+	private Button registerButton;
+	private Label hint;
 
 	public LoginPane() {
 		super();
@@ -25,13 +25,15 @@ public class LoginPane extends AnchorPane {
 		userIDTextField.setPromptText("UserID");
 		passwordField = new PasswordField();
 		passwordField.setPromptText("Password");
-		loginButton = new Button("Sign Up");
+		loginButton = new Button("Login");
 		loginButton.setId("loginbutton");
-		passwordField.setMaxWidth(200.0);
 
-		Label hint = new Label("有 Aipapa ID 吗?");
+		registerButton = new Button("现在注册一个");
+		registerButton.setId("registerbutton");
+		hint = new Label("有 Aipapa ID 吗?");
+
 		
-		this.getChildren().addAll(userIDTextField,passwordField,loginButton,hint);
+		this.getChildren().addAll(userIDTextField,passwordField,loginButton,registerButton,hint);
 		AnchorPane.setLeftAnchor(userIDTextField, 425.0);
 		AnchorPane.setLeftAnchor(passwordField, 425.0);
 		AnchorPane.setTopAnchor(userIDTextField, 420.0);
@@ -39,7 +41,9 @@ public class LoginPane extends AnchorPane {
 		AnchorPane.setLeftAnchor(loginButton, 690.0);
 		AnchorPane.setTopAnchor(loginButton, 420.0);
 		AnchorPane.setLeftAnchor(hint, 425.0);
-		AnchorPane.setTopAnchor(hint, 480.0);
+		AnchorPane.setTopAnchor(hint, 485.0);
+		AnchorPane.setLeftAnchor(registerButton, 520.0);
+		AnchorPane.setTopAnchor(registerButton, 481.0);
 
 
 

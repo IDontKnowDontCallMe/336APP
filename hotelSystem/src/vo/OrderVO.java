@@ -1,13 +1,18 @@
 package vo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-import sun.misc.GC.LatencyRequest;
+public class OrderVO implements Serializable{
 
-public class OrderVO {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	public int orderID;
 	public String customerName;
 	public int customerID;

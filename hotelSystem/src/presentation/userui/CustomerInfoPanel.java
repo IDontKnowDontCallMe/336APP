@@ -3,7 +3,7 @@ package presentation.userui;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import businesslogic.userbl.UserController;
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -15,7 +15,6 @@ import vo.CustomerVO;
 
 public class CustomerInfoPanel extends VBox {
 
-	UserController controller = new MockUserController();
 	private ScrollPane listPane;
 	private VBox customerBox;
 	private HBox titleBox;
@@ -23,7 +22,7 @@ public class CustomerInfoPanel extends VBox {
 	private Text title;
 
 	public CustomerInfoPanel() throws RemoteException {
-		List<CustomerVO> customerList = controller.getCustomerList();
+		List<CustomerVO> customerList = BLFactory.getInstance().getUserBLService().getCustomerList();
 
 		customerBox = new VBox();
 		customerBox.setSpacing(15);

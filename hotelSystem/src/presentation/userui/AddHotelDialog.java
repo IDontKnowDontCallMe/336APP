@@ -1,6 +1,5 @@
 package presentation.userui;
 
-import businesslogic.hotelbl.HotelController;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
@@ -26,7 +25,6 @@ public class AddHotelDialog extends Dialog {
 	HBox hotelNameBox;
 	HBox workerNameBox;
 	HBox phoneNumberBox;
-	HotelController controller = new MockHotelController();
 
 	public AddHotelDialog() {
 		super();
