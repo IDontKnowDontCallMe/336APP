@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -25,10 +27,11 @@ public class LoginPane extends AnchorPane {
 		passwordField.setPromptText("Password");
 		loginButton = new Button("Login");
 		loginButton.setId("loginbutton");
+
 		registerButton = new Button("现在注册一个");
 		registerButton.setId("registerbutton");
 		hint = new Label("有 Aipapa ID 吗?");
-		
+
 		
 		this.getChildren().addAll(userIDTextField,passwordField,loginButton,registerButton,hint);
 		AnchorPane.setLeftAnchor(userIDTextField, 425.0);
@@ -41,6 +44,8 @@ public class LoginPane extends AnchorPane {
 		AnchorPane.setTopAnchor(hint, 485.0);
 		AnchorPane.setLeftAnchor(registerButton, 520.0);
 		AnchorPane.setTopAnchor(registerButton, 481.0);
+
+
 
 
 		loginButton.setAlignment(Pos.CENTER_RIGHT);

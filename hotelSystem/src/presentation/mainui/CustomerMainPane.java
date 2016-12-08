@@ -3,29 +3,52 @@ package presentation.mainui;
 import java.rmi.RemoteException;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import presentation.customerui.CustomerInfoPane;
 import presentation.hotelui.AreaInputPane;
 import presentation.hotelui.BookedHotelPane;
 import presentation.orderui.CustomerOrdersPane;
 
-public class CustomerMainPane extends VBox {
+public class CustomerMainPane extends AnchorPane {
 
 	private int customerID;
 
 	public CustomerMainPane(int customerID) {
 		super();
 		this.customerID = customerID;
+		Button searchButton = new Button();
+        
 
-		Button searchButton = new Button("搜索酒店");
-		Button orderListButton = new Button("查看订单");
-		Button hotelListButton = new Button("查看预定过的酒店");
-		Button infoButton = new Button("查看个人信息");
-		Button logoutButton = new Button("注销登录");
+		searchButton.setId("searchButton");
+		
+		Button orderListButton = new Button();
+		orderListButton.setId("orderListButton");
+
+		Button hotelListButton = new Button();
+		hotelListButton.setId("hotelListButton");
+		Button infoButton = new Button();
+		infoButton.setId("infoButton");
+
+		Button logoutButton = new Button();
+		logoutButton.setId("logoutButton");
 
 		this.getChildren().addAll(searchButton, orderListButton, hotelListButton, infoButton, logoutButton);
 
+		AnchorPane.setLeftAnchor(searchButton, 250.0);
+		AnchorPane.setTopAnchor(searchButton, 100.0);
+		AnchorPane.setLeftAnchor(orderListButton, 600.0);
+		AnchorPane.setTopAnchor(orderListButton, 100.0);
+		AnchorPane.setLeftAnchor(hotelListButton, 250.0);
+		AnchorPane.setTopAnchor(hotelListButton, 400.0);
+		AnchorPane.setLeftAnchor(infoButton, 600.0);
+		AnchorPane.setTopAnchor(infoButton, 400.0);
+		AnchorPane.setLeftAnchor(logoutButton, 950.0);
+		AnchorPane.setTopAnchor(logoutButton, 100.0);
+		
 		searchButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.jumpTo(new AreaInputPane(customerID));
 		});
@@ -49,6 +72,9 @@ public class CustomerMainPane extends VBox {
 		logoutButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.backTo();
 		});
+		
+		this.getStylesheets().add(getClass().getResource("customerMainPane.css").toExternalForm());
+
 
 	}
 

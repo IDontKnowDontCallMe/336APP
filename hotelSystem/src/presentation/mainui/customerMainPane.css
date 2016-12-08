@@ -1,0 +1,36 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* The main scrollbar **track** CSS class  */
+	
+	.root{
+	-fx-background-image: url("背景.png");
+    }
+
+    #searchButton{
+    	-fx-graphic:url("查找.png");
+    }
+    
+    #orderListButton{
+    	-fx-graphic:url("订单.png"); 
+    }
+    
+    #hotelListButton{
+    	-fx-graphic:url("酒店.png"); 
+    }
+    
+    #infoButton{
+    	-fx-graphic:url("信息.png"); 
+    }
+    
+    #logoutButton{
+    	-fx-graphic:url("退出.png"); 
+    }
+	
+	
+	.label{
+		-fx-font-family: "Helvetica Neue",sans-serif, "Microsoft Yahei", "MingLiU";
+		-fx-text-fill:white;
+	}
+	
+
+	
+	
