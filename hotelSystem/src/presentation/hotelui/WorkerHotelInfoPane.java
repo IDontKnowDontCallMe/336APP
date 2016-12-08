@@ -1,5 +1,6 @@
 package presentation.hotelui;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -36,7 +37,6 @@ public class WorkerHotelInfoPane extends GridPane {
 	private Button backButton;
 	private Button infoEditButton;
 	private Button addButton;
-	private Button saveButton;
 
 	private Text nameText;
 	private Text addressText;
@@ -74,12 +74,6 @@ public class WorkerHotelInfoPane extends GridPane {
 
 		this.add(new Text("房型列表"), 0, 2, 1, 1);
 		this.add(roomBox, 0, 3, 2, 1);
-
-		backButton = new Button("返回");
-		this.add(backButton, 1, 0, 1, 1);
-		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			TheMainFrame.backTo();
-		});
 
 	}
 
@@ -187,18 +181,35 @@ public class WorkerHotelInfoPane extends GridPane {
 			// 将newVO加入BL层
 			// .......
 
+			TheMainFrame.backTo();
 		});
 
-		saveButton = new Button("更新房间类型信息");
-		saveButton.setOnAction((ActionEvent e) -> {
-			// 将newVO加入BL层
+		backButton = new Button("返回");
+		backButton.setOnAction((ActionEvent e) -> {
+			List<RoomVO> newRoomList = new ArrayList<RoomVO>();
+
+			int count = 0;
+			for (RoomVO vo : roomList) {
+				count++;
+			}
+			for (int i = 0; i < count; i++) {
+				RoomVO updateVO = new RoomVO(Integer.parseInt(tableView.getColumns().get(0).getCellData(i).toString()),
+						tableView.getColumns().get(1).getCellData(i).toString(),
+						Integer.parseInt(tableView.getColumns().get(2).getCellData(i).toString()),
+						Integer.parseInt(tableView.getColumns().get(3).getCellData(i).toString()),
+						tableView.getColumns().get(4).getCellData(i).toString(),
+						Integer.parseInt(tableView.getColumns().get(5).getCellData(i).toString()));
+				newRoomList.add(updateVO);
+			}
+
+			// 将newRoomList加入BL层
 			// .......
 
 		});
 		tableView.setItems(roomCells);
 
 		addBox1.getChildren().addAll(addRoomNameTextField, addPriceTextField, addNumOfRoomTextField);
-		addBox2.getChildren().addAll(addServiceTextField, addMaxNumOfPeopleTextField, addButton, saveButton);
+		addBox2.getChildren().addAll(addServiceTextField, addMaxNumOfPeopleTextField, addButton, backButton);
 		roomBox.getChildren().addAll(roomPane, addBox1, addBox2);
 	}
 
