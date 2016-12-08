@@ -1,0 +1,101 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* The main scrollbar **track** CSS class  */
+	  .scroll-bar:horizontal .track,
+	 .scroll-bar:vertical .track{
+	    -fx-background-color:transparent;
+	    -fx-border-color:transparent;
+	    -fx-background-radius: 0.0em;
+	    -fx-border-radius:2.0em;
+	}
+	 
+	/* The increment and decrement button CSS class of scrollbar */
+	 .scroll-bar:horizontal .increment-button ,
+	 .scroll-bar:horizontal .decrement-button {
+	    -fx-background-color:transparent;
+	    -fx-background-radius: 0.0em;
+	    -fx-padding:0.0 0.0 10.0 0.0;
+	 
+	}
+	 
+	/* The increment and decrement button CSS class of scrollbar */
+	 
+	.scroll-bar:vertical .increment-button ,
+	.scroll-bar:vertical .decrement-button {
+	 
+	    -fx-background-color:transparent;
+	    -fx-background-radius: 0.0em;
+	    -fx-padding:0.0 10.0 0.0 0.0;
+	 
+	}
+	 
+ 	.scroll-bar .increment-arrow,
+	.scroll-bar .decrement-arrow
+	{
+	    -fx-shape: " ";
+	    -fx-padding:0.0;
+	}
+	 
+	 .scroll-bar:horizontal .thumb,
+	 .scroll-bar:vertical .thumb {
+	    -fx-background-color:derive(black,90.0%);
+	    -fx-background-insets: 2.0, 0.0, 0.0;
+	    -fx-background-radius: 5.0em;
+	 
+	}
+	
+	.root{
+	-fx-background-image: url("背景.png");
+}
+
+	.password-field{
+	-fx-min-width: 250.0;
+}
+	.text-field{
+		-fx-min-width : 250.0;
+	}
+	
+	#loginbutton{
+		-fx-background-color:#FFFFFF;
+		
+	}
+	
+	.label{
+		-fx-font-family: "Helvetica Neue",sans-serif, "Microsoft Yahei", "MingLiU";
+		-fx-text-fill:white;
+	}
+	
+	#loginbutton {
+    -fx-background-color: 
+        rgba(0,0,0,0.28),
+        linear-gradient(#9a9a9a, #909090),
+        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 3 10 3 10;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
+}
+#loginbutton:hover {
+      -fx-background-color: 
+        rgba(0,0,0,0.08),
+        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+}
+
+#loginbutton:pressed, #loginbutton:default:hover:pressed {
+  -fx-background-color: 
+        rgba(0,0,0,0.08),
+        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+
+   -fx-text-fill: #242d35;
+}
+
+#loginbutton:focused {
+      -fx-background-color: 
+        rgba(0,0,0,0.78),
+        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+        
+      -fx-text-fill: #696969;
+}
+	
+	
+	

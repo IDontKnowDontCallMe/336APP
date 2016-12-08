@@ -1,52 +1,11 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 /* The main scrollbar **track** CSS class  */
-	  .scroll-bar:horizontal .track,
-	 .scroll-bar:vertical .track{
-	    -fx-background-color:transparent;
-	    -fx-border-color:transparent;
-	    -fx-background-radius: 0.0em;
-	    -fx-border-radius:2.0em;
-	}
-	 
-	/* The increment and decrement button CSS class of scrollbar */
-	 .scroll-bar:horizontal .increment-button ,
-	 .scroll-bar:horizontal .decrement-button {
-	    -fx-background-color:transparent;
-	    -fx-background-radius: 0.0em;
-	    -fx-padding:0.0 0.0 10.0 0.0;
-	 
-	}
-	 
-	/* The increment and decrement button CSS class of scrollbar */
-	 
-	.scroll-bar:vertical .increment-button ,
-	.scroll-bar:vertical .decrement-button {
-	 
-	    -fx-background-color:transparent;
-	    -fx-background-radius: 0.0em;
-	    -fx-padding:0.0 10.0 0.0 0.0;
-	 
-	}
-	 
- 	.scroll-bar .increment-arrow,
-	.scroll-bar .decrement-arrow
-	{
-	    -fx-shape: " ";
-	    -fx-padding:0.0;
-	}
-	 
-	 .scroll-bar:horizontal .thumb,
-	 .scroll-bar:vertical .thumb {
-	    -fx-background-color:derive(black,90.0%);
-	    -fx-background-insets: 2.0, 0.0, 0.0;
-	    -fx-background-radius: 5.0em;
-	 
-	}
-	
+
 	.root{
 	-fx-background-image: url("背景.png");
 }
 
+    
 	.password-field{
 	-fx-min-width: 250.0;
 }
@@ -78,9 +37,8 @@
     -fx-font-family:"Helvetica";
 }
 #loginbutton:hover {
-      -fx-background-color: 
-        rgba(0.0,0.0,0.0,0.08),
-        linear-gradient(white 0.0%, #f3f3f3 50.0%, #ececec 51.0%, #f2f2f2 100.0%);
+      -fx-background-color: linear-gradient(#f0f8ff, #00ffff);
+        
 }
 
 #loginbutton:pressed, #loginbutton:default:hover:pressed {
