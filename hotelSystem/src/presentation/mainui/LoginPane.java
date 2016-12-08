@@ -8,6 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
 public class LoginPane extends AnchorPane {
 
@@ -27,8 +29,6 @@ public class LoginPane extends AnchorPane {
 		
 		Label hint = new Label("有 Aipapa ID 吗?");
 		
-
-		
 		this.getChildren().addAll(userIDTextField,passwordField,loginButton,hint);
 		AnchorPane.setLeftAnchor(userIDTextField, 425.0);
 		AnchorPane.setLeftAnchor(passwordField, 425.0);
@@ -39,7 +39,7 @@ public class LoginPane extends AnchorPane {
 		AnchorPane.setLeftAnchor(hint, 425.0);
 		AnchorPane.setTopAnchor(hint, 480.0);
 
-		
+
 		loginButton.setAlignment(Pos.CENTER_RIGHT);
 
 		loginButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
@@ -60,6 +60,14 @@ public class LoginPane extends AnchorPane {
 		AnchorPane.setTopAnchor(webMarketerButton, 50.0);
 		webMarketerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			TheMainFrame.jumpTo(new WebMarketerMainPane());
+		});
+
+		// HotelWorker
+		Button hotelWorkerButton = new Button("酒店工作人员快捷入口(用于测试)");
+		this.getChildren().add(hotelWorkerButton);
+		AnchorPane.setTopAnchor(hotelWorkerButton, 80.0);
+		hotelWorkerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			TheMainFrame.jumpTo(new HotelWorkerMainPane(Integer.valueOf(userIDTextField.getText())));
 		});
 
 		this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());

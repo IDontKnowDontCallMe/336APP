@@ -45,7 +45,7 @@ public class CustomerHotelInfoPane extends GridPane {
 
 	HotelVO hotelVO;
 	List<RoomVO> roomList;
-	
+
 	public CustomerHotelInfoPane(int hotelID, int customerID) throws RemoteException {
 		super();
 		this.setHgap(10);
@@ -166,7 +166,7 @@ public class CustomerHotelInfoPane extends GridPane {
 		infoPane.add(addressText, 1, 1, 1, 1);
 
 		infoPane.add(new Text("酒店简介"), 0, 2, 1, 1);
-		introductionText = new Text(hotelVO.service);
+		introductionText = new Text(hotelVO.introduction);
 		infoPane.add(introductionText, 1, 2, 1, 1);
 
 		infoPane.add(new Text("设施服务"), 0, 3, 1, 1);
