@@ -65,36 +65,51 @@
 	}
 	
 	#loginbutton {
-    -fx-background-color: 
+  /*   -fx-background-color: 
         rgba(0,0,0,0.28),
         linear-gradient(#9a9a9a, #909090),
         linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
-    -fx-background-insets: 0 0 -1 0,0,1;
-    -fx-background-radius: 5,5,4;
-    -fx-padding: 3 10 3 10;
+        */
+    -fx-background-insets: 0.0 0.0 -1.0 0.0,0.0,1.0;
+    -fx-background-radius: 5.0,5.0,4.0;
+    -fx-padding: 3.0 10.0 3.0 10.0;
     -fx-text-fill: #242d35;
-    -fx-font-size: 14px;
+    -fx-font-size: 14.0px;
+    -fx-font-family:"Helvetica";
 }
 #loginbutton:hover {
       -fx-background-color: 
-        rgba(0,0,0,0.08),
-        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+        rgba(0.0,0.0,0.0,0.08),
+        linear-gradient(white 0.0%, #f3f3f3 50.0%, #ececec 51.0%, #f2f2f2 100.0%);
 }
 
 #loginbutton:pressed, #loginbutton:default:hover:pressed {
   -fx-background-color: 
-        rgba(0,0,0,0.08),
-        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+        rgba(0.0,0.0,0.0,0.08),
+        linear-gradient(white 0.0%, #f3f3f3 50.0%, #ececec 51.0%, #f2f2f2 100.0%);
 
    -fx-text-fill: #242d35;
 }
 
 #loginbutton:focused {
       -fx-background-color: 
-        rgba(0,0,0,0.78),
-        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+        rgba(0.0,0.0,0.0,0.78),
+        linear-gradient(white 0.0%, #f3f3f3 50.0%, #ececec 51.0%, #f2f2f2 100.0%);
         
       -fx-text-fill: #696969;
+}
+
+#registerbutton {
+		-fx-font-family: "Helvetica Neue",sans-serif, "Microsoft Yahei", "MingLiU";
+		-fx-text-fill:white ;
+		-fx-background-color: null;
+}
+
+#registerbutton:hover{
+			-fx-underline:true;
+}
+#registerbutton:pressed{
+	
 }
 	
 	
