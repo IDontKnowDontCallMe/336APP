@@ -1,11 +1,18 @@
 package vo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class OrderVO {
+public class OrderVO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	public int orderID;
 	public String customerName;
 	public int customerID;

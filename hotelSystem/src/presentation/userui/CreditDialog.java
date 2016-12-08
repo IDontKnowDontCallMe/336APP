@@ -1,6 +1,7 @@
 package presentation.userui;
 
-import businesslogic.customerbl.CustomerController;
+import java.rmi.RemoteException;
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
@@ -21,17 +22,21 @@ public class CreditDialog extends Dialog {
 	Text creditTitle;
 	TextField creditTextField;
 	HBox creditBox;
-	CustomerController controller = new MockCustomerController();
 
 	public CreditDialog(int customerID) {
 		super();
-		CustomerVO customerVO = MockCustomerController.getInstance().getCustomerInfo(customerID);
+		try {
+			CustomerVO customerVO = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID);
+			int credit = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID).credit;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		gridPane = new GridPane();
 		gridPane.setHgap(10);
 		gridPane.setVgap(20);
 
-		int credit = controller.getCustomerInfo(customerID).credit;
 
 		title = new Text("信用充值");
 		creditTitle = new Text("增加信用额度: ");

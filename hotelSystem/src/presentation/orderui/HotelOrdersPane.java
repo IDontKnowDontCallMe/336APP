@@ -2,8 +2,7 @@ package presentation.orderui;
 
 import java.rmi.RemoteException;
 import java.util.List;
-
-import businesslogic.orderbl.OrderController;
+import bussinesslogic.factory.BLFactory;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -17,7 +16,6 @@ public class HotelOrdersPane extends VBox{
 
 	private int hotelID;
 	//以后用工厂模式替换之
-	OrderController controller = new MockOrderController();
 	
 	private HBox radioBox;
 	private ToggleGroup toggleGroup;
@@ -36,7 +34,7 @@ public class HotelOrdersPane extends VBox{
 		this.hotelID = hotelID;
 		initRadioButton();
 		//OrderController controller = new MockOrderController();
-		List<OrderVO> orderList = controller.getHotelOrder(hotelID);
+		List<OrderVO> orderList = BLFactory.getInstance().getOrderBLService().getHotelOrder(hotelID);
 		orderBox = new VBox();
 		orderBox.setSpacing(15);
 		buildOrderBox(orderList);
@@ -71,7 +69,7 @@ public class HotelOrdersPane extends VBox{
 					}
 					else{
 						try {
-							buildOrderBox(controller.filterHotelList(hotelID, (String)newToggle.getUserData()));
+							buildOrderBox(BLFactory.getInstance().getOrderBLService().filterHotelList(hotelID, (String)newToggle.getUserData()));
 						} catch (RemoteException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

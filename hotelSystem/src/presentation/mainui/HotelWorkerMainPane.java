@@ -28,10 +28,17 @@ public class HotelWorkerMainPane extends VBox {
 			// TheMainFrame.jumpTo();
 		});
 
+		
 		hotelPromotionButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			TheMainFrame.jumpTo(new HotelPromotionPanel(hotelID));
+			try {
+				TheMainFrame.jumpTo(new HotelPromotionPanel(hotelID));
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 
+		
 		offlineButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			// TheMainFrame.jumpTo();
 		});

@@ -3,6 +3,7 @@ package presentation.hotelui;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import bussinesslogic.factory.BLFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -15,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import presentation.mainui.TheMainFrame;
-import presentation.orderui.MockOrderController;
 import presentation.orderui.ProducingOrderDialog;
 import presentation.roomui.MockRoomController;
 import presentation.roomui.RoomCell;
@@ -174,9 +174,7 @@ public class CustomerHotelInfoPane extends GridPane {
 	}
 
 	private void initOrderPane(int customerID, String hotelName) throws RemoteException {
-
-		OrderController controller = new MockOrderController();
-		List<OrderVO> orderList = controller.getCustomerOrder(customerID);
+		List<OrderVO> orderList = BLFactory.getInstance().getOrderBLService().getCustomerOrder(customerID);
 		List<OrderVO> hotelOrderList = new ArrayList<OrderVO>();
 		for (OrderVO order : orderList) {
 			if (order.hotelName.equals(hotelName)) {

@@ -1,6 +1,6 @@
 package presentation.promotionui;
 
-import businesslogic.promotionbl.PromotionController;
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -41,7 +41,6 @@ public class LevelPanel extends GridPane {
 	HBox titleBox;
 
 	VBox levelMethodBox;
-	PromotionController controller = new MockPromotionController();
 
 	public LevelPanel() {
 		super();
@@ -50,9 +49,9 @@ public class LevelPanel extends GridPane {
 		this.setHgap(10);
 		this.setVgap(20);
 
-		int creditDistance = controller.getLevelMethod().creditDistance;
-		int maxLevel = controller.getLevelMethod().maxLevel;
-		double discountDistance = controller.getLevelMethod().discountDistance;
+		int creditDistance = BLFactory.getInstance().getPromotionBLService().getLevelMethod().creditDistance;
+		int maxLevel = BLFactory.getInstance().getPromotionBLService().getLevelMethod().maxLevel;
+		double discountDistance = BLFactory.getInstance().getPromotionBLService().getLevelMethod().discountDistance;
 
 		title = new Text("会员等级制度");
 		editButton = new Button("编辑");

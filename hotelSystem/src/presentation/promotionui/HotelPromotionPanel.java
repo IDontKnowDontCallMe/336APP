@@ -1,8 +1,9 @@
 package presentation.promotionui;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
-import businesslogic.promotionbl.PromotionController;
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -13,15 +14,14 @@ import vo.HotelPromotionVO;
 
 public class HotelPromotionPanel extends VBox {
 
-	PromotionController controller = new MockPromotionController();
 	private ScrollPane listPane;
 	private VBox hotelPromotionBox;
 	private HBox addBox;
 	private Button addButton;
 	private Text title;
 
-	public HotelPromotionPanel(int hotelID) {
-		List<HotelPromotionVO> hotelPromotionList = controller.getHotelPromotionList(hotelID);
+	public HotelPromotionPanel(int hotelID) throws RemoteException{
+		List<HotelPromotionVO> hotelPromotionList = BLFactory.getInstance().getPromotionBLService().getHotelPromotionList(hotelID);
 		hotelPromotionBox = new VBox();
 		hotelPromotionBox.setSpacing(15);
 		buildHotelPromotionBox(hotelPromotionList);
