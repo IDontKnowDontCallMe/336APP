@@ -46,7 +46,7 @@ public class TheMainFrame extends Application {
 	private void linkToServer() {
 		try {
 			blFactory = BLFactory.getInstance();
-			blFactory.setRemote(Naming.lookup("rmi://localhost:8888/ControllerRemoteObject"));
+			blFactory.setRemote(Naming.lookup("rmi://localhost:8888/controllerRemoteFactory"));
 			System.out.println("linked");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

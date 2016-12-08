@@ -1,4 +1,4 @@
-package businesslogicservice.promotionblservice;
+package rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -10,9 +10,7 @@ import vo.HotelPromotionVO;
 import vo.LevelVO;
 import vo.WebPromotionVO;
 
-public interface PromotionBLService extends Remote{
-	
-	
+public interface RemotePromotionBLService extends Remote{
 	public List<HotelPromotionVO> getHotelPromotionList(int hotelID) throws RemoteException;
 	
 	public boolean addHotelPromotion(HotelPromotionVO hotelPromotionVO) throws RemoteException;
@@ -29,15 +27,10 @@ public interface PromotionBLService extends Remote{
 	
 	public boolean deleteWebPromotion(WebPromotionVO webPromotionVO) throws RemoteException;
 	
-	public boolean setLevelMethod(LevelVO levelVO) throws RemoteException;
-	
-	public LevelVO getLevelMethod() throws RemoteException;
-	
-	public boolean updateLevelInfo(LevelVO levelVO);
+	public boolean updateLevel(LevelVO levelVO) throws RemoteException;
 	
 	public int calculateOrder(CalculationConditionVO calculationConditionVO, CustomerVO customerVO) throws RemoteException;
 	
 	public int calculateLevel(int credit) throws RemoteException;
-	
 
 }

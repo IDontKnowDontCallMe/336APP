@@ -1,21 +1,15 @@
-package businesslogicservice.orderblservice;
+package rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
-import po.OrderPO;
-import presentation.orderui.CalculatingConditionVO;
+
 import vo.CalculationConditionVO;
 import vo.OrderVO;
 
-/**
- * 
- * @author USER
- *
- */
-public interface OrderBLService extends Remote{
-	
-	public List<OrderVO> getCustomerOrder(int customerID) throws RemoteException;
+public interface RemoteOrderBLService extends Remote{
+
+public List<OrderVO> getCustomerOrder(int customerID) throws RemoteException;
 	
 	public List<OrderVO> getHotelOrder(int hotelID) throws RemoteException;
 	
@@ -34,6 +28,12 @@ public interface OrderBLService extends Remote{
 	public boolean produceOrder(OrderVO orderVO, CalculationConditionVO calculationConditionVO) throws RemoteException;
 	
 	public boolean changeOrderState(int orderID, String state) throws RemoteException;
-
+	
+	//-------------
+	public List<OrderVO> getOrderListOfHotel(int hotelID, int customerID) throws RemoteException;
+	
+	public List<Integer> getBookedHotelidOf(int customerID) throws RemoteException;
+	
+	public int getBookedTag(int customerID, int hotelID) throws RemoteException;
 	
 }
