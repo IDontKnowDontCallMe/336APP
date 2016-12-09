@@ -62,11 +62,21 @@ public class CustomerMainPane extends AnchorPane {
 		});
 
 		hotelListButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			TheMainFrame.jumpTo(new BookedHotelPane(customerID));
+			try {
+				TheMainFrame.jumpTo(new BookedHotelPane(customerID));
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 
 		infoButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			TheMainFrame.jumpTo(new CustomerInfoPane(customerID));
+			try {
+				TheMainFrame.jumpTo(new CustomerInfoPane(customerID));
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 
 		logoutButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {

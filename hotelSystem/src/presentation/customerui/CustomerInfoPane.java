@@ -22,7 +22,7 @@ import vo.CreditVO;
 import vo.CustomerVO;
 
 public class CustomerInfoPane extends GridPane {
-    
+
 	private int customerID;
 
 	private GridPane infoPane;
@@ -59,8 +59,8 @@ public class CustomerInfoPane extends GridPane {
 		this.add(titleBox, 0, 0, 1, 1);
 		this.add(infoPane, 0, 1, 1, 1);
 		this.add(creditPane, 0, 2, 2, 1);
-		
-		this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());
+
+		// this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());
 	}
 
 	private void initInfoPane() throws RemoteException {
@@ -123,7 +123,7 @@ public class CustomerInfoPane extends GridPane {
 
 	}
 
-	private void initCreditList() {
+	private void initCreditList() throws RemoteException {
 		creditPane = new ScrollPane();
 		TableView<CreditCell> tableView = new TableView<>();
 		creditPane.setContent(tableView);
@@ -141,7 +141,7 @@ public class CustomerInfoPane extends GridPane {
 
 		tableView.getColumns().addAll(producingTimeCol, orderIDCol, actionCol, creditDeltaCol, creditResultCol);
 		tableView.setPrefWidth(450);
-		List<CreditVO> creditList = MockCustomerController.getInstance().getCreditList(customerID);
+		List<CreditVO> creditList = BLFactory.getInstance().getCustomerBLService().getCreditList(customerID);
 		ObservableList<CreditCell> creditCells = FXCollections.observableArrayList();
 		for (CreditVO vo : creditList) {
 			CreditCell cell = new CreditCell(vo);
@@ -206,7 +206,6 @@ public class CustomerInfoPane extends GridPane {
 		public String getCreditResult() {
 			return creditResult.get();
 		}
-		
-		
+
 	}
 }

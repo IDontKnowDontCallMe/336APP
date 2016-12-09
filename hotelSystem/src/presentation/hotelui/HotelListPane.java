@@ -56,7 +56,13 @@ public class HotelListPane extends ScrollPane {
 			this.add(produceButton, 5, 1, 1, 1);
 			List<RoomVO> roomList = BLFactory.getInstance().getRoomBLService().getRoomTypeList(hotelVO.hotelID);
 			produceButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-				ProducingOrderDialog producingOrderDialog = new ProducingOrderDialog(customerID, hotelVO, roomList, 0);
+				ProducingOrderDialog producingOrderDialog = null;
+				try {
+					producingOrderDialog = new ProducingOrderDialog(customerID, hotelVO, roomList, 0);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				producingOrderDialog.show();
 			});
 

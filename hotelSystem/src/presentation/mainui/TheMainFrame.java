@@ -42,11 +42,13 @@ public class TheMainFrame extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	private void linkToServer() {
+		// System.setProperty(key, value)
+		// 172.26.102.100
 		try {
 			blFactory = BLFactory.getInstance();
-			blFactory.setRemote(Naming.lookup("rmi://localhost:8888/controllerRemoteFactory"));
+			blFactory.setRemote(Naming.lookup("rmi://172.26.102.100:8888/controllerRemoteFactory"));
 			System.out.println("linked");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

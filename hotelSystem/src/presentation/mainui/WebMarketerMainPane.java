@@ -35,7 +35,12 @@ public class WebMarketerMainPane extends VBox {
 
 		
 		levelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			TheMainFrame.jumpTo(new LevelPanel());
+			try {
+				TheMainFrame.jumpTo(new LevelPanel());
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 
 		marketerOrderButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
