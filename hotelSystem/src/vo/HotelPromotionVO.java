@@ -1,8 +1,14 @@
 package vo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class HotelPromotionVO {
+public class HotelPromotionVO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public int hotelID;
 
 	public String promotionType;

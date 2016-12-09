@@ -1,9 +1,14 @@
 package vo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CustomerVO {
-	
+public class CustomerVO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int customerID;
 	public String customerName;
 	public String phoneNumber;
@@ -13,10 +18,9 @@ public class CustomerVO {
 	public String companyName;
 	public int credit;
 	public int level;
-	
-	
-	public CustomerVO(int customerID, String customerName, String phoneNumber, boolean isBirthVIP, LocalDate birthday, 
-						boolean isCompanyVIP, String companyName, int credit, int level){
+
+	public CustomerVO(int customerID, String customerName, String phoneNumber, boolean isBirthVIP, LocalDate birthday,
+			boolean isCompanyVIP, String companyName, int credit, int level) {
 		this.customerID = customerID;
 		this.customerName = customerName;
 		this.phoneNumber = phoneNumber;
@@ -27,8 +31,8 @@ public class CustomerVO {
 		this.credit = credit;
 		this.level = level;
 	}
-	
-	public CustomerVO(CustomerVO vo){
+
+	public CustomerVO(CustomerVO vo) {
 		this.customerID = vo.customerID;
 		this.customerName = vo.customerName;
 		this.phoneNumber = vo.phoneNumber;
@@ -40,5 +44,3 @@ public class CustomerVO {
 		this.level = vo.level;
 	}
 }
-
-

@@ -1,7 +1,11 @@
 package vo;
 
-public class LevelVO {
+public class LevelVO{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int creditDistance;
 	public int maxLevel;
 	public double discountDistance;

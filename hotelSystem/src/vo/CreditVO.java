@@ -1,18 +1,24 @@
 package vo;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class CreditVO {
+public class CreditVO implements Serializable{
 
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int customerID;
 	public LocalDateTime producingDateTime;
-	public int orderID;
+	public String orderID;
 	public String action;
 	public int creditDelta;
 	public int creditResult;
-
-	public CreditVO(int customerID, LocalDateTime producingDateTime, int orderID, String action, int creditDelta,
-			int creditResult) {
+	
+	public CreditVO(int customerID, LocalDateTime producingDateTime, String orderID, String action, int creditDelta, int creditResult) {
+		// TODO Auto-generated constructor stub
 		this.customerID = customerID;
 		this.producingDateTime = producingDateTime;
 		this.orderID = orderID;
@@ -20,5 +26,7 @@ public class CreditVO {
 		this.creditDelta = creditDelta;
 		this.creditResult = creditResult;
 	}
-
+	
+	
+	
 }

@@ -2,12 +2,12 @@ package vo;
 
 import java.io.Serializable;
 
-public class HotelVO implements Serializable {
-	
+public class HotelVO implements Serializable{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 9151928773649598567L;
+	private static final long serialVersionUID = 1L;
 	public int hotelID;
 	public String hotelName;
 	public String city;
@@ -19,12 +19,13 @@ public class HotelVO implements Serializable {
 	public double commentScore;
 	public String workerName;
 	public String phoneNumber;
+
 	public int minPrice;
-	
-	public String bookedTag;
-	
-	public HotelVO(int hotelID, String hotelName, String city, String businessCircle, String address, String introduction, String service,
-					int score, double commentScore, String workerName, String phoneNumber, int minPrice, String bookedTag) {
+	public int bookedTag;
+
+	public HotelVO(int hotelID, String hotelName, String city, String businessCircle, String address,
+			String introduction, String service, int score, double commentScore, String workerName, String phoneNumber,
+			int minPrice, int bookedTag) {
 		this.hotelID = hotelID;
 		this.hotelName = hotelName;
 		this.city = city;

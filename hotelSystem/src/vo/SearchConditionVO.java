@@ -1,8 +1,14 @@
 package vo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class SearchConditionVO {
+public class SearchConditionVO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public int customerID;
 	
@@ -26,11 +32,13 @@ public class SearchConditionVO {
 	public boolean hasCommentScoreLimit;
 	public double minCommentScore;
 	
+	public boolean hasBookedLimit;
+	
 	public boolean isInteractive;
 	
 	public SearchConditionVO(int customerID, String hotelName, boolean hasRoomTypeLimit, int peopleNumOfRoom, boolean hasPriceLimit,
 							int minPrice, int maxPrice, boolean hasDateLimit, LocalDate checkInDate, LocalDate checkOutDate, int roomNum,
-							boolean hasScoreLimit, int minScore, boolean hasCommentScoreLimit, double minCommentScore, boolean isInteractive) {
+							boolean hasScoreLimit, int minScore, boolean hasCommentScoreLimit, double minCommentScore, Boolean hasBookedLimit,boolean isInteractive) {
 		// TODO Auto-generated constructor stub
 		this.customerID = customerID;
 		this.hotelName = hotelName;
@@ -47,6 +55,7 @@ public class SearchConditionVO {
 		this.minScore = minScore;
 		this.hasCommentScoreLimit = hasCommentScoreLimit;
 		this.minCommentScore = minCommentScore;
+		this.hasBookedLimit = hasBookedLimit;
 		this.isInteractive = isInteractive;
 		
 	}

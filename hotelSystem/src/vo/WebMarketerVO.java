@@ -1,8 +1,14 @@
 package vo;
 
-public class WebMarketerVO {
+import java.io.Serializable;
+
+public class WebMarketerVO implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int ID;
 	public String name;
 	public String phoneNumber;
