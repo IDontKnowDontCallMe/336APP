@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import presentation.mainui.TheMainFrame;
 import presentation.orderui.ProducingOrderDialog;
-import presentation.roomui.MockRoomController;
 import vo.HotelVO;
 import vo.RoomVO;
 
@@ -20,8 +19,10 @@ public class HotelListPane extends ScrollPane {
 
 	private int customerID;
 
-	public HotelListPane(List<HotelVO> hotelList) throws RemoteException {
+	public HotelListPane(List<HotelVO> hotelList, int customerID) throws RemoteException {
 		super();
+		this.customerID = customerID;
+
 		VBox vBox = new VBox();
 		vBox.setSpacing(20);
 		this.setContent(vBox);

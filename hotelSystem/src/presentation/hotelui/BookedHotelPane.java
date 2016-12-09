@@ -23,7 +23,7 @@ public class BookedHotelPane extends VBox {
 
 		List<HotelVO> hotelList = BLFactory.getInstance().getHotelBLService().getBookedHotelList(customerID);
 
-		this.getChildren().addAll(backButton, new HotelListPane(hotelList));
+		this.getChildren().addAll(backButton, new HotelListPane(hotelList, customerID));
 	}
 
 }

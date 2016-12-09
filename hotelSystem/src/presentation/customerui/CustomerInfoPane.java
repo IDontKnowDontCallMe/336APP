@@ -118,7 +118,7 @@ public class CustomerInfoPane extends GridPane {
 				vo.customerName = nameTextField.getText();
 				vo.phoneNumber = phoneTextField.getText();
 				try {
-					if (BLFactory.getInstance().getCustomerBLService().updateCustomerInfo(customerVO)) {
+					if (BLFactory.getInstance().getCustomerBLService().updateCustomerInfo(vo)) {
 						nameText.setText(nameTextField.getText());
 						phoneNumberText.setText(phoneTextField.getText());
 					}

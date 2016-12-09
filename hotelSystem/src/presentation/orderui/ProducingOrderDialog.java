@@ -48,9 +48,9 @@ public class ProducingOrderDialog extends Dialog<OrderVO> {
 
 		initUI(roomIndex);
 		this.getDialogPane().setContent(gridPane);
-		calculationConditionVO = new CalculationConditionVO(customerID, 2, 1, checkInDatePicker.getValue(),
-				checkOutDatePicker.getValue(), Integer.valueOf(numTextField.getText()), roomIndex, false, hotelVO.city,
-				hotelVO.businessCircle);
+		calculationConditionVO = new CalculationConditionVO(hotelVO.hotelID, roomList.get(roomIndex).roomID, customerID,
+				checkInDatePicker.getValue(), checkOutDatePicker.getValue(), Integer.valueOf(numTextField.getText()),
+				roomList.get(roomIndex).price, false, hotelVO.city, hotelVO.businessCircle);
 		updateTotal();
 
 		Callback<ButtonType, OrderVO> resultConverter = new Callback<ButtonType, OrderVO>() {

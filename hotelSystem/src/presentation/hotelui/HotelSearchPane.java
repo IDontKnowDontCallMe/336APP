@@ -126,7 +126,7 @@ public class HotelSearchPane extends VBox {
 
 	private void initHotelListPane() throws RemoteException {
 		List<HotelVO> hotelList = BLFactory.getInstance().getHotelBLService().getHotelVOsOfArea(areaVO, customerID);
-		HotelListPane hotelListPane = new HotelListPane(hotelList);
+		HotelListPane hotelListPane = new HotelListPane(hotelList, customerID);
 		this.getChildren().add(hotelListPane);
 	}
 
