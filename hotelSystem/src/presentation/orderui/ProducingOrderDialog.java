@@ -1,8 +1,10 @@
 package presentation.orderui;
 
+import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.util.List;
 
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
@@ -39,14 +41,16 @@ public class ProducingOrderDialog extends Dialog<OrderVO> {
 	CalculationConditionVO calculationConditionVO;
 	OrderVO orderVO;
 
-	public ProducingOrderDialog(int customerID, HotelVO hotelVO, List<RoomVO> roomList, int roomIndex) {
+	public ProducingOrderDialog(int customerID, HotelVO hotelVO, List<RoomVO> roomList, int roomIndex)
+			throws RemoteException {
 		this.hotelVO = hotelVO;
 		this.roomList = roomList;
 
 		initUI(roomIndex);
 		this.getDialogPane().setContent(gridPane);
 		calculationConditionVO = new CalculationConditionVO(customerID, 2, 1, checkInDatePicker.getValue(),
-				checkOutDatePicker.getValue(), Integer.valueOf(numTextField.getText()), roomIndex, false, null);
+				checkOutDatePicker.getValue(), Integer.valueOf(numTextField.getText()), roomIndex, false, hotelVO.city,
+				hotelVO.businessCircle);
 		updateTotal();
 
 		Callback<ButtonType, OrderVO> resultConverter = new Callback<ButtonType, OrderVO>() {
@@ -57,7 +61,7 @@ public class ProducingOrderDialog extends Dialog<OrderVO> {
 					return new OrderVO(-1, null, customerID, null, null, hotelVO.hotelName,
 							roomTypeChoiceBox.getValue(), Integer.valueOf(numTextField.getText()), 1,
 							childrenCheckBox.isSelected(), checkInDatePicker.getValue(), null,
-							checkOutDatePicker.getValue(), Integer.valueOf(totalText.getText()), "正常");
+							checkOutDatePicker.getValue(), Integer.valueOf(totalText.getText()), "正常", false);
 				} else {
 					return null;
 				}
@@ -144,8 +148,8 @@ public class ProducingOrderDialog extends Dialog<OrderVO> {
 		gridPane.add(totalBox, 0, 5, 1, 1);
 	}
 
-	private void updateTotal() {
-		int total = new MockOrderController().calculateTotal(calculationConditionVO);
+	private void updateTotal() throws RemoteException {
+		int total = BLFactory.getInstance().getOrderBLService().calculateTotal(calculationConditionVO);
 		totalText.setText(String.valueOf(total));
 	}
 

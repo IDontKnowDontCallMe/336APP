@@ -1,5 +1,7 @@
 package presentation.promotionui;
 
+import java.rmi.RemoteException;
+
 import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -42,7 +44,7 @@ public class LevelPanel extends GridPane {
 
 	VBox levelMethodBox;
 
-	public LevelPanel() {
+	public LevelPanel() throws RemoteException {
 		super();
 		LevelVO levelVO = MockPromotionController.getInstance().getLevelMethod();
 

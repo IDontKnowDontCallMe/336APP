@@ -1,8 +1,10 @@
 package presentation.hotelui;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import bussinesslogic.factory.BLFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,13 +61,13 @@ public class WorkerHotelInfoPane extends GridPane {
 	HotelVO hotelVO;
 	List<RoomVO> roomList;
 
-	public WorkerHotelInfoPane(int hotelID) {
+	public WorkerHotelInfoPane(int hotelID) throws RemoteException {
 		super();
 		this.setHgap(10);
 		this.setVgap(20);
 
 		this.hotelID = hotelID;
-		hotelVO = MockHotelController.getInstance().getHotelInfo(hotelID);
+		hotelVO = BLFactory.getInstance().getHotelBLService().getHotelInfo(hotelID);
 		initInfoPane();
 		initRoomPane(hotelID);
 
@@ -77,8 +79,8 @@ public class WorkerHotelInfoPane extends GridPane {
 
 	}
 
-	private void initRoomPane(int hotelID) {
-		roomList = MockRoomController.getInstance().getRoomTypeList(hotelID);
+	private void initRoomPane(int hotelID) throws RemoteException {
+		roomList = BLFactory.getInstance().getRoomBLService().getRoomTypeList(hotelID);
 		roomPane = new ScrollPane();
 		roomBox = new VBox();
 		addBox1 = new HBox();

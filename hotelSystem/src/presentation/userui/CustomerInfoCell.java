@@ -1,5 +1,8 @@
 package presentation.userui;
 
+import java.rmi.RemoteException;
+
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -95,7 +98,13 @@ public class CustomerInfoCell extends GridPane {
 				infoPane.add(birthdayText, 1, 3, 1, 1);
 				infoPane.add(companyText, 1, 4, 1, 1);
 
-				CustomerVO vo = MockCustomerController.getInstance().getCustomerInfo(customerID);
+				CustomerVO vo = null;
+				try {
+					vo = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				vo.customerName = nameTextField.getText();
 				vo.phoneNumber = phoneTextField.getText();
 				if (birthdayDatePicker.getValue() != null) {

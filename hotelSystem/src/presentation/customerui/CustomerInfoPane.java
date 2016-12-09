@@ -1,6 +1,9 @@
 package presentation.customerui;
 
+import java.rmi.RemoteException;
 import java.util.List;
+
+import bussinesslogic.factory.BLFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +40,7 @@ public class CustomerInfoPane extends GridPane {
 
 	private ScrollPane creditPane;
 
-	public CustomerInfoPane(int customerID) {
+	public CustomerInfoPane(int customerID) throws RemoteException {
 		super();
 		this.customerID = customerID;
 
@@ -60,8 +63,8 @@ public class CustomerInfoPane extends GridPane {
 		this.getStylesheets().add(getClass().getResource("LoginPane.css").toExternalForm());
 	}
 
-	private void initInfoPane() {
-		CustomerVO customerVO = MockCustomerController.getInstance().getCustomerInfo(customerID);
+	private void initInfoPane() throws RemoteException {
+		CustomerVO customerVO = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID);
 
 		infoPane = new GridPane();
 
@@ -158,7 +161,7 @@ public class CustomerInfoPane extends GridPane {
 
 		public CreditCell(CreditVO vo) {
 			producingTime = new SimpleStringProperty(vo.producingDateTime.toString());
-			orderID = new SimpleStringProperty(vo.orderID == -1 ? "无" : String.valueOf(vo.orderID));
+			orderID = new SimpleStringProperty(Integer.parseInt(vo.orderID) == -1 ? "无" : String.valueOf(vo.orderID));
 			action = new SimpleStringProperty(String.valueOf(vo.action));
 			creditDelta = new SimpleStringProperty(String.valueOf(vo.creditDelta));
 			creditResult = new SimpleStringProperty(String.valueOf(vo.creditResult));

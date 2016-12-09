@@ -1,5 +1,8 @@
 package presentation.userui;
 
+import java.rmi.RemoteException;
+
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -61,7 +64,13 @@ public class HotelCell extends GridPane {
 				infoPane.add(nameText, 1, 0, 1, 1);
 				infoPane.add(phoneNumberText, 1, 2, 1, 1);
 
-				HotelVO vo = MockHotelController.getInstance().getHotelInfo(hotelID);
+				HotelVO vo = null;
+				try {
+					vo = BLFactory.getInstance().getHotelBLService().getHotelInfo(hotelID);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				vo.workerName = nameTextField.getText();
 				vo.phoneNumber = phoneTextField.getText();
 				if (MockHotelController.getInstance().update(hotelVO)) {

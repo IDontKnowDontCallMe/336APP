@@ -16,7 +16,7 @@ public class RoomCell {
 		roomName = new SimpleStringProperty(String.valueOf(vo.roomName));
 		price = new SimpleStringProperty(String.valueOf(vo.price));
 		numOfRoom = new SimpleStringProperty(String.valueOf(vo.numOfRoom));
-		service = new SimpleStringProperty(vo.service);
+		service = new SimpleStringProperty(vo.introduction);
 		maxNumOfPeople = new SimpleStringProperty(String.valueOf(vo.maxNumOfPeople));
 
 	}

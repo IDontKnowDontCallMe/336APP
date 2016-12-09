@@ -76,6 +76,7 @@ public class WebPromotionEditDialog extends Dialog {
 			public WebPromotionVO call(ButtonType param) {
 				LocalDate startDate = null;
 				LocalDate endDate = null;
+				String cityName = null;
 				String businessCircleName = null;
 				double discount = 1.0;
 
@@ -93,7 +94,7 @@ public class WebPromotionEditDialog extends Dialog {
 					if (discountTextField.getText() != null) {
 						discount = Double.valueOf(discountTextField.getText());
 					}
-					return new WebPromotionVO(webPromotionVO.promotionType, startDate, endDate, businessCircleName,
+					return new WebPromotionVO(webPromotionVO.promotionType, startDate, endDate, cityName, businessCircleName,
 							discount);
 				} else {
 					return null;
@@ -165,7 +166,7 @@ public class WebPromotionEditDialog extends Dialog {
 		businessCircleNameTextField = new TextField();
 		businessCircleNameTextField.setText(webPromotionVO.businessCircleName);
 		businessCircleNameTextField.setPrefColumnCount(COLUMN_COUNT);
-
+		// 加上城市cityName，并变为复选框
 		paramBox = new HBox();
 		paramBox.setSpacing(BOX_SPACING);
 		paramBox.getChildren().clear();

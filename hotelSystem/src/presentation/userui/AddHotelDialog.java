@@ -70,7 +70,7 @@ public class AddHotelDialog extends Dialog {
 			public HotelVO call(ButtonType param) {
 				if (param.getButtonData() == ButtonData.OK_DONE) {
 					HotelVO vo = new HotelVO(0, hotelNameTextField.getText(), "", "", "", "", "", 0, 0,
-							workerNameTextField.getText(), phoneNumberTextField.getText(), 0, "");
+							workerNameTextField.getText(), phoneNumberTextField.getText(), 0, 0);
 					return vo;
 				} else {
 					return null;

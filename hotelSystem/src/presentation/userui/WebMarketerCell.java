@@ -1,14 +1,14 @@
 package presentation.userui;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
+import bussinesslogic.factory.BLFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import presentation.customerui.MockCustomerController;
-import vo.CustomerVO;
 import vo.WebMarketerVO;
 
 public class WebMarketerCell extends GridPane {
@@ -61,7 +61,19 @@ public class WebMarketerCell extends GridPane {
 				infoPane.add(nameText, 1, 0, 1, 1);
 				infoPane.add(phoneNumberText, 1, 1, 1, 1);
 
-				WebMarketerVO vo = MockUserController.getInstance().getWebMarketerInfo(webMarketerID);
+				WebMarketerVO vo = null;
+				List<WebMarketerVO> list = null;
+				try {
+					list = BLFactory.getInstance().getUserBLService().getWebMarketerList();
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}
+				for (WebMarketerVO v : list) {
+					if (v.ID == webMarketerID) {
+						vo = v;
+					}
+				}
+
 				vo.name = nameTextField.getText();
 				vo.phoneNumber = phoneTextField.getText();
 				try {

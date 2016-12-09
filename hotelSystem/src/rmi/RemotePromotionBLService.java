@@ -27,7 +27,13 @@ public interface RemotePromotionBLService extends Remote{
 	
 	public boolean deleteWebPromotion(WebPromotionVO webPromotionVO) throws RemoteException;
 	
-	public boolean updateLevel(LevelVO levelVO) throws RemoteException;
+	public boolean updateLevelMethod(LevelVO levelVO) throws RemoteException;
+	
+	public boolean updateLevelPromotion(LevelVO levelVO) throws RemoteException;
+	
+	public LevelVO getLevelMethod() throws RemoteException;
+	
+	public LevelVO getLevelPromotion() throws RemoteException;
 	
 	public int calculateOrder(CalculationConditionVO calculationConditionVO, CustomerVO customerVO) throws RemoteException;
 	

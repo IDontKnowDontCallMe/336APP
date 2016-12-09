@@ -12,7 +12,7 @@ public class CommentCell {
 
 	public CommentCell(CommentVO vo) {
 
-		producingDateTime = new SimpleStringProperty(vo.producingDateTime.toString());
+		producingDateTime = new SimpleStringProperty(vo.produingDateTime.toString());
 		customerID = new SimpleStringProperty(String.valueOf(vo.customerID));
 		comment = new SimpleStringProperty(vo.comment);
 		score = new SimpleStringProperty(String.valueOf(vo.score));

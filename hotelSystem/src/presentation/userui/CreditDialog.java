@@ -29,14 +29,12 @@ public class CreditDialog extends Dialog {
 			CustomerVO customerVO = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID);
 			int credit = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID).credit;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		gridPane = new GridPane();
 		gridPane.setHgap(10);
 		gridPane.setVgap(20);
-
 
 		title = new Text("信用充值");
 		creditTitle = new Text("增加信用额度: ");

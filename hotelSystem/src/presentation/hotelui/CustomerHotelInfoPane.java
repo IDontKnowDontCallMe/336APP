@@ -52,7 +52,7 @@ public class CustomerHotelInfoPane extends GridPane {
 		this.hotelID = hotelID;
 		this.customerID = customerID;
 
-		hotelVO = MockHotelController.getInstance().getHotelInfo(hotelID);
+		hotelVO = BLFactory.getInstance().getHotelBLService().getHotelInfo(hotelID);
 		String hotelName = hotelVO.hotelName;
 
 		initInfoPane();
@@ -121,7 +121,9 @@ public class CustomerHotelInfoPane extends GridPane {
 		List<CommentVO> hotelCommentList = new ArrayList<CommentVO>();
 		List<CommentVO> commentList = MockHotelController.getInstance().getCommentList(hotelID);
 		for (CommentVO comment : commentList) {
-			if (comment.hotelID == hotelID) {
+			if (comment == null) {
+				break;
+			} else if (comment.hotelID == hotelID) {
 				hotelCommentList.add(comment);
 			}
 		}
