@@ -56,7 +56,7 @@ public class CustomerHotelInfoPane extends GridPane {
 		String hotelName = hotelVO.hotelName;
 
 		initInfoPane();
-		initOrderPane(customerID, hotelName);
+		initOrderPane(hotelID, customerID);
 		initCommentPane(hotelID);
 		initRoomPane(hotelID);
 
@@ -83,15 +83,14 @@ public class CustomerHotelInfoPane extends GridPane {
 			try {
 				producingOrderDialog = new ProducingOrderDialog(customerID, hotelVO, roomList, 0);
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			producingOrderDialog.show();
 		});
 	}
 
-	private void initRoomPane(int hotelID) {
-		roomList = MockRoomController.getInstance().getRoomTypeList(hotelID);
+	private void initRoomPane(int hotelID) throws RemoteException {
+		roomList = BLFactory.getInstance().getRoomBLService().getRoomTypeList(hotelID);
 		roomPane = new ScrollPane();
 		TableView<RoomCell> tableView = new TableView<>();
 		roomPane.setContent(tableView);
@@ -121,11 +120,11 @@ public class CustomerHotelInfoPane extends GridPane {
 
 	}
 
-	public void initCommentPane(int hotelID) {
+	public void initCommentPane(int hotelID) throws RemoteException {
 		commentPane = new ScrollPane();
 
 		List<CommentVO> hotelCommentList = new ArrayList<CommentVO>();
-		List<CommentVO> commentList = MockHotelController.getInstance().getCommentList(hotelID);
+		List<CommentVO> commentList = BLFactory.getInstance().getHotelBLService().getCommentList(hotelID);
 		for (CommentVO comment : commentList) {
 			if (comment == null) {
 				break;
@@ -181,18 +180,11 @@ public class CustomerHotelInfoPane extends GridPane {
 
 	}
 
-	private void initOrderPane(int customerID, String hotelName) throws RemoteException {
-		List<OrderVO> orderList = BLFactory.getInstance().getOrderBLService().getCustomerOrder(customerID);
-		List<OrderVO> hotelOrderList = new ArrayList<OrderVO>();
-		for (OrderVO order : orderList) {
-			if (order.hotelName.equals(hotelName)) {
-				hotelOrderList.add(order);
-			}
-		}
-
+	private void initOrderPane(int hotelID, int customerID) throws RemoteException {
+		List<OrderVO> orderList = BLFactory.getInstance().getOrderBLService().getOrderListOfHotel(hotelID, customerID);
 		orderBox = new VBox();
 		orderBox.setSpacing(15);
-		buildOrderBox(hotelOrderList);
+		buildOrderBox(orderList);
 
 		orderPane = new ScrollPane(orderBox);
 

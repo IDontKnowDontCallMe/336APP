@@ -109,12 +109,21 @@ public class CustomerInfoPane extends GridPane {
 				infoPane.add(nameText, 1, 0, 1, 1);
 				infoPane.add(phoneNumberText, 1, 1, 1, 1);
 
-				CustomerVO vo = MockCustomerController.getInstance().getCustomerInfo(customerID);
+				CustomerVO vo = null;
+				try {
+					vo = BLFactory.getInstance().getCustomerBLService().getCustomerInfo(customerID);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
 				vo.customerName = nameTextField.getText();
 				vo.phoneNumber = phoneTextField.getText();
-				if (MockCustomerController.getInstance().updateCustomerInfo(customerVO)) {
-					nameText.setText(nameTextField.getText());
-					phoneNumberText.setText(phoneTextField.getText());
+				try {
+					if (BLFactory.getInstance().getCustomerBLService().updateCustomerInfo(customerVO)) {
+						nameText.setText(nameTextField.getText());
+						phoneNumberText.setText(phoneTextField.getText());
+					}
+				} catch (RemoteException e) {
+					e.printStackTrace();
 				}
 
 				editButton.setText("编辑");
